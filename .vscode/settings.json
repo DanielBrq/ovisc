@@ -1,0 +1,23 @@
+{
+  "material-icon-theme.activeIconPack": "nest",
+  "css.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+
+  "material-icon-theme.folders.associations": {
+    "shared": "shared",
+    "entities": "class",
+    "features": "functions",
+    "widgets": "components",
+    "pages": "views",
+    "app": "core"
+  },
+
+  "material-icon-theme.files.associations": {
+    "index.ts": "typescript",
+    "index.tsx": "vue",
+    "model.ts": "interface",
+    "ui.tsx": "vue",
+    "config.ts": "settings"
+  },
+}
