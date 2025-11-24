@@ -1,42 +1,59 @@
+<script setup lang="ts">
+import Divider from "primevue/divider";
+
+useHead({
+    title: 'Iniciar sesión' //Aplicar i18n
+})
+
+</script>
+
 <template>
-    <div class="flex items-center justify-center h-screen ">
-        <div class="p-4 bg-gray-900/40 h-full w-full flex items-center justify-center
-        lg:border lg:border-fuchsia-300/10 lg:rounded-xl md:h-auto md:w-auto">
-            <!-- IMG -->
-            <div class="flex flex-row overflow-hidden">
-                <img class="w-110 h-130 rounded-2xl object-cover hidden sm:block"
-                    src="https://i0.wp.com/eltemploesports.com/wp-content/uploads/2024/02/Copia-de-_DSC5837-scaled.webp?resize=1024%2C683&ssl=1"
-                    alt="gamecenter" />
-                <!-- Login form -->
-                <div class="flex flex-col items-center justify-center gap-12 lg:mx-10">
+    <div class="flex items-center justify-center h-screen">
+        <div class="bg-gray-900/40 h-full w-full flex justify-center px-4">
+
+            <!-- Login form -->
+            <form class="flex flex-col items-center justify-center gap-6">
+                <div>
                     <p
-                        class="bg-linear-to-r from-blue-500 to-rose-500 bg-clip-text font-extrabold text-transparent text-3xl md:text-5xl">
-                        Iniciar Sesión
+                        class="bg-linear-to-r from-blue-500 to-rose-500 bg-clip-text font-bold tracking-tight bold text-transparent text-3xl mb-2">
+                        Bienvenido de nuevo
                     </p>
-
-                    <!-- text input -->
-                    <div class="flex flex-col w-auto gap-6 sm:w-[360px] sm:pl-0">
-                        <div class="overflow-hidden border-lg">
-                            <input class="text-field" type="text" placeholder="Ingrese su correo" />
-                        </div>
-                        <div class="overflow-hidden border-lg">
-                            <input class="text-field" type="text" placeholder="Ingrese su contraseña" />
-                        </div>
-
-                        <!-- Button -->
-                        <div class="flex flex-col gap-4 sm:w-[360px]">
-                            <button type="button" class="btn-primary">
-                                Login
-                            </button>
-                            <a href="#" class="text-center">
-                                <p class="text-indigo-400/50 hover:text-indigo-500">
-                                    Olvidé mi contraseña
-                                </p>
-                            </a>
-                        </div>
-                    </div>
+                    <p class="text-balance text-sm text-muted-foreground text-gray-400">Inicia con tu cuenta de Google o
+                        Facebook
+                    </p>
                 </div>
-            </div>
+                <div class="flex flex-col gap-4 w-full">
+                    <ui-button class="btn-secondary-outline w-min-[120px]!" type="button" icon-name="devicon:google">
+                        Inicia con Google
+                    </ui-button>
+                    <ui-button class="btn-secondary-outline" type="button" icon-name="devicon:facebook">
+                        Inicia con Facebook
+                    </ui-button>
+                </div>
+
+                <Divider></Divider>
+
+                <!-- text input -->
+                <div class="overflow-hidden w-full">
+                    <span class="text-white text-sm">Correo</span>
+                    <ui-text-input type="email" placeholder="Ingrese su correo" />
+                </div>
+                <div class="overflow-hidden w-full">
+                    <span class="text-white text-sm">Constraseña</span>
+                    <ui-password-input placeholder="Ingrese su contraseña" />
+                </div>
+                <!-- Button -->
+                <ui-button class="btn-primary-outline w-full" type="submit">
+                    <NuxtLink to="/">
+                        Login
+                    </NuxtLink>
+                </ui-button>
+                <a href="#" class="text-center">
+                    <p class="text-indigo-400/50 hover:text-indigo-500">
+                        Olvidé mi contraseña
+                    </p>
+                </a>
+            </form>
         </div>
     </div>
 </template>
