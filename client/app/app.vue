@@ -1,7 +1,16 @@
-<script>
+<script setup>
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} | Ovis` : 'Ovis';
+  }
+})
+
 </script>
 <template>
+  <VitePwaManifest />
   <UApp>
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </UApp>
 </template>

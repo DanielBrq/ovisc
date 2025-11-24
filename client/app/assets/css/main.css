@@ -118,6 +118,12 @@ input {
   transition-all duration-200 ease-out;
 }
 
+.bottom-nav {
+  @apply h-full w-full max-w-20 flex items-center justify-center 
+  border-t border-b-gray-800
+  px-4 hover:bg-gray-700/50;
+}
+
 /* hypertext */
 a {
   @apply active:scale-[0.98] transition-all duration-200 ease-out;
@@ -160,7 +166,7 @@ a {
 }
 
 /* Icons */
-.icon-base{
+.icon-base {
   @apply size-5 flex items-center justify-center;
 }
 

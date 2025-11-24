@@ -33,7 +33,7 @@ const isPasswordVisible = ref(false);
 
 const inputType = computed(() => {
     if (props.type !== 'password') {
-        // Si no es password, respeta el type externo (ej: email, text)
+        // Si no es password, respeta el type externo
         return props.type;
     }
     return isPasswordVisible.value ? 'text' : 'password';

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Divider from "primevue/divider";
-
 useHead({
     title: 'Iniciar sesión' //Aplicar i18n
 })
+
+import Divider from "primevue/divider";
 
 </script>
 
@@ -43,7 +43,7 @@ useHead({
                     <ui-password-input placeholder="Ingrese su contraseña" />
                 </div>
                 <!-- Button -->
-                <ui-button class="btn-primary-outline w-full" type="submit">
+                <ui-button class="btn-primary-outline w-full" type="button">
                     <NuxtLink to="/">
                         Login
                     </NuxtLink>
