@@ -6,6 +6,9 @@ useHead({
 </script>
 <template>
 
-    <div class="h-dvh bg-gray-600">contenido</div>
+    <div class="h-dvh bg-gray-600 relative">
+
+
+    </div>
 
 </template>
