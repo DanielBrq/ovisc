@@ -5,6 +5,10 @@ export default defineNuxtConfig({
   ssr: false, //dev env
   devtools: { enabled: true },
   css: ['./app/assets/css/main.css'],
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000
+  },
   modules: [
     '@nuxt/ui',
     '@primevue/nuxt-module',
@@ -25,46 +29,62 @@ export default defineNuxtConfig({
       theme_color: '#000000',
       background_color: '#000000',
       display: 'standalone',
+      orientation: 'portrait',
+      scope: '/',
       start_url: '/',
       icons: [
         {
-          src: '/pwa/logo.svg',
-          sizes: '192x192',
-          type: 'image/png'
-        },
-        {
-          src: '/pwa/logo.svg',
-          sizes: '512x512',
-          type: 'image/png'
-        },
-        {
-          src: '/pwa/logo.svg',
-          sizes: '180x180',
-          type: 'image/png'
+          src: '/logo.svg',
+          sizes: 'any',
+          type: 'image/svg+xml',
+          purpose: 'any maskable'
         }
       ]
     },
     workbox: {
+      navigateFallback: '/',
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
       runtimeCaching: [
         {
-          urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
+          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
           handler: 'CacheFirst',
           options: {
-            cacheName: 'image-cache',
+            cacheName: 'google-fonts-cache',
             expiration: {
-              maxEntries: 100,
-              maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
             },
-          },
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
         },
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'gstatic-fonts-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+            },
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        }
       ]
     },
-    
     client: {
-      installPrompt: true
+      installPrompt: true,
+      periodicSyncForUpdates: 3600
     },
     devOptions: {
-      enabled: true
+      enabled: true,
+      suppressWarnings: true,
+      navigateFallback: '/',
+      navigateFallbackAllowlist: [/^\/$/],
+      type: 'module'
     }
   }
 });
