@@ -15,7 +15,7 @@ const route = useRoute()
 const currentTab = computed(() => {
   const path = route.path
 
-  if (path.startsWith('/player')) return 'home'
+  if (path.startsWith('/user/player')) return 'home'
   if (path.startsWith('/feed')) return 'feed'
   if (path.startsWith('/store')) return 'store'
   if (path.startsWith('/event')) return 'event'
@@ -29,7 +29,7 @@ const currentTab = computed(() => {
 <template>
   <div class="relative min-h-dvh">
 
-    <layout-header v-model:sidenavOpen="sidenavOpen" :class="sidenavOpen ? 'ml-15' : ''" />
+    <layout-header :isMobile="isMobile" v-model:sidenavOpen="sidenavOpen" :class="sidenavOpen ? 'ml-15' : ''" />
 
     <div class="flex">
       <layout-side-bar v-if="!isMobile" v-model:sidenavOpen="sidenavOpen" v-model:active="currentTab"
