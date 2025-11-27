@@ -28,12 +28,12 @@ function handleClick() {
 <template>
   <nuxt-link :to="props.to">
     <button type="button"
-      class="relative w-full h-10 pl-4 flex items-center group text-left group overflow-hidden transition-all duration-300 border-0 active:border-0 focus:border-0"
+      class="relative w-full h-10 pl-4 flex items-center group text-left group overflow-hidden transition-all duration-400 border-0 active:border-0 focus:border-0"
       @click="handleClick">
 
       <!-- Fondo Degradado con Animación -->
-      <div
-        class="absolute inset-0 bg-linear-to-r from-indigo-500 via-indigo-500/20 to-transparent transition-opacity duration-300"
+      <div v-if="sidenavOpen"
+        class="absolute inset-0 bg-linear-to-r from-indigo-500 via-indigo-500/20 to-transparent transition-opacity duration-400"
         :class="props.submenuIsOpen ? 'opacity-100 animate-game-pulse' : 'opacity-0 group-hover:opacity-100'">
       </div>
 
@@ -46,7 +46,7 @@ function handleClick() {
 
         <!-- Si está cerrado, solo icono centrado -->
         <span v-if="!props.sidenavOpen && props.iconName">
-          <icon :name="props.iconName" size="22" class="mx-auto" />
+          <icon :name="props.iconName" size="26" class="mr-2" />
         </span>
 
         <span v-if="props.sidenavOpen" class="truncate flex-1 group-hover:ml-1 transition-all duration-400">
@@ -55,8 +55,8 @@ function handleClick() {
 
         <span v-if="props.arrow && props.sidenavOpen" class="mr-4 flex items-center">
           <icon v-if="props.submenuIsOpen" class="transition-all duration-500" name="ic:sharp-keyboard-arrow-right"
-            size="28" />
-          <icon v-else name="ic:sharp-keyboard-arrow-down" size="28" />
+            size="26" />
+          <icon v-else name="ic:sharp-keyboard-arrow-down" size="26" />
         </span>
       </div>
 

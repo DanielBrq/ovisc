@@ -98,8 +98,8 @@ function toggleSidebar() {
             <divider />
 
             <!-- Menu de opciones -->
-            <ul class="mt-4 flex flex-col gap-1 pr-2 transition-opacity duration-200"
-                :class="props.sidenavOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'">
+            <ul class="flex flex-col gap-1 pr-2 duration-400"
+                :class="props.sidenavOpen ? 'justify-start' : 'justify-center items-center'">
 
                 <li v-for="item in menuItems" :key="item.key">
                     <!-- Item con Submenú -->
@@ -111,7 +111,8 @@ function toggleSidebar() {
                         </layout-side-bar-button>
 
                         <!-- Despliegue de botones nuxtLink -->
-                        <div class="flex flex-col gap-2 overflow-hidden transition-all duration-500 justify-start"
+                        <div v-if="sidenavOpen"
+                            class="flex flex-col gap-2 overflow-hidden transition-all duration-500 justify-start"
                             :class="openSubmenus[item.key] ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'">
                             <layout-side-bar-sub-button v-for="(subItem, index) in item.subItems" :key="index"
                                 :sidenavOpen="sidenavOpen" class="ms-2" :to="subItem.to">
@@ -129,8 +130,6 @@ function toggleSidebar() {
                     </template>
                 </li>
             </ul>
-
         </aside>
-
     </nav>
 </template>
