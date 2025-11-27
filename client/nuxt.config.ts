@@ -2,8 +2,8 @@ import Aura from '@primeuix/themes/aura';
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
-  ssr: false, //dev env
-  devtools: { enabled: true },
+  ssr: false, //false in dev env
+  devtools: { enabled: false },
   css: ['./app/assets/css/main.css'],
   devServer: {
     host: '0.0.0.0',
