@@ -28,7 +28,7 @@ function handleClick() {
 <template>
   <nuxt-link :to="props.to">
     <button type="button"
-      class="relative w-full h-10 pl-4 flex items-center group text-left group overflow-hidden transition-all duration-300"
+      class="relative w-full h-10 pl-4 flex items-center group text-left group overflow-hidden transition-all duration-300 border-0 active:border-0 focus:border-0"
       @click="handleClick">
 
       <!-- Fondo Degradado con Animación -->
@@ -53,10 +53,10 @@ function handleClick() {
           <slot />
         </span>
 
-        <span v-if="props.arrow && props.sidenavOpen" class="mr-2">
-          <icon v-if="props.submenuIsOpen" class="transition-all duration-500"
-            name="material-symbols:keyboard-arrow-down-rounded" size="22" />
-          <icon v-else name="material-symbols:arrow-forward-ios-rounded" size="22" />
+        <span v-if="props.arrow && props.sidenavOpen" class="mr-4 flex items-center">
+          <icon v-if="props.submenuIsOpen" class="transition-all duration-500" name="ic:sharp-keyboard-arrow-right"
+            size="28" />
+          <icon v-else name="ic:sharp-keyboard-arrow-down" size="28" />
         </span>
       </div>
 
