@@ -1,7 +1,5 @@
 <script setup lang="ts">
 
-// const submenuOpen = ref({ isOpen: false, navOption: '' });
-
 const openSubmenus = ref<Record<string, boolean>>({
     feed: false,
     store: false,
@@ -16,6 +14,56 @@ function toggleSubmenu(key: string) {
         openSubmenus.value[key] = true;
     }
 }
+
+const menuItems = [
+    {
+        key: 'home',
+        label: 'Home', //i18n
+        icon: 'material-symbols:home-app-logo',
+        to: '/'
+    },
+    {
+        key: 'feed',
+        label: 'Feed',
+        icon: 'material-symbols:post-outline-rounded',
+        subItems: [
+            { label: 'Sub A', to: '/' },
+            { label: 'Sub B', to: '/' },
+            { label: 'Sub C', to: '/' },
+            { label: 'Sub D', to: '/' },
+        ]
+    },
+    {
+        key: 'store',
+        label: 'Store', //i18n
+        icon: 'material-symbols:store-rounded',
+        subItems: [
+            { label: 'Sub A', to: '/' },
+            { label: 'Sub B', to: '/' },
+            { label: 'Sub C', to: '/' },
+        ]
+    },
+    {
+        key: 'event',
+        label: 'Event', //i18n
+        icon: 'material-symbols:event-outline',
+        subItems: [
+            { label: 'Sub A', to: '/' },
+            { label: 'Sub B', to: '/' },
+            { label: 'Sub C', to: '/' },
+        ]
+    },
+    {
+        key: 'profile',
+        label: 'Profile', //i18n
+        icon: 'material-symbols:supervised-user-circle',
+        subItems: [
+            { label: 'Sub A', to: '/' },
+            { label: 'Sub B', to: '/' },
+            { label: 'Sub C', to: '/' },
+        ]
+    }
+]
 
 const props = defineProps<{
     sidenavOpen: boolean
@@ -53,62 +101,32 @@ function toggleSidebar() {
             <ul class="mt-4 flex flex-col gap-1 pr-2 transition-opacity duration-200"
                 :class="props.sidenavOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'">
 
-                <!-- Home -->
-                <li>
-                    <layout-side-bar-button :sidenavOpen="sidenavOpen" active="home"
-                        icon-name="material-symbols:home-app-logo" to="/">Home</layout-side-bar-button>
-                </li>
+                <li v-for="item in menuItems" :key="item.key">
+                    <!-- Item con Submenú -->
+                    <template v-if="item.subItems">
+                        <layout-side-bar-button @toggle-submenu="toggleSubmenu(item.key)" :sidenavOpen="sidenavOpen"
+                            :active="item.key" :arrow="true" :submenuIsOpen="openSubmenus[item.key]"
+                            :icon-name="item.icon">
+                            {{ item.label }}
+                        </layout-side-bar-button>
 
-                <!-- Feed -->
-                <li>
-                    <layout-side-bar-button @toggle-submenu="toggleSubmenu('feed')" :sidenavOpen="sidenavOpen"
-                        active="feed" :arrow="true" :submenuIsOpen="openSubmenus.feed"
-                        icon-name="material-symbols:post-outline-rounded">Feed
-                    </layout-side-bar-button>
+                        <!-- Despliegue de botones nuxtLink -->
+                        <div class="flex flex-col gap-2 overflow-hidden transition-all duration-500 justify-start"
+                            :class="openSubmenus[item.key] ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'">
+                            <layout-side-bar-sub-button v-for="(subItem, index) in item.subItems" :key="index"
+                                :sidenavOpen="sidenavOpen" class="ms-2" :to="subItem.to">
+                                {{ subItem.label }}
+                            </layout-side-bar-sub-button>
+                        </div>
+                    </template>
 
-                    <!-- Despliegue de botones nuxtLink -->
-                    <div class="flex flex-col gap-2 overflow-hidden transition-all duration-500 justify-start"
-                        :class="openSubmenus.feed ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'">
-                        <layout-side-bar-sub-button :sidenavOpen="sidenavOpen" class="ms-2" to="/">Sub
-                            A</layout-side-bar-sub-button>
-                        <layout-side-bar-sub-button :sidenavOpen="sidenavOpen" class="ms-2" to="/">Sub
-                            B</layout-side-bar-sub-button>
-                        <layout-side-bar-sub-button :sidenavOpen="sidenavOpen" class="ms-2" to="/">Sub
-                            C</layout-side-bar-sub-button>
-                    </div>
-                </li>
-
-                <!-- Store -->
-                <li>
-                    <layout-side-bar-button :sidenavOpen="sidenavOpen" active="store"
-                        @toggle-submenu="toggleSubmenu('store')" icon-name="material-symbols:store-rounded"
-                        to="/">Store</layout-side-bar-button>
-
-                    <!-- Despliegue de botones nuxtLink -->
-                    <div class="pl-4 flex flex-col gap-4 overflow-hidden transition-all duration-500 bg-emerald-700"
-                        :class="openSubmenus.store ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'">
-                        <layout-side-bar-sub-button :sidenavOpen="sidenavOpen" class="ms-2" to="/">Sub
-                            A</layout-side-bar-sub-button>
-                        <layout-side-bar-sub-button :sidenavOpen="sidenavOpen" class="ms-2" to="/">Sub
-                            B</layout-side-bar-sub-button>
-                        <layout-side-bar-sub-button :sidenavOpen="sidenavOpen" class="ms-2" to="/">Sub
-                            C</layout-side-bar-sub-button>
-                    </div>
-
-                </li>
-
-                <!-- Event -->
-                <li>
-                    <layout-side-bar-button :sidenavOpen="sidenavOpen" active="event"
-                        @toggle-submenu="toggleSubmenu('event')" icon-name="material-symbols:event-outline"
-                        to="/">Event</layout-side-bar-button>
-                </li>
-
-                <!-- Profile -->
-                <li>
-                    <layout-side-bar-button :sidenavOpen="sidenavOpen" active="profile"
-                        @toggle-submenu="toggleSubmenu('profile')" icon-name="material-symbols:supervised-user-circle"
-                        to="/">Profile</layout-side-bar-button>
+                    <!-- Item Link Directo (sin submenú) -->
+                    <template v-else>
+                        <layout-side-bar-button :sidenavOpen="sidenavOpen" :active="item.key" :icon-name="item.icon"
+                            :to="item.to">
+                            {{ item.label }}
+                        </layout-side-bar-button>
+                    </template>
                 </li>
             </ul>
 
