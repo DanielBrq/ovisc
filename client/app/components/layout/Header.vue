@@ -14,7 +14,7 @@ const emit = defineEmits([
 <template>
     <nav class="fixed top-0 w-full h-12 z-50 transition-all duration-400">
 
-        <div :class="props.sidenavOpen ? 'lg:pl-60' : 'sm:px-12 sm:mx-4'"
+        <div :class="props.sidenavOpen ? 'lg:pl-50 lg:pr-20' : 'sm:px-12 sm:mx-4'"
             class="flex items-center justify-between w-full h-full bg-gray-800 shadow-sm px-4 transition-all duration-400">
 
             <!-- Logo -->
