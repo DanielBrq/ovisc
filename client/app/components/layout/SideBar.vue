@@ -19,13 +19,13 @@ const menuItems = [
     {
         key: 'home',
         label: 'Home', //i18n
-        icon: 'material-symbols:home-app-logo',
+        icon: 'material-symbols:home-outline-rounded',
         to: '/'
     },
     {
         key: 'feed',
         label: 'Feed',
-        icon: 'material-symbols:post-outline-rounded',
+        icon: 'material-symbols:article-outline-rounded',
         subItems: [
             { label: 'Sub A', to: '/' },
             { label: 'Sub B', to: '/' },
@@ -36,7 +36,7 @@ const menuItems = [
     {
         key: 'store',
         label: 'Store', //i18n
-        icon: 'material-symbols:store-rounded',
+        icon: 'material-symbols:storefront-outline-rounded',
         subItems: [
             { label: 'Sub A', to: '/' },
             { label: 'Sub B', to: '/' },
@@ -46,7 +46,7 @@ const menuItems = [
     {
         key: 'event',
         label: 'Event', //i18n
-        icon: 'material-symbols:event-outline',
+        icon: 'material-symbols:calendar-month-outline-rounded',
         subItems: [
             { label: 'Sub A', to: '/' },
             { label: 'Sub B', to: '/' },
@@ -56,7 +56,7 @@ const menuItems = [
     {
         key: 'profile',
         label: 'Profile', //i18n
-        icon: 'material-symbols:supervised-user-circle',
+        icon: 'material-symbols:person-outline-rounded',
         subItems: [
             { label: 'Sub A', to: '/' },
             { label: 'Sub B', to: '/' },
@@ -91,7 +91,7 @@ function toggleSidebar() {
             <!-- Botón open/close siempre visible -->
             <div class="flex" :class="props.sidenavOpen ? 'justify-end pr-4' : 'justify-center'">
                 <button class="pt-3 -mb-3 transition-colors" @click="toggleSidebar">
-                    <icon size="27" name="material-symbols:lists-rounded" />
+                    <icon size="24" name="material-symbols:menu-rounded" />
                 </button>
             </div>
 

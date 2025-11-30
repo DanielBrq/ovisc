@@ -41,12 +41,12 @@ function handleClick() {
       <div class="relative z-10 flex items-center w-full" :class="{ 'text-white': props.submenuIsOpen }">
 
         <span v-if="props.sidenavOpen && props.iconName">
-          <icon :name="props.iconName" size="22" class="me-2 -mb-1" />
+          <icon :name="props.iconName" size="24" class="me-2 -mb-1" />
         </span>
 
         <!-- Si está cerrado, solo icono centrado -->
         <span v-if="!props.sidenavOpen && props.iconName">
-          <icon :name="props.iconName" size="26" class="mr-2" />
+          <icon :name="props.iconName" size="24" class="mr-2" />
         </span>
 
         <span v-if="props.sidenavOpen" class="truncate flex-1 group-hover:ml-1 transition-all duration-400">
@@ -54,9 +54,9 @@ function handleClick() {
         </span>
 
         <span v-if="props.arrow && props.sidenavOpen" class="mr-4 flex items-center">
-          <icon v-if="props.submenuIsOpen" class="transition-all duration-500" name="ic:sharp-keyboard-arrow-right"
-            size="26" />
-          <icon v-else name="ic:sharp-keyboard-arrow-down" size="26" />
+          <icon v-if="props.submenuIsOpen" class="transition-all duration-500"
+            name="material-symbols:keyboard-arrow-right-rounded" size="24" />
+          <icon v-else name="material-symbols:keyboard-arrow-down-rounded" size="24" />
         </span>
       </div>
 

@@ -26,7 +26,7 @@ const emit = defineEmits([
             <!-- Icons -->
             <div class="flex items-center gap-4">
                 <layout-notification-inbox :isMobile="props.isMobile" />
-                <icon name="material-symbols:account-circle-full" size="26"
+                <icon name="material-symbols:account-circle-outline" size="24"
                     class="text-gray-300 hover:text-white cursor-pointer transition-colors" />
             </div>
         </div>
