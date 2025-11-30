@@ -1,6 +1,9 @@
 import Aura from '@primeuix/themes/aura';
 
 export default defineNuxtConfig({
+  alias: {
+    '#shared': './shared'
+  },
   compatibilityDate: "2025-07-15",
   ssr: false, //false in dev env
   devtools: { enabled: false },

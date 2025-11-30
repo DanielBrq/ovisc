@@ -8,7 +8,16 @@ useHead({
 
     <div class="h-dvh bg-gray-600 relative">
 
+        <section class="px-2 pt-5 w-full h-dvh">
 
+            <home-card title="Home" to="/" img=""></home-card>
+
+            <home-card title="Feed" to="/" img=""></home-card>
+
+            <home-card title="Feed" to="/" img=""></home-card>
+
+
+        </section>
 
     </div>
 
