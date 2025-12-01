@@ -34,7 +34,7 @@ const currentTab = computed(() => {
         @update:active="navigate" />
 
       <main :class="[
-        'flex-1 min-h-dvh flex-nowrap mt-10 transition-all duration-400',
+        'flex-1 min-h-dvh mt-15 flex-nowrap px-4 transition-all duration-400',
         !isMobile && sidenavOpen ? 'ml-60 w-full' : 'ml-0 w-full lg:ml-12',
         isMobile ? 'pb-16 w-dvh' : ''
       ]">
