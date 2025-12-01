@@ -11,14 +11,14 @@ import { isMobile, isDesktop } from '~/utils/responsive'
     <div class="h-dvh relative">
 
         <!-- Mobile -->
-        <div v-if="isMobile && isTablet" class="">
+        <div v-if="isMobile || isTablet">
 
             <section class="flex flex-row items-center h-40">
                 <div class="flex flex-col w-full h-full">
                     <home-card label="Orders" to="/" img="" class="h-40"></home-card>
                 </div>
-                <div class="items-center w-full ml-2">
-                    <div class="flex flex-col gap-2 ">
+                <div class="w-full ml-2">
+                    <div class="flex flex-col gap-4">
                         <home-card label="Orders" to="/" img="" class="w-full h-10"></home-card>
                         <home-card label="Orders" to="/" img="" class="w-full h-10"></home-card>
                         <home-card label="Orders" to="/" img="" class="w-full h-10"></home-card>

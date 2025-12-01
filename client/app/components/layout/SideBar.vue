@@ -90,8 +90,7 @@ const menuItems = [
 <template>
     <nav>
         <aside class="fixed top-0 left-0 h-full bg-gray-800 text-white
-        flex flex-col transition-all duration-400 overflow-hidden z-50"
-            :class="props.sidenavOpen ? 'w-60' : 'w-12 rounded-r-2xl'">
+        flex flex-col transition-all duration-400 overflow-hidden z-50" :class="props.sidenavOpen ? 'w-60' : 'w-12'">
 
             <!-- Botón open/close siempre visible -->
             <div class="flex" :class="props.sidenavOpen ? 'justify-end pr-4' : 'justify-center'">
