@@ -10,30 +10,38 @@ import { isMobile, isDesktop } from '~/utils/responsive'
 
     <div class="h-dvh relative">
 
-        <section v-if="isMobile && isTablet" class="flex flex-col gap-4 px-4 pt-5 w-full h-dvh">
+        <!-- Mobile -->
+        <div v-if="isMobile && isTablet" class="">
 
-            <home-card label="Home" to="/" img=""></home-card>
-            <home-card label="Feed" to="/" img=""></home-card>
-            <home-card label="Store" to="/" img=""></home-card>
-            <home-card label="Profile" to="/" img=""></home-card>
-            <home-card label="Home" to="/" img=""></home-card>
-            <home-card label="Feed" to="/" img=""></home-card>
-            <home-card label="Store" to="/" img=""></home-card>
-            <home-card label="Profile" to="/" img=""></home-card>
+            <section class="flex flex-row items-center h-40">
+                <div class="flex flex-col w-full h-full">
+                    <home-card label="Orders" to="/" img="" class="h-40"></home-card>
+                </div>
+                <div class="items-center w-full ml-2">
+                    <div class="flex flex-col gap-2 ">
+                        <home-card label="Orders" to="/" img="" class="w-full h-10"></home-card>
+                        <home-card label="Orders" to="/" img="" class="w-full h-10"></home-card>
+                        <home-card label="Orders" to="/" img="" class="w-full h-10"></home-card>
+                    </div>
+                </div>
+            </section>
 
-        </section>
+        </div>
 
-        <section v-if="isDesktop" class="px-4 pt-5 w-full h-dvh">
+        <!-- Desktop -->
+        <section v-if="isDesktop" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
 
-            <div class="flex flex-row gap-4 w-full">
-                <home-card label="Home" to="/" img="" class="h-72 w-125" />
-                <home-card label="Feed" to="/" img="" class="h-102 w-90" />
-                <home-card label="Store" to="/" img="" class="h-150 w-72" />
-            </div>
-            <div class="flex flex-row gap-4 w-full">
-                <home-card label="Feed" to="/" img="" class="h-102 w-72" />
-                <home-card label="Home" to="/" img="" class="h-72 w-102" />
-            </div>
+
+            <home-card label="Home" to="/" img=""
+                class="col-span-2 row-span-2 bg-gray-800 rounded-lg overflow-hidden" />
+            <home-card label=" Feed" to="/" img=""
+                class="col-span-4 row-span-1 bg-gray-800 rounded-lg overflow-hidden" />
+            <home-card label="Store" to="/" img=""
+                class="col-span-1 row-span-1 bg-gray-700 rounded-lg overflow-hidden" />
+
+            <home-card label="Feed" to="/" img=""
+                class="col-span-1 row-span-2 bg-gray-700 rounded-lg overflow-hidden" />
+            <home-card label="Home" to="/" img="" />
 
             <home-card label="Store" to="/" img="" />
             <home-card label="Profile" to="/" img="" />
