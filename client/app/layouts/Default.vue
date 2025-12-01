@@ -1,11 +1,9 @@
 <script setup>
 //imports
-import { useMediaQuery } from '@vueuse/core'
+import { isMobile } from '~/utils/responsive'
 import { useRoute } from 'vue-router'
 
 // ============ Side bar ======++===============
-
-const isMobile = useMediaQuery('(max-width: 490px)')
 
 const sidenavOpen = ref(false)
 // ============ Bottom nav =====================

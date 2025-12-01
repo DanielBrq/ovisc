@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { menuItems } from '~/routes/routes';
 
 const openSubmenus = ref<Record<string, boolean>>({
     feed: false,
@@ -31,6 +30,61 @@ const emit = defineEmits([
 function toggleSidebar() {
     emit('update:sidenavOpen', !props.sidenavOpen)
 }
+
+const menuItems = [
+    {
+        key: 'home',
+        label: 'Home', //i18n
+        icon: 'material-symbols:home-outline-rounded',
+        img: '',
+        to: '/'
+    },
+    {
+        key: 'feed',
+        label: 'Feed',
+        icon: 'material-symbols:article-outline-rounded',
+        img: '',
+        subItems: [
+            { label: 'Sub A', to: '/' },
+            { label: 'Sub B', to: '/' },
+            { label: 'Sub C', to: '/' },
+            { label: 'Sub D', to: '/' },
+        ]
+    },
+    {
+        key: 'store',
+        label: 'Store', //i18n
+        icon: 'material-symbols:storefront-outline-rounded',
+        img: '',
+        subItems: [
+            { label: 'Sub A', to: '/' },
+            { label: 'Sub B', to: '/' },
+            { label: 'Sub C', to: '/' },
+        ]
+    },
+    {
+        key: 'event',
+        label: 'Event', //i18n
+        icon: 'material-symbols:calendar-month-outline-rounded',
+        img: '',
+        subItems: [
+            { label: 'Sub A', to: '/' },
+            { label: 'Sub B', to: '/' },
+            { label: 'Sub C', to: '/' },
+        ]
+    },
+    {
+        key: 'profile',
+        label: 'Profile', //i18n
+        icon: 'material-symbols:person-outline-rounded',
+        img: '',
+        subItems: [
+            { label: 'Sub A', to: '/' },
+            { label: 'Sub B', to: '/' },
+            { label: 'Sub C', to: '/' },
+        ]
+    }
+]
 
 </script>
 <template>
