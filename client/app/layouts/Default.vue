@@ -1,6 +1,6 @@
 <script setup>
 //imports
-import { isMobile } from '~/utils/responsive'
+import { isMobile, isTablet, isDesktop } from '~/utils/responsive'
 import { useRoute } from 'vue-router'
 
 // ============ Side bar ======++===============
@@ -27,22 +27,22 @@ const currentTab = computed(() => {
 <template>
   <div class="relative min-h-dvh">
 
-    <layout-header :isMobile="isMobile" v-model:sidenavOpen="sidenavOpen" :class="sidenavOpen ? 'ml-15' : ''" />
+    <layout-header v-model:sidenavOpen="sidenavOpen" />
 
     <div class="flex">
-      <layout-side-bar v-if="!isMobile" v-model:sidenavOpen="sidenavOpen" v-model:active="currentTab"
+      <layout-side-bar v-if="isDesktop" v-model:sidenavOpen="sidenavOpen" v-model:active="currentTab"
         @update:active="navigate" />
 
       <main :class="[
         'flex-1 min-h-dvh mt-15 flex-nowrap px-4 transition-all duration-400',
-        !isMobile && sidenavOpen ? 'ml-60 w-full' : 'ml-0 w-full lg:ml-12',
-        isMobile ? 'pb-16 w-dvh' : ''
+        sidenavOpen && isDesktop ? 'ml-60 w-full' : 'ml-0 w-full lg:ml-12',
+        isMobile || isTablet ? 'pb-16 w-dvh' : ''
       ]">
         <slot />
       </main>
     </div>
 
-    <layout-bottom-nav v-if="isMobile" />
+    <layout-bottom-nav v-if="isMobile || isTablet" />
 
   </div>
 </template>

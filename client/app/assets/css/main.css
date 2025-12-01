@@ -6,6 +6,18 @@
   --font-principal: "Montserrat", sans-serif;
 }
 
+/* Hide scrollbar globally but keep scroll functionality */
+html,
+body {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
 h1 {
   @apply text-6xl font-bold tracking-tight text-gray-50;
 }
