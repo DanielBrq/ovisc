@@ -3,19 +3,40 @@ useHead({
     title: 'Home' //Aplicar i18n
 });
 
+import { isMobile, isDesktop } from '~/utils/responsive'
+
 </script>
 <template>
 
-    <div class="h-dvh bg-gray-600 relative">
+    <div class="h-dvh relative">
 
-        <section class="px-2 pt-5 w-full h-dvh">
+        <section v-if="isMobile && isTablet" class="flex flex-col gap-4 px-4 pt-5 w-full h-dvh">
 
-            <home-card title="Home" to="/" img=""></home-card>
+            <home-card label="Home" to="/" img=""></home-card>
+            <home-card label="Feed" to="/" img=""></home-card>
+            <home-card label="Store" to="/" img=""></home-card>
+            <home-card label="Profile" to="/" img=""></home-card>
+            <home-card label="Home" to="/" img=""></home-card>
+            <home-card label="Feed" to="/" img=""></home-card>
+            <home-card label="Store" to="/" img=""></home-card>
+            <home-card label="Profile" to="/" img=""></home-card>
 
-            <home-card title="Feed" to="/" img=""></home-card>
+        </section>
 
-            <home-card title="Feed" to="/" img=""></home-card>
+        <section v-if="isDesktop" class="px-4 pt-5 w-full h-dvh">
 
+            <div class="flex flex-row gap-4 w-full">
+                <home-card label="Home" to="/" img="" class="h-72 w-125" />
+                <home-card label="Feed" to="/" img="" class="h-102 w-90" />
+                <home-card label="Store" to="/" img="" class="h-150 w-72" />
+            </div>
+            <div class="flex flex-row gap-4 w-full">
+                <home-card label="Feed" to="/" img="" class="h-102 w-72" />
+                <home-card label="Home" to="/" img="" class="h-72 w-102" />
+            </div>
+
+            <home-card label="Store" to="/" img="" />
+            <home-card label="Profile" to="/" img="" />
 
         </section>
 
