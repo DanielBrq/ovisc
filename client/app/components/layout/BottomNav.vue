@@ -12,6 +12,38 @@ const emit = defineEmits<{
     (e: 'update:active', value: string): void;
 }>();
 
+const menuItems = [
+    {
+        key: 'home',
+        label: 'Home',
+        icon: 'material-symbols:home-outline-rounded',
+        to: '/'
+    },
+    {
+        key: 'feed',
+        label: 'Feed',
+        icon: 'material-symbols:article-outline-rounded',
+        to: '/feed'
+    },
+    {
+        key: 'store',
+        label: 'Tienda',
+        icon: 'material-symbols:storefront-outline-rounded',
+        to: '/store'
+    },
+    {
+        key: 'event',
+        label: 'Calendario',
+        icon: 'material-symbols:calendar-month-outline-rounded',
+        to: '/event'
+    },
+    {
+        key: 'profile',
+        label: 'Perfil',
+        icon: 'material-symbols:person-outline-rounded',
+        to: '/profile'
+    }
+]
 
 </script>
 <template>
@@ -20,58 +52,24 @@ const emit = defineEmits<{
             <div
                 class="pointer-events-none absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-indigo-500 to-transparent z-50">
             </div>
-            <!-- Home | Feed | Store | Event | Profile -->
+
             <div class="flex justify-center items-center h-full w-full">
 
-                <div :class="{ 'bg-gray-700/30': active === 'home' }"
-                    class="flex flex-col bottom-nav border-r rounded-tl-md border-indigo-300/30">
-                    <button type="button" @click="emit('update:active', 'home')">
-                        <icon :class="{ 'text-white': active === 'home' }" class="text-gray-400"
-                            name="material-symbols:home-outline-rounded" size="32" />
-                    </button>
-                    <span :class="{ 'text-white': active === 'home' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Home</span>
-                </div>
+                <NuxtLink v-for="(item, index) in menuItems" :key="item.key" :to="item.to" :class="[
+                    { 'bg-gray-700/30': active === item.key },
+                    index === 0 ? 'rounded-tl-md' : '',
+                    index === menuItems.length - 1 ? 'rounded-tr-md border-l' : 'border-r',
+                    'border-indigo-300/30'
+                ]" class="flex flex-col w-full h-full justify-center items-center cursor-pointer !active:scale-100 !active:transform-none"
+                    @click="emit('update:active', item.key)">
 
-                <div :class="{ 'bg-gray-700/30': active === 'feed' }"
-                    class="flex flex-col bottom-nav border-r border-indigo-300/30">
-                    <button type="button" @click="emit('update:active', 'feed')">
-                        <icon :class="{ 'text-white': active === 'feed' }" class="text-gray-400"
-                            name="material-symbols:article-outline-rounded" size="32" />
-                    </button>
-                    <span :class="{ 'text-white': active === 'feed' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Feed</span>
-                </div>
-
-                <div :class="{ 'bg-gray-700/30': active === 'store' }"
-                    class="flex flex-col bottom-nav border-r border-indigo-300/30">
-                    <button type="button" @click="emit('update:active', 'store')">
-                        <icon :class="{ 'text-white': active === 'store' }" class="text-gray-400"
-                            name="material-symbols:storefront-outline-rounded" size="32" />
-                    </button>
-                    <span :class="{ 'text-white': active === 'store' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Tienda</span>
-                </div>
-
-                <div :class="{ 'bg-gray-700/30': active === 'event' }"
-                    class="flex flex-col bottom-nav border-r border-indigo-300/30">
-                    <button type="button" @click="emit('update:active', 'event')">
-                        <icon :class="{ 'text-white': active === 'event' }" class="text-gray-400"
-                            name="material-symbols:calendar-month-outline-rounded" size="32" />
-                    </button>
-                    <span :class="{ 'text-white': active === 'event' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Calendario</span>
-                </div>
-
-                <div :class="{ 'bg-gray-700/30': active === 'profile' }"
-                    class="flex flex-col bottom-nav border-l rounded-tr-md border-indigo-300/30">
-                    <button type="button" @click="emit('update:active', 'profile')">
-                        <icon :class="{ 'text-white': active === 'profile' }" class="text-gray-400"
-                            name="material-symbols:person-outline-rounded" size="32" />
-                    </button>
-                    <span :class="{ 'text-white': active === 'profile' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Perfil</span>
-                </div>
+                    <icon :class="{ 'text-white': active === item.key }" class="text-gray-400" :name="item.icon"
+                        size="32" />
+                    <span :class="{ 'text-white': active === item.key }"
+                        class="text-xs text-center text-nowrap text-gray-400 pointer-events-none">
+                        {{ item.label }}
+                    </span>
+                </NuxtLink>
 
             </div>
 
