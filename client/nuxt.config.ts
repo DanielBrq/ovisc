@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: "2025-07-15",
   ssr: false, //false in dev env
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   css: ['./app/assets/css/main.css'],
   devServer: {
     host: '0.0.0.0',

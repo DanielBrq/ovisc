@@ -30,7 +30,7 @@ const emit = defineEmits<{
                             name="material-symbols:home-outline-rounded" size="32" />
                     </button>
                     <span :class="{ 'text-white': active === 'home' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400">Home</span>
+                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Home</span>
                 </div>
 
                 <div :class="{ 'bg-gray-700/30': active === 'feed' }"
@@ -40,7 +40,7 @@ const emit = defineEmits<{
                             name="material-symbols:article-outline-rounded" size="32" />
                     </button>
                     <span :class="{ 'text-white': active === 'feed' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400">Feed</span>
+                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Feed</span>
                 </div>
 
                 <div :class="{ 'bg-gray-700/30': active === 'store' }"
@@ -50,7 +50,7 @@ const emit = defineEmits<{
                             name="material-symbols:storefront-outline-rounded" size="32" />
                     </button>
                     <span :class="{ 'text-white': active === 'store' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400">Tienda</span>
+                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Tienda</span>
                 </div>
 
                 <div :class="{ 'bg-gray-700/30': active === 'event' }"
@@ -60,7 +60,7 @@ const emit = defineEmits<{
                             name="material-symbols:calendar-month-outline-rounded" size="32" />
                     </button>
                     <span :class="{ 'text-white': active === 'event' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400">Calendario</span>
+                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Calendario</span>
                 </div>
 
                 <div :class="{ 'bg-gray-700/30': active === 'profile' }"
@@ -70,7 +70,7 @@ const emit = defineEmits<{
                             name="material-symbols:person-outline-rounded" size="32" />
                     </button>
                     <span :class="{ 'text-white': active === 'profile' }"
-                        class="text-xs text-center -mt-1 text-nowrap text-gray-400">Perfil</span>
+                        class="text-xs text-center -mt-1 text-nowrap text-gray-400 pointer-events-none">Perfil</span>
                 </div>
 
             </div>

@@ -46,6 +46,16 @@ input {
   margin: 0;
 }
 
+.ovis-gradient-h{
+  @apply bg-linear-to-t from-indigo-500 to-rose-500 bg-clip-text font-bold tracking-tight text-transparent 
+  text-2xl saturate-150 hover:saturate-200 active:saturate-200 transition-all duration-400;
+}
+
+.ovis-gradient-w{
+  @apply bg-linear-to-r from-indigo-500 to-rose-500 bg-clip-text font-bold tracking-tight text-transparent 
+  text-2xl saturate-150 hover:saturate-200 active:saturate-200 transition-all duration-400;
+}
+
 /* btn normal */
 
 .btn-primary {
