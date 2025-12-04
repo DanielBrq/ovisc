@@ -16,7 +16,7 @@ const level = ref(100);
 
         <span>
             <div v-if="props.showLabel" class="relative">
-                <p class="text-xl font-semibold text-gray-300 absolute top-0 left-0 pointer-events-none">
+                <p class="text-md font-semibold text-gray-300 absolute top-0 left-0 pointer-events-none">
                     Nivel
                 </p>
             </div>

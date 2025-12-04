@@ -7,27 +7,30 @@ interface Props {
 const props = defineProps<Props>()
 
 // hardcoded values
-const currentExperience = ref(125);
-const experienceToNextLevel = ref(200);
+const currentExperience = ref(12500);
+const experienceToNextLevel = ref(20000);
 const value = computed(() => (currentExperience.value / experienceToNextLevel.value) * 100);
 
 </script>
 <template>
     <div class="min-w-25 flex flex-col items-start justify-center gap-1">
-        <div class="flex flex-row items-center justify-center gap-2">
-            <span class="text-sm font-medium pointer-events-none">EXP</span>
-            <span class="text-sm font-medium pointer-events-none">{{ currentExperience }} / {{ experienceToNextLevel
-                }}</span>
+        <div class="flex flex-row justify-center gap-2 items-end">
+            <p class="text-sm font-medium pointer-events-none text-indigo-400">EXP</p>
+            <span class="flex font-medium pointer-events-none text-nowrap w-full items-end">
+                <p class="text-indigo-300 text-sm text-nowrap ">{{ currentExperience }}</p>
+                <p class="text-indigo-300 text-sm text-nowrap mx-1"> / </p>
+
+                <p class="text-indigo-400 text-sm! text-nowrap font-semibold self-end">{{ experienceToNextLevel }}
+                </p>
+            </span>
         </div>
-        <ProgressBar :value="value" class="w-full h-3! border-2 border-indigo-500 transition-all duration-400"
+        <ProgressBar :value="value" class="w-full h-3! border-2 border-indigo-400 transition-all duration-400"
             :showValue="false" />
     </div>
 </template>
 
 <style scoped>
 :deep(.p-progressbar-value) {
-    /* background-color: #6366f1; */
-    /* from indigo-500 to  to rose-500 */
-    background: linear-gradient(to right, #6366f1, #c963f1, #ef4444);
+    background: linear-gradient(to right, #6a6cff, #c963f1, #ef4444);
 }
 </style>

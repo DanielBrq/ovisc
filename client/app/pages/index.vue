@@ -10,7 +10,6 @@ import { isMobile, isDesktop } from '~/utils/responsive'
 
     <div class="h-dvh relative">
 
-        <!-- Mobile -->
         <div v-if="isMobile || isTablet">
 
             <section class="flex flex-row items-center h-40">
@@ -28,7 +27,6 @@ import { isMobile, isDesktop } from '~/utils/responsive'
 
         </div>
 
-        <!-- Desktop -->
         <section v-if="isDesktop" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
 
 
