@@ -7,6 +7,7 @@ const route = useRoute();
 const uuid = route.params.uuid as string;
 
 //hardcoded roles =====================================
+//TODO: Move to useAuth
 enum Role {
     Player = 'player',
     Leader = 'leader',
@@ -43,7 +44,9 @@ const isAdmin = computed(() => user.value.role === Role.Admin);
             <p class="ovis-gradient-w pointer-events-none text-xl font-bold">{{ user.name }}</p>
         </div>
 
-        <user-player-stats :uuid="uuid" />
+        <div v-if="isPlayer">
+            <user-player-stats :uuid="uuid" />
+        </div>
 
         <user-jobs :uuid="uuid" />
 
