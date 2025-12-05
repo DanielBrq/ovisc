@@ -12,7 +12,9 @@ const emit = defineEmits<{
     (e: 'update:active', value: string): void;
 }>();
 
-const menuItems = [
+const { currentUser } = useAuth(); //Temporal harcoded auth
+
+const menuItems = computed(() => [
     {
         key: 'home',
         label: 'Home',
@@ -41,9 +43,9 @@ const menuItems = [
         key: 'profile',
         label: 'Perfil',
         icon: 'material-symbols:person-outline-rounded',
-        to: '/profile'
+        to: `/user/profile/${currentUser.value.uuid}`
     }
-]
+]);
 
 </script>
 <template>
