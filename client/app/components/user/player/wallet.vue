@@ -27,6 +27,8 @@ const formatNumber = (num: number) => {
     return new Intl.NumberFormat('en-US').format(num);
 };
 
+//TODO: hacer las monedas componentes individual
+
 </script>
 <template>
 
@@ -34,22 +36,22 @@ const formatNumber = (num: number) => {
 
         <div v-if="props.showBronce" class="flex items-center gap-2">
             <icon size="32" name="mdi:coin" class="text-yellow-700" />
-            <p class="text-yellow-700 font-semibold text-lg">{{ formatNumber(wallet.bronce) }}</p>
+            <p class="text-yellow-600 font-semibold text-lg pointer-events-none">{{ formatNumber(wallet.bronce) }}</p>
         </div>
 
         <div v-if="props.showSilver" class="flex items-center gap-2">
             <icon size="32" name="mdi:coin" class="text-gray-300" />
-            <p class="text-gray-300 font-semibold text-lg">{{ formatNumber(wallet.silver) }}</p>
+            <p class="text-gray-300 font-semibold text-lg pointer-events-none">{{ formatNumber(wallet.silver) }}</p>
         </div>
 
         <div v-if="props.showGolden" class="flex items-center gap-2">
             <icon size="32" name="mdi:coin" class="text-yellow-400" />
-            <p class="text-yellow-400 font-semibold text-lg">{{ formatNumber(wallet.golden) }}</p>
+            <p class="text-yellow-300 font-semibold text-lg pointer-events-none">{{ formatNumber(wallet.golden) }}</p>
         </div>
 
         <div v-if="props.showRubi" class="flex items-center gap-2">
             <icon size="32" name="mdi:coin" class="text-red-500" />
-            <p class="text-red-500 font-semibold text-lg">{{ formatNumber(wallet.rubi) }}</p>
+            <p class="text-red-400 font-semibold text-lg pointer-events-none">{{ formatNumber(wallet.rubi) }}</p>
         </div>
 
     </section>

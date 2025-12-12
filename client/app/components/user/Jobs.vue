@@ -20,6 +20,15 @@ const jobs = ref([
     {
         name: 'Tesorero',
         style: 'badge-danger'
+    },
+    {
+        name: 'Músico',
+        style: 'badge-success'
+    },
+    {
+        name: 'Líder',
+        style: 'badge-danger'
+
     }
 ]);
 
@@ -28,9 +37,9 @@ const jobs = ref([
 </script>
 <template>
 
-    <div class="flex w-full gap-4 -mt-3">
+    <div class="flex flex-wrap w-full gap-4">
         <div v-for="job in jobs" :key="job.name" class="">
-            <p :class="job.style"># {{ job.name }}</p>
+            <p class="text-nowrap pointer-events-none" :class="job.style"># {{ job.name }}</p>
         </div>
     </div>
 

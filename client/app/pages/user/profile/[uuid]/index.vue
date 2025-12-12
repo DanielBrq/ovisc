@@ -48,17 +48,21 @@ const isAdmin = computed(() => user.value.role === Role.Admin);
             <user-player-stats :uuid="uuid" />
         </div>
 
-        <p class="text-md font-semibold text-gray-300">Roles</p>
-        <user-jobs :uuid="uuid" />
+        <div>
+            <p class="text-md font-semibold text-gray-300">Roles</p>
+            <user-jobs :uuid="uuid" />
+        </div>
 
-        <p class="text-md font-semibold text-gray-300 -mb-3">Billetera</p>
-        <user-player-wallet :isVertical="false" :uuid="uuid" :showBronce="true" :showSilver="true" :showGolden="true"
-            :showRubi="true" :showEmerald="true" />
+        <div>
+            <p class="text-md font-semibold text-gray-300">Billetera</p>
+            <user-player-wallet :isVertical="false" :uuid="uuid" :showBronce="true" :showSilver="true"
+                :showGolden="true" :showRubi="true" :showEmerald="true" />
+        </div>
 
         <!-- Algunos Logros + Boton de ver todos -->
 
 
-
+        <!-- Solicitudes de canjeo -->
 
 
     </div>
