@@ -28,7 +28,6 @@ const jobs = ref([
 </script>
 <template>
 
-    <p class="ovis-gradient-w">Roles:</p>
     <div class="flex w-full gap-4 -mt-3">
         <div v-for="job in jobs" :key="job.name" class="">
             <p :class="job.style"># {{ job.name }}</p>
