@@ -212,8 +212,7 @@ a {
 .bg-navigator {
   @apply rounded-xl p-4
   border border-fuchsia-300/10
-  bg-gray-900/40
-  backdrop-blur-xl;
+  bg-gray-900/40;
 }
 
 /* Modal */

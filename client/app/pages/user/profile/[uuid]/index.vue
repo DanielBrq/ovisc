@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type AccordionPanel from 'primevue/accordionpanel';
+
 useHead({
     title: 'Mi cuenta' //Aplicar i18n
 });
@@ -39,6 +41,8 @@ const isAdmin = computed(() => user.value.role === Role.Admin);
 
     <div class="flex flex-col gap-4 w-full px-2">
 
+
+
         <div class="flex flex-row items-center justify-start gap-2">
             <user-img :uuid="uuid" />
             <p class="ovis-gradient-w pointer-events-none text-xl font-bold">{{ user.name }}</p>
@@ -47,23 +51,40 @@ const isAdmin = computed(() => user.value.role === Role.Admin);
         <div v-if="isPlayer">
             <user-player-stats :uuid="uuid" />
         </div>
+        <Accordion multiple>
 
-        <div>
-            <p class="text-md font-semibold text-gray-300">Roles</p>
-            <user-jobs :uuid="uuid" />
-        </div>
+            <AccordionPanel value="0">
+                <accordion-header class="bg-transparent!">
+                    <p class="text-md font-semibold text-gray-300">Roles</p>
+                </accordion-header>
+                <AccordionContent unstyled class="mb-4">
+                    <user-jobs :uuid="uuid" />
+                </AccordionContent>
+            </AccordionPanel>
 
-        <div>
-            <p class="text-md font-semibold text-gray-300">Billetera</p>
-            <user-player-wallet :isVertical="false" :uuid="uuid" :showBronce="true" :showSilver="true"
-                :showGolden="true" :showRubi="true" :showEmerald="true" />
-        </div>
+            <AccordionPanel value="1">
+                <accordion-header class="bg-transparent!">
+                    <p class="text-md font-semibold text-gray-300">Billetera</p>
+                </accordion-header>
+                <AccordionContent unstyled class="mb-4">
+                    <user-player-wallet :isVertical="false" :uuid="uuid" :showBronce="true" :showSilver="true"
+                        :showGolden="true" :showRubi="true" :showEmerald="true" />
+                </AccordionContent>
+            </AccordionPanel>
 
-        <!-- Algunos Logros + Boton de ver todos -->
+            <!-- Algunos Logros + Boton de ver todos -->
+            <AccordionPanel value="2">
+                <AccordionHeader class="bg-transparent!">
+                    <p class="text-md font-semibold text-gray-300">Logros</p>
+                </AccordionHeader>
+                <AccordionContent unstyled class="mb-4">
+                    <user-player-achievements-preview :uuid="uuid" />
+                </AccordionContent>
+            </AccordionPanel>
 
+            <!-- Solicitudes de canjeo -->
 
-        <!-- Solicitudes de canjeo -->
-
+        </Accordion>
 
     </div>
 
