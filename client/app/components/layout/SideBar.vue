@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { AppRoutes } from '~/shared';
 
 const openSubmenus = ref<Record<string, boolean>>({
     feed: false,
@@ -37,18 +38,18 @@ const menuItems = [
         label: 'Home', //i18n
         icon: 'material-symbols:home-outline-rounded',
         img: '',
-        to: '/'
+        to: AppRoutes.home
     },
     {
         key: 'feed',
-        label: 'Feed',
+        label: 'Feed', //i18n
         icon: 'material-symbols:article-outline-rounded',
         img: '',
         subItems: [
-            { label: 'Sub A', to: '/' },
-            { label: 'Sub B', to: '/' },
-            { label: 'Sub C', to: '/' },
-            { label: 'Sub D', to: '/' },
+            { label: 'Sub A', to: AppRoutes.home },
+            { label: 'Sub B', to: AppRoutes.home },
+            { label: 'Sub C', to: AppRoutes.home },
+            { label: 'Sub D', to: AppRoutes.home },
         ]
     },
     {
@@ -57,9 +58,9 @@ const menuItems = [
         icon: 'material-symbols:storefront-outline-rounded',
         img: '',
         subItems: [
-            { label: 'Sub A', to: '/' },
-            { label: 'Sub B', to: '/' },
-            { label: 'Sub C', to: '/' },
+            { label: 'Sub A', to: AppRoutes.home },
+            { label: 'Sub B', to: AppRoutes.home },
+            { label: 'Sub C', to: AppRoutes.home },
         ]
     },
     {
@@ -68,9 +69,9 @@ const menuItems = [
         icon: 'material-symbols:calendar-month-outline-rounded',
         img: '',
         subItems: [
-            { label: 'Sub A', to: '/' },
-            { label: 'Sub B', to: '/' },
-            { label: 'Sub C', to: '/' },
+            { label: 'Sub A', to: AppRoutes.home },
+            { label: 'Sub B', to: AppRoutes.home },
+            { label: 'Sub C', to: AppRoutes.home },
         ]
     },
     {
@@ -79,9 +80,9 @@ const menuItems = [
         icon: 'material-symbols:person-outline-rounded',
         img: '',
         subItems: [
-            { label: 'Sub A', to: '/' },
-            { label: 'Sub B', to: '/' },
-            { label: 'Sub C', to: '/' },
+            { label: 'Sub A', to: AppRoutes.home },
+            { label: 'Sub B', to: AppRoutes.home },
+            { label: 'Sub C', to: AppRoutes.home },
         ]
     }
 ]

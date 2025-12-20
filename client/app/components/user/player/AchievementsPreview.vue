@@ -5,6 +5,7 @@ interface Props {
 }
 const props = defineProps<Props>()
 
+//Hardcoded mock achievements
 const achievements = ref([
     {
         id: 1,
@@ -57,7 +58,7 @@ const achievements = ref([
                 </div>
             </div>
 
-            <!-- TODO: button to achievements page -->
+            <!-- TODO: button to achievements page list -->
             <div class="flex items-center justify-center h-full aspect-square w-15 min-w-15">
                 <button
                     class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/50 hover:bg-gray-700

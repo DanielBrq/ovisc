@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { getBottomNavItems } from '~/shared';
 
 interface Props {
     active?: string;
 }
+
 
 const props = withDefaults(defineProps<Props>(), {
     active: 'home', //Default current page
@@ -12,40 +14,9 @@ const emit = defineEmits<{
     (e: 'update:active', value: string): void;
 }>();
 
-const { currentUser } = useAuth(); //Temporal harcoded auth
+const { User } = useAuth(); //Temporal harcoded auth
 
-const menuItems = computed(() => [
-    {
-        key: 'home',
-        label: 'Home',
-        icon: 'material-symbols:home-outline-rounded',
-        to: '/'
-    },
-    {
-        key: 'feed',
-        label: 'Feed',
-        icon: 'material-symbols:article-outline-rounded',
-        to: '/feed'
-    },
-    {
-        key: 'store',
-        label: 'Tienda',
-        icon: 'material-symbols:storefront-outline-rounded',
-        to: '/store'
-    },
-    {
-        key: 'event',
-        label: 'Calendario',
-        icon: 'material-symbols:calendar-month-outline-rounded',
-        to: '/event'
-    },
-    {
-        key: 'profile',
-        label: 'Perfil',
-        icon: 'material-symbols:person-outline-rounded',
-        to: `/user/profile/${currentUser.value.uuid}`
-    }
-]);
+const menuItems = computed(() => getBottomNavItems(User.value.uuid));
 
 </script>
 <template>

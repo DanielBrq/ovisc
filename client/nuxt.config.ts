@@ -1,8 +1,9 @@
+import { fileURLToPath } from 'node:url'
 import Aura from '@primeuix/themes/aura';
 
 export default defineNuxtConfig({
   alias: {
-    '#shared': './shared'
+    '~/shared': fileURLToPath(new URL('./app/shared', import.meta.url))
   },
   compatibilityDate: "2025-07-15",
   ssr: false, //false in dev env

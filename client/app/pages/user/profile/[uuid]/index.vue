@@ -1,37 +1,16 @@
 <script setup lang="ts">
+import { Role } from "~/shared";
 import type AccordionPanel from 'primevue/accordionpanel';
 
 useHead({
     title: 'Mi cuenta' //Aplicar i18n
 });
 
-const route = useRoute();
-const uuid = route.params.uuid as string;
+const { User } = useAuth();
 
-//hardcoded roles =====================================
-//TODO: Move to useAuth
-enum Role {
-    Player = 'player',
-    Leader = 'leader',
-    Admin = 'admin'
-}
-
-interface User {
-    uuid: string;
-    name: string;
-    role: Role;
-}
-
-// Mock user data - replace with actual API call =================
-const user = ref<User>({
-    uuid: uuid,
-    name: 'Mock User Name',
-    role: Role.Player
-});
-
-const isPlayer = computed(() => user.value.role === Role.Player);
-const isLeader = computed(() => user.value.role === Role.Leader);
-const isAdmin = computed(() => user.value.role === Role.Admin);
+const isPlayer = computed(() => User.value.role === Role.Player);
+const isLeader = computed(() => User.value.role === Role.Leader);
+const isAdmin = computed(() => User.value.role === Role.Admin);
 // =========================================================
 
 
@@ -44,12 +23,12 @@ const isAdmin = computed(() => user.value.role === Role.Admin);
 
 
         <div class="flex flex-row items-center justify-start gap-2">
-            <user-img :uuid="uuid" />
-            <p class="ovis-gradient-w pointer-events-none text-xl font-bold">{{ user.name }}</p>
+            <user-img :uuid="User.uuid" />
+            <p class="ovis-gradient-w pointer-events-none text-xl font-bold">{{ User.name }}</p>
         </div>
 
         <div v-if="isPlayer">
-            <user-player-stats :uuid="uuid" />
+            <user-player-stats :uuid="User.uuid" />
         </div>
         <Accordion multiple>
 
@@ -58,7 +37,7 @@ const isAdmin = computed(() => user.value.role === Role.Admin);
                     <p class="text-md font-semibold text-gray-300">Roles</p>
                 </accordion-header>
                 <AccordionContent unstyled class="mb-4">
-                    <user-jobs :uuid="uuid" />
+                    <user-jobs :uuid="User.uuid" />
                 </AccordionContent>
             </AccordionPanel>
 
@@ -67,7 +46,7 @@ const isAdmin = computed(() => user.value.role === Role.Admin);
                     <p class="text-md font-semibold text-gray-300">Billetera</p>
                 </accordion-header>
                 <AccordionContent unstyled class="mb-4">
-                    <user-player-wallet :isVertical="false" :uuid="uuid" :showBronce="true" :showSilver="true"
+                    <user-player-wallet :isVertical="false" :uuid="User.uuid" :showBronce="true" :showSilver="true"
                         :showGolden="true" :showRubi="true" :showEmerald="true" />
                 </AccordionContent>
             </AccordionPanel>
@@ -78,7 +57,7 @@ const isAdmin = computed(() => user.value.role === Role.Admin);
                     <p class="text-md font-semibold text-gray-300">Logros</p>
                 </AccordionHeader>
                 <AccordionContent unstyled class="mb-4">
-                    <user-player-achievements-preview :uuid="uuid" />
+                    <user-player-achievements-preview :uuid="User.uuid" />
                 </AccordionContent>
             </AccordionPanel>
 

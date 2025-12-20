@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { AppRoutes } from '~/shared';
 useHead({
     title: 'Iniciar sesión' //Aplicar i18n
 })
@@ -44,7 +45,7 @@ import Divider from "primevue/divider";
                 </div>
                 <!-- Button -->
                 <ui-button class="btn-primary-outline w-full" type="button">
-                    <NuxtLink to="/">
+                    <NuxtLink :to="AppRoutes.home">
                         Login
                     </NuxtLink>
                 </ui-button>

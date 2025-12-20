@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { AppRoutes } from '~/shared';
 
 import Popover from 'primevue/popover';
 
@@ -19,7 +20,7 @@ const props = defineProps({
 
     <!-- If mobile, button link to notifications page -->
     <div v-if="isMobile" class="flex items-center">
-        <NuxtLink to="/" class="flex items-center">
+        <NuxtLink :to="AppRoutes.home" class="flex items-center">
             <icon name="material-symbols:notifications-outline-rounded" size="24"
                 class="text-gray-300 hover:text-white cursor-pointer transition-colors"
                 :class="{ 'text-indigo-500': op === true }" />
