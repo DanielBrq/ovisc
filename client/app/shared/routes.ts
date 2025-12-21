@@ -22,6 +22,8 @@ export const AppRoutes = {
     },
 } as const;
 
+export const routeMyProfile = (profileId: string) => `${AppRoutes.user.profile}/${profileId}`;
+
 export interface NavItem {
     key: string;
     label: string;

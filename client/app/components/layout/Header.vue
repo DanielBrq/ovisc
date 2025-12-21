@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { AppRoutes } from '~/shared';
-import { isMobile, isTablet, isDesktop } from '~/utils/responsive'
+//imports
+import { ref } from 'vue';
+import { AppRoutes, routeMyProfile } from '~/shared';
+import { isMobile, isTablet, isDesktop } from '~/utils'
+import Avatar from 'primevue/avatar';
+import Menu from 'primevue/menu';
 
 const props = defineProps<{
     sidenavOpen: boolean
@@ -10,6 +14,45 @@ const props = defineProps<{
 const emit = defineEmits([
     'update:sidenavOpen',
 ])
+
+const menu = ref();
+const toggle = (event: Event) => {
+    menu.value.toggle(event);
+};
+
+//get mock user | TODO: use real user
+const { User } = useAuth();
+
+//Profile options
+const items = ref([
+    {
+        label: 'Mi perfil', //i18n
+        icon: 'pi pi-user',
+        command: () => {
+            navigateTo(routeMyProfile(User.value?.uuid)); // Replace with actual profile route
+        }
+    },
+    {
+        label: 'Ajustes', //i18n
+        icon: 'pi pi-cog',
+        command: () => {
+            // Navigate to settings
+            navigateTo(AppRoutes.home); // Replace with actual settings route
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Cerrar sesión', //i18n
+        icon: 'pi pi-sign-out',
+        command: () => {
+            // TODO: Handle logout
+            console.log('Logout clicked');
+        }
+    },
+]);
+
 </script>
 <template>
     <nav class="fixed top-0 right-0 h-12 z-40 transition-all duration-400" :class="[
@@ -31,8 +74,13 @@ const emit = defineEmits([
             <!-- Icons -->
             <div class="flex items-center gap-4">
                 <layout-notification-inbox :isMobile="isMobile || isTablet" />
-                <icon name="material-symbols:account-circle-outline" size="24"
-                    class="text-gray-300 hover:text-white cursor-pointer transition-colors" />
+                <div class="relative">
+                    <Avatar icon="pi pi-user" label="U"
+                        image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp"
+                        class="cursor-pointer transition-colors bg-gray-700! hover:bg-gray-600!" shape="circle"
+                        @click="toggle" aria-haspopup="true" aria-controls="profile_menu" />
+                    <Menu ref="menu" id="profile_menu" :model="items" :popup="true" class="mt-2" />
+                </div>
             </div>
         </div>
 

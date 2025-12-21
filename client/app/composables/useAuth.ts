@@ -5,6 +5,7 @@ interface IUser {
     uuid: string;
     name: string;
     role: Role;
+    image?: string; // Optional profile image URL
 }
 
 // Composable for authentication and user data

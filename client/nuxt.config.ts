@@ -3,7 +3,8 @@ import Aura from '@primeuix/themes/aura';
 
 export default defineNuxtConfig({
   alias: {
-    '~/shared': fileURLToPath(new URL('./app/shared', import.meta.url))
+    '~/shared': fileURLToPath(new URL('./app/shared', import.meta.url)),
+    '~/utils': fileURLToPath(new URL('./app/utils', import.meta.url))
   },
   compatibilityDate: "2025-07-15",
   ssr: false, //false in dev env
