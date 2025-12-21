@@ -16,7 +16,7 @@ const isActive = (item: NavItem) => {
 
 </script>
 <template>
-    <nav class="fixed bottom-0 w-full h-16 z-50">
+    <nav class="fixed -bottom-1 w-full h-16 z-50">
         <div class="w-full h-full rounded-t-lg bg-gray-800 shadow-lg relative">
             <div
                 class="pointer-events-none absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-indigo-500 to-transparent z-50">

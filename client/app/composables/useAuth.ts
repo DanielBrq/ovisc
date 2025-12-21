@@ -16,7 +16,7 @@ export const useAuth = () => {
     // Use useState to create a shared reactive state across components
     const User = useState<IUser>('auth-user', () => ({
         uuid: '12345678-1234-1234-1234-123456789012',
-        name: 'Current User',
+        name: 'Daniel Barquero Cabrera',
         role: Role.Player
     }));
 
