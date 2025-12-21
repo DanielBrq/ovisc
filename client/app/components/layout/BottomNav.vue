@@ -1,22 +1,18 @@
 <script setup lang="ts">
-import { getBottomNavItems } from '~/shared';
-
-interface Props {
-    active?: string;
-}
-
-
-const props = withDefaults(defineProps<Props>(), {
-    active: 'home', //Default current page
-});
-
-const emit = defineEmits<{
-    (e: 'update:active', value: string): void;
-}>();
+import { getBottomNavItems, type NavItem } from '~/shared';
 
 const { User } = useAuth(); //Temporal harcoded auth
 
 const menuItems = computed(() => getBottomNavItems(User.value.uuid));
+
+const route = useRoute();
+
+const isActive = (item: NavItem) => {
+    if (item.key === 'home') {
+        return route.path === item.to;
+    }
+    return route.path.startsWith(item.to);
+};
 
 </script>
 <template>
@@ -29,16 +25,15 @@ const menuItems = computed(() => getBottomNavItems(User.value.uuid));
             <div class="flex justify-center items-center h-full w-full">
 
                 <NuxtLink v-for="(item, index) in menuItems" :key="item.key" :to="item.to" :class="[
-                    { 'bg-gray-700/30': active === item.key },
+                    { 'bg-gray-700/30': isActive(item) },
                     index === 0 ? 'rounded-tl-md' : '',
                     index === menuItems.length - 1 ? 'rounded-tr-md border-l' : 'border-r',
                     'border-indigo-300/30'
-                ]" class="flex flex-col w-full h-full justify-center items-center cursor-pointer !active:scale-100 !active:transform-none"
-                    @click="emit('update:active', item.key)">
+                ]"
+                    class="flex flex-col w-full h-full justify-center items-center cursor-pointer !active:scale-100 !active:transform-none">
 
-                    <icon :class="{ 'text-white': active === item.key }" class="text-gray-400" :name="item.icon"
-                        size="32" />
-                    <span :class="{ 'text-white': active === item.key }"
+                    <icon :class="{ 'text-white': isActive(item) }" class="text-gray-400" :name="item.icon" size="32" />
+                    <span :class="{ 'text-white': isActive(item) }"
                         class="text-xs text-center text-nowrap text-gray-400 pointer-events-none">
                         {{ item.label }}
                     </span>

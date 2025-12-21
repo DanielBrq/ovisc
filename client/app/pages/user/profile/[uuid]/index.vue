@@ -61,7 +61,6 @@ const isAdmin = computed(() => User.value.role === Role.Admin);
                 </AccordionContent>
             </AccordionPanel>
 
-            <!-- Solicitudes de canjeo -->
 
         </Accordion>
 
