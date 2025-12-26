@@ -24,11 +24,13 @@ import Divider from "primevue/divider";
                     </p>
                 </div>
                 <div class="flex flex-col gap-4 w-full">
-                    <ui-button class="btn-secondary-outline w-min-[120px]!" type="button" icon-name="devicon:google">
-                        Inicia con Google
+                    <ui-button class="btn-secondary-outline w-min-[120px]!" label="Inicia con Google" type="button"
+                        iconName="devicon:google">
+
                     </ui-button>
-                    <ui-button class="btn-secondary-outline" type="button" icon-name="devicon:facebook">
-                        Inicia con Facebook
+                    <ui-button class="btn-secondary-outline" label="Inicia con Facebook" type="button"
+                        iconName="devicon:facebook">
+
                     </ui-button>
                 </div>
 
@@ -40,7 +42,7 @@ import Divider from "primevue/divider";
                     <ui-text-input type="email" placeholder="Ingrese su correo" />
                 </div>
                 <div class="overflow-hidden w-full">
-                    <span class="text-white text-sm">Constraseña</span>
+                    <span class="text-white text-sm">Contraseña</span>
                     <ui-password-input placeholder="Ingrese su contraseña" />
                 </div>
                 <!-- Button -->
