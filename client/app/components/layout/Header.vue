@@ -61,7 +61,7 @@ const items = ref([
                 'left-0'
     ]">
 
-        <div class="flex items-center justify-between w-full h-full bg-gray-800 shadow-sm px-4 transition-all duration-400"
+        <div class="flex items-center justify-between w-full h-full bg-gray-800 shadow-sm px-4 transition-all duration-400 border-b border-gray-700"
             :class="!props.sidenavOpen ? 'sm:mx-0' : ''">
 
             <!-- Logo -->
@@ -75,10 +75,8 @@ const items = ref([
             <div class="flex items-center gap-4">
                 <layout-notification-inbox :isMobile="isMobile || isTablet" />
                 <div class="relative">
-                    <Avatar icon="pi pi-user" label="U"
-                        image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp"
-                        class="cursor-pointer transition-colors bg-gray-700! hover:bg-gray-600!" shape="circle"
-                        @click="toggle" aria-haspopup="true" aria-controls="profile_menu" />
+                    <user-img :image="User.image" size="small" @click="toggle" aria-haspopup="true"
+                        aria-controls="profile_menu" :name="User.name" />
                     <Menu ref="menu" id="profile_menu" :model="items" :popup="true" class="mt-2" />
                 </div>
             </div>

@@ -1,14 +1,24 @@
 <script setup lang="ts">
 interface Props {
-    uuid: string;
+    uuid?: string;
+    image?: string;
+    name: string;
+    size: sizes;
+    class?: string;
 }
-const profileImg = ref('')
+
+type sizes = 'small' | 'normal' | 'large' | 'xlarge'
+
+const getInitials = (name: string) => {
+    return name.charAt(0).toUpperCase()
+}
+console.log(getInitials('Daniel'));
 const props = defineProps<Props>()
 </script>
 <template>
     <div class="flex flex-col items-center">
-        <img v-if="profileImg" :src="profileImg" alt="Profile"
-            class="w-20 h-20 rounded-full object-cover block profile-img">
-        <icon v-else name="solar:user-circle-bold-duotone" class="text-gray-400 block size-20 profile-img" />
+        <Avatar v-if="props.image" :image="props.image" alt="Profile" shape="circle" :size="props.size"
+            :class="`w-20 h-20 rounded-full object-cover block profile-img cursor-pointer ${props.class}`" />
+        <Avatar v-else shape="circle" :size="props.size" :label="getInitials(props.name ?? 'U')" />
     </div>
 </template>

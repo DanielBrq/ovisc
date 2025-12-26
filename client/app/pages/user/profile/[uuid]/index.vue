@@ -23,7 +23,7 @@ const isAdmin = computed(() => User.value.role === Role.Admin);
 
 
         <div class="flex flex-row items-center justify-start gap-2">
-            <user-img :uuid="User.uuid" />
+            <user-img :image="User.image" />
             <p class="ovis-gradient-w pointer-events-none text-xl font-bold">{{ User.name }}</p>
         </div>
 
