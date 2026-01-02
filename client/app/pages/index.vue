@@ -5,7 +5,7 @@ useHead({
     title: 'Home' //Aplicar i18n
 });
 
-import { isMobile, isDesktop } from '~/utils/responsive'
+import { isMobile, isTablet, isDesktop } from '~/utils'
 
 </script>
 <template>

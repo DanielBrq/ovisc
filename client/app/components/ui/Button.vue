@@ -27,7 +27,7 @@ const handleClick = (event: MouseEvent) => {
 </script>
 <template>
     <button :disabled="disabled || loading" @click="handleClick"
-        class="relative flex items-center justify-center w-full max-h-10 min-h-10 text-nowrap py-0! text-nowrap">
+        class="relative flex items-center justify-center w-full max-h-10 min-h-10 text-nowrap py-0!">
 
         <div v-if="!loading" class="flex items-center justify-center h-full w-full px-4">
             <div v-if="iconName" class="flex items-center justify-center" :class="{ 'me-2': label }">
