@@ -3,7 +3,6 @@
 import { ref } from 'vue';
 import { AppRoutes, routeMyProfile } from '~/shared';
 import { isMobile, isTablet, isDesktop } from '~/utils'
-import Avatar from 'primevue/avatar';
 import Menu from 'primevue/menu';
 
 const props = defineProps<{

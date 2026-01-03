@@ -4,8 +4,6 @@ useHead({
     title: 'Iniciar sesión' //Aplicar i18n
 })
 
-import Divider from "primevue/divider";
-
 </script>
 
 <template>
@@ -34,7 +32,7 @@ import Divider from "primevue/divider";
                     </ui-button>
                 </div>
 
-                <Divider></Divider>
+                <div class="w-full h-px bg-gray-700"></div>
 
                 <!-- text input -->
                 <div class="overflow-hidden w-full">
@@ -46,11 +44,13 @@ import Divider from "primevue/divider";
                     <ui-password-input placeholder="Ingrese su contraseña" />
                 </div>
                 <!-- Button -->
-                <ui-button class="btn-primary-outline w-full" type="button">
+                <ui-button class="w-full " buttonType="primary" label="Iniciar sesion">
                     <NuxtLink :to="AppRoutes.home">
                         Login
                     </NuxtLink>
                 </ui-button>
+                <text-input />
+
                 <a href="#" class="text-center">
                     <p class="text-indigo-400/50 hover:text-indigo-500">
                         Olvidé mi contraseña

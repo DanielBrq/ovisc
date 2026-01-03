@@ -47,7 +47,7 @@ const togglePasswordVisibility = () => {
 <template>
     <div class="flex flex-col">
         <div class="flex flex-row group w-full">
-            <input v-bind="$attrs" @keypress="handleType" :type="inputType" :required class="w-full border-2 rounded-md py-2 px-3 m-1 text-white border-indigo-300/40 rounded-r-none
+            <input v-bind="$attrs" @keypress="handleType" :type="inputType" :required class="w-full border-2 rounded-md py-2 px-3 m-1 text-white border-gray-700 border-b-4 focus:border-b-2 rounded-r-none
             disabled:border-blue-200 disabled:bg-blue-50 disabled:text-blue-500 disabled:shadow-none
             focus:border-indigo-500 focus:outline focus:outline-indigo-600 border-r-transparent" :class="[
                 extraClasses,
@@ -56,8 +56,7 @@ const togglePasswordVisibility = () => {
                     'text-field-invalid': invalid || required,
                 }
             ]" />
-            <button v-if="props.type === 'password'" @click="togglePasswordVisibility" 
-                class="bg-indigo-100/10 rounded-l-none border-2 rounded-md border-indigo-300/40 w-[50px]
+            <button v-if="props.type === 'password'" @click="togglePasswordVisibility" class="bg-indigo-100/10 rounded-l-none border-2 rounded-md border-gray-700 w-[50px] border-b-4 focus:border-b-2
                 flex items-center justify-center
                 hover:bg-indigo-100/15 active:scale-[0.99]
                 transition-all ease-out" type="button">
@@ -65,7 +64,7 @@ const togglePasswordVisibility = () => {
                     <icon name="mdi:eye" class="icon-base text-blue-100/70" />
                 </span>
                 <span v-else>
-                    <icon name="mdi:eye-off" class="icon-base text-blue-100/70"/>
+                    <icon name="mdi:eye-off" class="icon-base text-blue-100/70" />
                 </span>
             </button>
         </div>
