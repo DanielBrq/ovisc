@@ -6,8 +6,9 @@
 <template>
 
     <div>
-        <store-searcher />
-
+        <div class="mb-4">
+            <store-searcher />
+        </div>
 
     </div>
 

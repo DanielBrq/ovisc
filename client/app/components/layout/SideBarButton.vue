@@ -10,6 +10,7 @@ interface Props {
   active: string
   arrow?: boolean
   submenuIsOpen?: boolean
+  isActive?: boolean
 }
 
 const props = defineProps<Props>()
@@ -26,38 +27,34 @@ function handleClick() {
 </script>
 
 <template>
-  <nuxt-link :to="props.to">
+  <nuxt-link :to="props.to" class="block no-underline">
     <button type="button"
-      class="relative w-full h-10 pl-4 flex items-center group text-left group overflow-hidden transition-all duration-400 border-0 active:border-0 focus:border-0"
-      @click="handleClick">
-
-      <!-- Fondo Degradado con Animación -->
-      <div v-if="sidenavOpen"
-        class="absolute inset-0 bg-linear-to-r from-indigo-500 via-indigo-500/20 to-transparent transition-opacity duration-400"
-        :class="props.submenuIsOpen ? 'opacity-100 animate-game-pulse' : 'opacity-0 group-hover:opacity-100'">
-      </div>
+      class="relative w-full h-11 px-3 flex items-center group text-left overflow-hidden transition-all duration-300 border-0 cursor-pointer rounded-lg"
+      :class="[
+        props.isActive ? 'bg-indigo-500/20 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+      ]" @click="handleClick">
 
       <!-- Contenido  -->
-      <div class="relative z-10 flex items-center w-full" :class="{ 'text-white': props.submenuIsOpen }">
+      <div class="relative z-10 flex items-center w-full">
 
-        <span v-if="props.sidenavOpen && props.iconName">
-          <icon :name="props.iconName" size="24" class="me-2 -mb-1" />
-        </span>
+        <div v-if="props.iconName" class="shrink-0 flex items-center justify-center w-8">
+          <Icon :name="props.iconName" size="24" class="transition-transform duration-300 group-hover:scale-110"
+            :class="props.isActive ? 'text-indigo-400' : 'text-inherit'" />
+        </div>
 
-        <!-- Si está cerrado, solo icono centrado -->
-        <span v-if="!props.sidenavOpen && props.iconName">
-          <icon :name="props.iconName" size="24" class="mr-2" />
-        </span>
-
-        <span v-if="props.sidenavOpen" class="truncate flex-1 group-hover:ml-1 transition-all duration-400">
+        <span v-if="props.sidenavOpen" class="ml-3 truncate flex-1 font-medium transition-all duration-300">
           <slot />
         </span>
 
-        <span v-if="props.arrow && props.sidenavOpen" class="mr-4 flex items-center">
-          <icon v-if="props.submenuIsOpen" class="transition-all duration-500"
-            name="material-symbols:keyboard-arrow-right-rounded" size="24" />
-          <icon v-else name="material-symbols:keyboard-arrow-down-rounded" size="24" />
+        <span v-if="props.arrow && props.sidenavOpen" class="ml-2 flex items-center">
+          <Icon name="material-symbols:keyboard-arrow-down-rounded" size="22" class="transition-transform duration-300"
+            :class="{ 'rotate-180': props.submenuIsOpen, 'text-gray-500 group-hover:text-white': !props.isActive }" />
         </span>
+      </div>
+
+      <!-- Indicador activo lateral -->
+      <div v-if="props.isActive && !props.sidenavOpen"
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-indigo-500 rounded-r-full">
       </div>
 
     </button>
@@ -65,20 +62,8 @@ function handleClick() {
 </template>
 
 <style scoped>
-/* Animación de pulso */
-.animate-game-pulse {
-  animation: game-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes game-pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.4;
-  }
+/* Transiciones suaves para los botones */
+button {
+  -webkit-tap-highlight-color: transparent;
 }
 </style>

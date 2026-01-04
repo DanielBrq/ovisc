@@ -31,7 +31,7 @@ const handleType = (event: KeyType) => {
 </script>
 <template>
     <div class="flex flex-col">
-        <input v-bind="$attrs" @keypress="handleType" :type="props.type" :required class="w-full border-2 rounded-md py-2 px-3 m-1 text-white border-gray-700 border-b-4 focus:border-b-2
+        <input v-bind="$attrs" @keypress="handleType" :type="props.type" :required class="w-full border-2 rounded-2xl py-2 px-3 text-white border-gray-700 border-b-4 focus:border-b-2
         disabled:border-blue-200 disabled:bg-blue-50 disabled:text-blue-500 disabled:shadow-none
         focus:border-indigo-500 focus:outline focus:outline-indigo-600" :class="[
             extraClasses,

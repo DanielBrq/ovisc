@@ -45,7 +45,7 @@ const buttonClass = computed(() => {
 <template>
     <button :type="type" :disabled="disabled || loading" @click="handleClick" :class="buttonClass"
         class="relative flex items-center justify-center w-full max-h-10 min-h-10 text-nowrap py-0! border-b-4
-        px-5 rounded-lg font-semibold hover:font-semibold active:font-semibold transition-all duration-500 ease-out active:scale-[0.97]">
+        px-5 rounded-2xl font-semibold hover:font-semibold active:font-semibold transition-all duration-500 ease-out active:scale-[0.97]">
 
         <div v-if="!loading" class="flex items-center justify-center h-full w-full px-4">
             <div v-if="iconName" class="flex items-center justify-center" :class="{ 'me-2': label }">

@@ -8,15 +8,22 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-    <nuxt-link :to="props.to">
+    <nuxt-link :to="props.to" class="block no-underline">
         <button type="button"
-            class="ml-6 w-full mt-1 text-left group hover:text-indigo-100 hover:underline hover:underline-offset-4">
-            <span v-if="props.sidenavOpen" class="truncate flex items-center">
-                <icon name="material-symbols:radio-button-unchecked" size="14" class="me-2" />
-                <span class="group-hover:ml-1 transition-all duration-400">
+            class="w-full h-9 flex items-center px-4 mt-0.5 rounded-lg group transition-all duration-300 hover:bg-gray-800/30 text-gray-400 hover:text-indigo-300">
+            <span v-if="props.sidenavOpen" class="flex items-center text-sm font-medium">
+                <Icon name="material-symbols:fiber-manual-record-outline-rounded" size="10"
+                    class="mr-3 opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300" />
+                <span class="truncate group-hover:translate-x-1 transition-transform duration-300">
                     <slot />
                 </span>
             </span>
         </button>
     </nuxt-link>
 </template>
+
+<style scoped>
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+</style>

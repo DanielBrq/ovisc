@@ -13,11 +13,12 @@ const route = useRoute()
 const currentTab = computed(() => {
   const path = route.path
 
-  if (path.startsWith('/user/player')) return 'home'
+  if (path === '/') return 'home'
   if (path.startsWith('/feed')) return 'feed'
   if (path.startsWith('/store')) return 'store'
   if (path.startsWith('/event')) return 'event'
-  if (path.startsWith('/profile')) return 'profile'
+  if (path.startsWith('/user/profile')) return 'profile'
+  if (path.startsWith('/user/player')) return 'home'
 
   return 'home'
 })

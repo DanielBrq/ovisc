@@ -26,14 +26,13 @@ const isActive = (item: NavItem) => {
 
                 <NuxtLink v-for="(item, index) in menuItems" :key="item.key" :to="item.to" :class="[
                     { 'bg-gray-700/30': isActive(item) },
-                    index === 0 ? 'rounded-tl-md' : '',
-                    index === menuItems.length - 1 ? 'rounded-tr-md border-l' : 'border-r',
-                    'border-indigo-300/30'
+                    index === 0 ? 'rounded-tl-md' : ''
                 ]"
                     class="flex flex-col w-full h-full justify-center items-center cursor-pointer !active:scale-100 !active:transform-none">
 
-                    <icon :class="{ 'text-white': isActive(item) }" class="text-gray-400" :name="item.icon" size="32" />
-                    <span :class="{ 'text-white': isActive(item) }"
+                    <icon :class="{ 'text-indigo-400': isActive(item) }" class="text-gray-400" :name="item.icon"
+                        size="32" />
+                    <span :class="{ 'text-indigo-400': isActive(item) }"
                         class="text-xs text-center text-nowrap text-gray-400 pointer-events-none">
                         {{ item.label }}
                     </span>

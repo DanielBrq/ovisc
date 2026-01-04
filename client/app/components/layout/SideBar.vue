@@ -45,6 +45,7 @@ const menuItems = [
         label: 'Feed', //i18n
         icon: 'material-symbols:article-outline-rounded',
         img: '',
+        to: AppRoutes.feed.index,
         subItems: [
             { label: 'Sub A', to: AppRoutes.home },
             { label: 'Sub B', to: AppRoutes.home },
@@ -57,6 +58,7 @@ const menuItems = [
         label: 'Store', //i18n
         icon: 'material-symbols:storefront-outline-rounded',
         img: '',
+        to: AppRoutes.store.index,
         subItems: [
             { label: 'Sub A', to: AppRoutes.home },
             { label: 'Sub B', to: AppRoutes.home },
@@ -68,6 +70,7 @@ const menuItems = [
         label: 'Event', //i18n
         icon: 'material-symbols:calendar-month-outline-rounded',
         img: '',
+        to: AppRoutes.event.index,
         subItems: [
             { label: 'Sub A', to: AppRoutes.home },
             { label: 'Sub B', to: AppRoutes.home },
@@ -79,6 +82,7 @@ const menuItems = [
         label: 'Profile', //i18n
         icon: 'material-symbols:person-outline-rounded',
         img: '',
+        to: AppRoutes.user.profile,
         subItems: [
             { label: 'Sub A', to: AppRoutes.home },
             { label: 'Sub B', to: AppRoutes.home },
@@ -90,51 +94,75 @@ const menuItems = [
 </script>
 <template>
     <nav>
-        <aside class="fixed top-0 left-0 h-full bg-gray-800 text-white
-        flex flex-col transition-all duration-400 overflow-hidden z-50" :class="props.sidenavOpen ? 'w-60' : 'w-12'">
-
-            <!-- Botón open/close siempre visible -->
-            <div class="flex" :class="props.sidenavOpen ? 'justify-end pr-4' : 'justify-center'">
-                <button class="pt-3 -mb-3 transition-colors" @click="toggleSidebar">
-                    <icon size="24" name="material-symbols:menu-rounded" />
-                </button>
+        <aside
+            class="fixed top-0 left-0 h-full bg-gray-900 border-r border-gray-800 text-white flex flex-col transition-all duration-300 ease-in-out z-50 overflow-hidden"
+            :class="props.sidenavOpen ? 'w-64' : 'w-16'">
+            <!-- Logo / Header Section -->
+            <div class="h-16 flex items-center px-4 shrink-0 overflow-hidden">
+                <div class="flex items-center gap-3 w-full"
+                    :class="props.sidenavOpen ? 'justify-between' : 'justify-center'">
+                    <span v-if="props.sidenavOpen" class="font-bold text-xl ovis-gradient-w truncate">OVIS</span>
+                    <button @click="toggleSidebar"
+                        class="p-2 rounded-lg hover:bg-gray-800 transition-colors text-gray-400 hover:text-white cursor-pointer">
+                        <Icon size="24"
+                            :name="props.sidenavOpen ? 'material-symbols:menu-open-rounded' : 'material-symbols:menu-rounded'" />
+                    </button>
+                </div>
             </div>
 
-            <divider />
+            <div class="flex-1 overflow-y-auto custom-scrollbar px-2 py-4">
+                <ul class="flex flex-col gap-1.5 list-none p-0 m-0">
+                    <li v-for="item in menuItems" :key="item.key">
+                        <!-- Item con Submenú -->
+                        <template v-if="item.subItems">
+                            <layout-side-bar-button @toggle-submenu="toggleSubmenu(item.key)" :sidenavOpen="sidenavOpen"
+                                :active="item.key" :arrow="true" :submenuIsOpen="openSubmenus[item.key]"
+                                :isActive="props.active === item.key" :icon-name="item.icon" :to="item.to">
+                                {{ item.label }}
+                            </layout-side-bar-button>
 
-            <!-- Menu de opciones -->
-            <ul class="flex flex-col gap-1 pr-2 duration-400"
-                :class="props.sidenavOpen ? 'justify-start' : 'justify-center items-center'">
+                            <!-- Despliegue de botones -->
+                            <div class="overflow-hidden transition-all duration-300 ease-in-out" :class="[
+                                openSubmenus[item.key] && props.sidenavOpen ? 'max-h-64 opacity-100 mt-1' : 'max-h-0 opacity-0'
+                            ]">
+                                <div class="flex flex-col gap-1 pl-4 border-l border-gray-800 ml-6">
+                                    <layout-side-bar-sub-button v-for="(subItem, index) in item.subItems" :key="index"
+                                        :sidenavOpen="sidenavOpen" :to="subItem.to">
+                                        {{ subItem.label }}
+                                    </layout-side-bar-sub-button>
+                                </div>
+                            </div>
+                        </template>
 
-                <li v-for="item in menuItems" :key="item.key">
-                    <!-- Item con Submenú -->
-                    <template v-if="item.subItems">
-                        <layout-side-bar-button @toggle-submenu="toggleSubmenu(item.key)" :sidenavOpen="sidenavOpen"
-                            :active="item.key" :arrow="true" :submenuIsOpen="openSubmenus[item.key]"
-                            :icon-name="item.icon">
-                            {{ item.label }}
-                        </layout-side-bar-button>
-
-                        <!-- Despliegue de botones nuxtLink -->
-                        <div v-if="sidenavOpen"
-                            class="flex flex-col gap-2 overflow-hidden transition-all duration-500 justify-start"
-                            :class="openSubmenus[item.key] ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'">
-                            <layout-side-bar-sub-button v-for="(subItem, index) in item.subItems" :key="index"
-                                :sidenavOpen="sidenavOpen" class="ms-2" :to="subItem.to">
-                                {{ subItem.label }}
-                            </layout-side-bar-sub-button>
-                        </div>
-                    </template>
-
-                    <!-- Item Link Directo (sin submenú) -->
-                    <template v-else>
-                        <layout-side-bar-button :sidenavOpen="sidenavOpen" :active="item.key" :icon-name="item.icon"
-                            :to="item.to">
-                            {{ item.label }}
-                        </layout-side-bar-button>
-                    </template>
-                </li>
-            </ul>
+                        <!-- Item Link Directo -->
+                        <template v-else>
+                            <layout-side-bar-button :sidenavOpen="sidenavOpen" :active="item.key" :icon-name="item.icon"
+                                :to="item.to" :isActive="props.active === item.key">
+                                {{ item.label }}
+                            </layout-side-bar-button>
+                        </template>
+                    </li>
+                </ul>
+            </div>
         </aside>
     </nav>
 </template>
+
+<style scoped>
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+}
+</style>

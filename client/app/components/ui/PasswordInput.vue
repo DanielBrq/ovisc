@@ -46,17 +46,18 @@ const togglePasswordVisibility = () => {
 </script>
 <template>
     <div class="flex flex-col">
-        <div class="flex flex-row group w-full">
-            <input v-bind="$attrs" @keypress="handleType" :type="inputType" :required class="w-full border-2 rounded-md py-2 px-3 m-1 text-white border-gray-700 border-b-4 focus:border-b-2 rounded-r-none
+        <div class="flex flex-row group w-full h-full">
+            <input v-bind="$attrs" @keypress="handleType" :type="inputType" :required class="w-full border-2 py-2 px-3 text-white border-gray-700 border-b-4 focus:border-b-2
             disabled:border-blue-200 disabled:bg-blue-50 disabled:text-blue-500 disabled:shadow-none
-            focus:border-indigo-500 focus:outline focus:outline-indigo-600 border-r-transparent" :class="[
+            focus:border-indigo-500 focus:outline focus:outline-indigo-600" :class="[
                 extraClasses,
+                props.type === 'password' ? 'rounded-l-2xl border-r-0' : 'rounded-2xl',
                 {
                     'text-field-valid': valid,
                     'text-field-invalid': invalid || required,
                 }
             ]" />
-            <button v-if="props.type === 'password'" @click="togglePasswordVisibility" class="bg-indigo-100/10 rounded-l-none border-2 rounded-md border-gray-700 w-[50px] border-b-4 focus:border-b-2
+            <button v-if="props.type === 'password'" @click="togglePasswordVisibility" class="bg-indigo-100/10 border-l-0 border-2 rounded-r-2xl border-gray-700 w-[50px] border-b-4 focus:border-b-2
                 flex items-center justify-center
                 hover:bg-indigo-100/15 active:scale-[0.99]
                 transition-all ease-out" type="button">

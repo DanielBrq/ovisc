@@ -64,7 +64,8 @@ const items = ref([
             :class="!props.sidenavOpen ? 'sm:mx-0' : ''">
 
             <!-- Logo -->
-            <NuxtLink :to="AppRoutes.home" class="flex items-center justify-start gap-2 text-white hover:text-gray-300">
+            <NuxtLink :to="AppRoutes.home"
+                class="flex items-center justify-start gap-2 text-white hover:text-gray-300 ms-4">
                 <span
                     class="bg-linear-to-r from-indigo-500 to-rose-500 bg-clip-text font-bold tracking-tight text-transparent 
                     text-2xl saturate-115 hover:saturate-200 active:saturate-200 transition-all duration-400">OVIS</span>
