@@ -61,12 +61,8 @@ const togglePasswordVisibility = () => {
                 flex items-center justify-center
                 hover:bg-indigo-100/15 active:scale-[0.99]
                 transition-all ease-out" type="button">
-                <span v-if="isPasswordVisible">
-                    <icon name="mdi:eye" class="icon-base text-blue-100/70" />
-                </span>
-                <span v-else>
-                    <icon name="mdi:eye-off" class="icon-base text-blue-100/70" />
-                </span>
+                <icon :name="isPasswordVisible ? 'mdi:eye' : 'mdi:eye-off'" size="22"
+                    class="icon-base text-blue-100/70" />
             </button>
         </div>
         <span v-if="props.required" class="text-sm text-pink-500 w-full">

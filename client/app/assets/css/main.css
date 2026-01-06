@@ -131,16 +131,6 @@ a {
   @apply size-5 flex items-center justify-center;
 }
 
-/* Select option */
-.select {
-  @apply w-full border-2 rounded-md py-2 px-3 m-1 text-white border-indigo-300/40 disabled:border-blue-200 disabled:bg-blue-50 disabled:text-blue-500 disabled:shadow-none focus:border-indigo-500 focus:outline focus:outline-indigo-600;
-  margin: 0;
-}
-
-.option {
-  @apply bg-gray-950/88 text-indigo-200 focus:bg-rose-500;
-}
-
 /* card */
 
 .card-base,
