@@ -4,9 +4,6 @@ export const AppRoutes = {
   user: {
     profile: "/user/profile",
   },
-  feed: {
-    index: "/feed",
-  },
   board: {
     index: "/board",
   },
@@ -44,12 +41,6 @@ export const getBottomNavItems = (profileId: string): NavItem[] => [
     label: "Home", //TODO:i18n
     icon: "material-symbols:home-outline-rounded",
     to: AppRoutes.home,
-  },
-  {
-    key: "feed",
-    label: "Feed", //TODO:i18n
-    icon: "material-symbols:article-outline-rounded",
-    to: AppRoutes.feed.index,
   },
   {
     key: "board",
