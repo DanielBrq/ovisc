@@ -50,7 +50,10 @@ The backend is built with **AdonisJS** and functions purely as an API.
 - **Models & Database:** ALWAYS use **Lucid ORM** for database interactions and schema definitions.
   - **Reference:** [Lucid ORM Documentation](https://lucid.adonisjs.com/docs/introduction)
 - **Controllers:** Responsible for handling routes, extracting requests, and returning JSON.
-- **Services:** For abstracting complex business logic away from the controllers.
+- **Services Layer (`/app/service`) & Repository Layer (`/app/repository`):**
+  - **Services:** For abstracting complex business logic away from the controllers.
+  - **Repositories:** Abstract database access and keep services focused purely on business logic.
+  - **Import Strategy:** Both layers MUST export their contents through an `index.ts` file within their respective folders (e.g., `/app/service/index.ts` and `/app/repository/index.ts`) to facilitate and keep imports clean across the application.
 
 ### Agent Directives for Backend
 - Use native Adonis tools (Lucid, VineJS/Validators).
