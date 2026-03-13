@@ -1,75 +1,34 @@
-# Nuxt Minimal Starter
+# Ovis Web App
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is the Nuxt 4 client for Ovis. It is mobile-first, wired to the modules defined in `docs/DEVELOPMENT-PLAN.ES.md`, and built with PrimeVue, @nuxt/ui, and the upcoming Tailwind 4 design system so Leaders, Admins, and Players share a consistent interface.
+
+## Stack
+- `Nuxt 4` with file-based routing inside `app/`.
+- `@nuxt/ui` and PrimeVue for composables, layouts, and data-heavy controls.
+- `@nuxtjs/tailwindcss`, `tailwindcss@4`, and `@tailwindcss/vite` for the design tokens referenced in the roadmap.
+- `@vite-pwa/nuxt` to keep the experience installable and offline-capable once the modules surface realtime events.
 
 ## Setup
-
-Make sure to install dependencies:
+Install Node.js 20+ or Bun (Bun is preferred because the repository already tracks `bun.lock`). The repo leans on per-app `.env` files, so copy `web-app/.env.example` to `.env` and adjust API endpoints before running.
 
 ```bash
-# npm
-npm install
+cd web-app
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
+# Install dependencies (bun is fastest)
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Running commands
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
+# Development server (reloads on file changes)
 bun run dev
-```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
+# Production build
 bun run build
-```
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
+# Preview the production build
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Open `http://localhost:3000` after `dev` starts; the default layout already includes the player dashboards and the mission board scaffolding noted in the roadmap.
