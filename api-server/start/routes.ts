@@ -26,6 +26,16 @@ router
       .prefix('auth')
       .as('auth')
 
+    // router.get('/facebook/redirect', ({ ally }) => {
+    //   return ally.use('facebook').redirect()
+    // })
+
+    // router.get('/google/redirect', ({ ally }) => {
+    //   return ally.use('google').redirect((request) => {
+    //     request.clearParam('prompt')
+    //   })
+    // })
+
     router
       .group(() => {
         router.get('/profile', [controllers.Profile, 'show'])
