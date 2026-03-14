@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import ProgressBar from 'primevue/progressbar';
-
 interface Props {
     uuid: string;
 }
@@ -24,13 +22,12 @@ const value = computed(() => (currentExperience.value / experienceToNextLevel.va
                 </p>
             </span>
         </div>
-        <ProgressBar :value="value" class="w-full h-3! border-2 border-indigo-400 transition-all duration-400"
-            :showValue="false" />
+        <div class="w-full h-3 border-2 border-indigo-400 transition-all duration-400 bg-gray-900 overflow-hidden">
+            <div class="h-full transition-all duration-400"
+                :style="{ width: `${value}%`, background: 'linear-gradient(to right, #6a6cff, #c963f1, #ef4444)' }">
+            </div>
+        </div>
     </div>
 </template>
 
-<style scoped>
-:deep(.p-progressbar-value) {
-    background: linear-gradient(to right, #6a6cff, #c963f1, #ef4444);
-}
-</style>
+<style scoped></style>

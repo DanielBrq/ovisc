@@ -3,7 +3,6 @@
 import { ref } from 'vue';
 import { AppRoutes, routeMyProfile } from '~/shared';
 import { isMobile, isTablet, isDesktop } from '~/utils'
-import Menu from 'primevue/menu';
 
 const props = defineProps<{
     sidenavOpen: boolean
@@ -14,29 +13,30 @@ const emit = defineEmits([
     'update:sidenavOpen',
 ])
 
-const menu = ref();
-const toggle = (event: Event) => {
-    menu.value.toggle(event);
+const isMenuOpen = ref(false);
+const toggle = () => {
+    isMenuOpen.value = !isMenuOpen.value;
 };
 
 //get mock user | TODO: use real user
 const { User } = useAuth();
 
 //Profile options
-const items = ref([
+const items = [
     {
         label: 'Mi perfil', //i18n
-        icon: 'pi pi-user',
+        icon: 'material-symbols:person-outline',
         command: () => {
-            navigateTo(routeMyProfile(User.value?.uuid)); // Replace with actual profile route
+            navigateTo(routeMyProfile(User.value?.uuid));
+            isMenuOpen.value = false;
         }
     },
     {
         label: 'Ajustes', //i18n
-        icon: 'pi pi-cog',
+        icon: 'material-symbols:settings-outline',
         command: () => {
-            // Navigate to settings
-            navigateTo(AppRoutes.home); // Replace with actual settings route
+            navigateTo(AppRoutes.home);
+            isMenuOpen.value = false;
         }
     },
     {
@@ -44,13 +44,13 @@ const items = ref([
     },
     {
         label: 'Cerrar sesión', //i18n
-        icon: 'pi pi-sign-out',
+        icon: 'material-symbols:logout',
         command: () => {
-            // TODO: Handle logout
             console.log('Logout clicked');
+            isMenuOpen.value = false;
         }
     },
-]);
+];
 
 </script>
 <template>
@@ -75,9 +75,27 @@ const items = ref([
             <div class="flex items-center gap-4">
                 <layout-notification-inbox :isMobile="isMobile || isTablet" />
                 <div class="relative">
-                    <user-img :image="User.image" size="small" @click="toggle" aria-haspopup="true"
-                        aria-controls="profile_menu" :name="User.name" />
-                    <Menu ref="menu" id="profile_menu" :model="items" :popup="true" class="mt-2" />
+                    <user-img :image="User.image" size="small" @click="toggle" aria-haspopup="true" :name="User.name"
+                        class="cursor-pointer" />
+
+                    <!-- Custom Dropdown Menu -->
+                    <div v-if="isMenuOpen"
+                        class="absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-700 rounded-lg shadow-xl z-50 overflow-hidden">
+                        <div class="py-1">
+                            <template v-for="(item, index) in items" :key="index">
+                                <template v-if="item.separator">
+                                    <div class="border-t border-gray-700 my-1"></div>
+                                </template>
+                                <template v-else>
+                                    <button @click="item.command"
+                                        class="w-full flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors">
+                                        <Icon v-if="item.icon" :name="item.icon" size="18" class="text-indigo-400" />
+                                        {{ item.label }}
+                                    </button>
+                                </template>
+                            </template>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

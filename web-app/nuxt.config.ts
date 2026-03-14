@@ -1,5 +1,4 @@
 import { fileURLToPath } from 'node:url'
-import Aura from '@primeuix/themes/aura';
 
 export default defineNuxtConfig({
   alias: {
@@ -16,16 +15,8 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/ui',
-    '@primevue/nuxt-module',
     '@vite-pwa/nuxt'
   ],
-  primevue: {
-    options: {
-      theme: {
-        preset: Aura
-      }
-    }
-  },
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
