@@ -36,6 +36,24 @@ The frontend is a Nuxt application.
 ### Presentation (`/pages`)
 - **Role:** Pages structure follows the same entity-based and nested separation as the composables.
 
+### Interactive UI & Performance Best Practices
+
+#### 1. Correct Use of Composables
+- **Stateless vs Stateful:** Use composables for logic that is either pure utility (stateless) or manages lifecycle-bound state (stateful). Avoid global side effects inside composables unless explicitly designed for shared state.
+- **Cleanup:** Always use `onUnmounted` or `onScopeDispose` to clean up timers, event listeners, or manual DOM references to prevent memory leaks in long-lived sessions.
+
+#### 2. Pinia vs. ref
+- **Pinia:** Reserved for **Global Application State** that must persist across routes or be accessed by detached components (e.g., User Session, Global Notifications, Cart).
+- **Ref/Reactive:** Preferred for **UI/Local State** (e.g., `isModalOpen`, `searchQuery`, `formErrors`). If the state dies with the component, use `ref`.
+
+#### 3. shallowRef vs. ref
+- **shallowRef:** Use for large immutable datasets or complex objects where you only replace the top-level value (e.g., API responses for lists, chart instances). This avoids the heavy proxy overhead of deep reactivity.
+- **ref:** Use when you need to mutate nested properties and have the UI react automatically.
+
+#### 4. Hydration & Islands
+- **Deferred Hydration:** Prioritize initial content. Use Nuxt `Lazy` prefix (`<Lazy... />`) or third-party hydration delayers for heavy components below the fold or non-critical for SEO (e.g., complex dashboards, feedback forms).
+- **Island Architecture:** Use `Nuxt Islands` for static content that requires no JS on the client, isolating interactivity only where needed to reduce the final bundle size.
+
 ---
 
 ## 2. Backend: AdonisJS (API Only)
