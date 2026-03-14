@@ -4,22 +4,46 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true
   },
-  alias: {
-    '~/shared': fileURLToPath(new URL('./app/shared', import.meta.url)),
-    '~/utils': fileURLToPath(new URL('./app/utils', import.meta.url))
+  nitro: {
+    preset: 'bun',
   },
-  compatibilityDate: "2025-07-15",
-  ssr: false, //false in dev env
-  devtools: { enabled: false },
-  css: ['./app/assets/css/main.css'],
-  devServer: {
-    host: '0.0.0.0',
-    port: 3000
+  ssr: false,
+  app: {
+    head: {
+      link: [
+        { rel: 'preaload', as: 'script', href: '/_nuxt/entry.js' }
+      ]
+    }
   },
   modules: [
     '@nuxt/ui',
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt'
   ],
+  alias: {
+    '~/shared': fileURLToPath(new URL('./app/shared', import.meta.url)),
+    '~/utils': fileURLToPath(new URL('./app/utils', import.meta.url)),
+    '~/services': fileURLToPath(new URL('./app/services', import.meta.url)),
+    '~/stores': fileURLToPath(new URL('./app/stores', import.meta.url)),
+  },
+  compatibilityDate: "2025-07-15",
+  devtools: { enabled: false },
+  css: ['~/assets/css/main.css'],
+  devServer: {
+    host: process.env.NUXT_HOST || '0.0.0.0',
+    port: parseInt(process.env.NUXT_PORT || '3000')
+  },
+  pinia: {
+    storesDirs: ['stores']
+  },
+  vite: {
+    build: {
+      reportCompressedSize: true,
+      sourcemap: false,
+      rollupOptions: { output: { manualChunks: {} } }
+    }
+  },
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
