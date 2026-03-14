@@ -1,6 +1,9 @@
 import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
+  experimental: {
+    viewTransition: true
+  },
   alias: {
     '~/shared': fileURLToPath(new URL('./app/shared', import.meta.url)),
     '~/utils': fileURLToPath(new URL('./app/utils', import.meta.url))

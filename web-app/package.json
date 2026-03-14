@@ -1,5 +1,6 @@
 {
-  "name": "client",
+  "name": "ovisc-app",
+  "version": "0.0.0",
   "type": "module",
   "private": true,
   "scripts": {
@@ -10,18 +11,24 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/ui": "^4.5.1",
-    "@nuxtjs/tailwindcss": "6.14.0",
-    "@tailwindcss/postcss": "^4.2.1",
-    "@tailwindcss/vite": "^4.2.1",
-    "@vite-pwa/nuxt": "1.0.7",
+    "@tanstack/query-core": "^5.90.20",
+    "@tanstack/vue-query": "^5.92.9",
+    "dayjs": "^1.11.19",
     "nuxt": "^4.4.2",
-    "tailwindcss": "^4.2.1",
     "vue": "^3.5.30",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
+    "@nuxt/ui": "^4.5.1",
+    "@nuxtjs/tailwindcss": "6.14.0",
+    "@pinia/nuxt": "0.11.3",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.1",
     "@types/node": "^25.5.0",
-    "autoprefixer": "^10.4.27"
+    "@vite-pwa/nuxt": "1.0.7",
+    "@vueuse/core": "^12.1.0",
+    "autoprefixer": "^10.4.27",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "tailwindcss": "^4.2.1"
   }
 }
