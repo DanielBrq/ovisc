@@ -9,7 +9,7 @@ This is the main entry point for all specialized agent skills. **DO NOT** read t
 
 | Skill | Path | Description | Case of Use (Read when...) |
 | :--- | :--- | :--- | :--- |
-| **Architecture** | [architecture/index.md](./architecture/index.md) | Defines layers and boundaries. | Implementing new entities, API routes, or changing project structure. |
+| **Architecture** | [architecture/index.md](./architecture/index.md) | Entry point; pick frontend or backend sub-skill. | Implementing new entities, API routes, or changing project structure. |
 | **Domain Rules** | [domain/index.md](./domain/index.md) | Business invariants and soft-delete logic. | Creating/Updating clients, routines, or exercises. |
 | **Refactoring** | [refactoring/index.md](./refactoring/index.md) | Protocols for code cleanup and optimization. | The task explicitly asks for cleanup, refactor, or optimization. |
 | **Security** | [security/index.md](./security/index.md) | OWASP Top 10 and vulnerability audit. | Performing a security audit or handling sensitive data (auth/tokens). |
