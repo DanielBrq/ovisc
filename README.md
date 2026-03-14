@@ -1,10 +1,10 @@
 # Ovis
 
-Ovis es la aplicación de gamificación diseñada para grupos juveniles (el piloto inicial fue Oveja100 de la Iglesia Oasis de Esperanza). Combina un cliente Nuxt 4 + @nuxt/ui con un API AdonisJS v6 y tiene como objetivo escalar a multitenant con módulos de usuarios, misiones, economía virtual y auditorías.
+Ovis es la aplicación de gamificación diseñada para grupos juveniles. Combina un cliente Nuxt 4 + @nuxt/ui con un API AdonisJS v6 y tiene como objetivo escalar a multitenant con módulos de usuarios, misiones, economía virtual y auditorías.
 
 ## Objetivos y reglas clave
 - **Meta:** Fomentar compromiso espiritual y social mediante economía virtual, XP/niveles automáticos y herramientas financieras para los líderes.
-- **Roles:** Admin (Daniel Barquero) controla iglesias y auditoría, Leaders gestionan su iglesia y no pueden auto-depositar monedas, Players consumen tienda y misiones, Visitors requieren aprobación tras el onboarding.
+- **Roles:** Admin controla iglesias y auditoría, Leaders gestionan su iglesia y no pueden auto-depositar monedas, Players consumen tienda y misiones, Visitors requieren aprobación tras el onboarding.
 - **Reglas de borrado:** Soft delete por defecto, hard delete solamente en tablas N:N, catálogos y calendario.
 - **Onboarding:** Es obligatorio elegir iglesia; en caso de error el usuario regresa a Visitor hasta que alguien lo apruebe.
 - **Roadmap:** Los módulos V1 incluyen Usuarios, Grupos/Iglesias, Notificaciones, Calendario, Tienda, Player stats, Mission Board. El roadmap V1.x.x cubre la extensión con Trabajos y Tesorería avanzada.
