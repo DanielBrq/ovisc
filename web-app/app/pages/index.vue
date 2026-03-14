@@ -14,7 +14,6 @@ import { isMobile, isTablet, isDesktop } from '~/utils'
 
         <div v-if="isMobile || isTablet">
 
-            <!-- HOME PAGE MOBILE -->
             <section class="flex flex-row items-center h-40">
                 <div class="flex flex-col w-full h-full">
                     <home-card label="Orders" :to="AppRoutes.home" img="" class="h-40"></home-card>
@@ -32,7 +31,6 @@ import { isMobile, isTablet, isDesktop } from '~/utils'
 
         <section v-if="isDesktop" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
 
-            <!-- HOME PAGE DESKTOP -->
             <home-card label="Home" :to="AppRoutes.home" img=""
                 class="col-span-2 row-span-2 bg-gray-800 rounded-lg overflow-hidden" />
 
