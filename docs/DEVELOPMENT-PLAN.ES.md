@@ -7,7 +7,7 @@
 - [ ] Redis cache
 - [ ] OpenAPI
 - [ ] Implementar seguridad Middleware contra Broken Access Control de cualquier entidad.
-- [ ] Versionamiento de API.
+- [✅] Versionamiento de API.
 
 ## Config WEB App (Nuxt 4)
 
