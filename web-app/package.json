@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+    "@tanstack/query-core": "^5.90.20",
+    "@tanstack/vue-query": "^5.92.9",
     "dayjs": "^1.11.20",
     "nuxt": "^4.4.2",
     "pinia": "^3.0.4",
@@ -26,8 +28,9 @@
     "@tailwindcss/vite": "^4.2.1",
     "@types/node": "^25.5.0",
     "@vite-pwa/nuxt": "1.0.7",
-    "@vueuse/core": "^12.1.0",
+    "@vueuse/core": "^12.8.2",
     "autoprefixer": "^10.4.27",
+    "cross-env": "^10.1.0",
     "pinia-plugin-persistedstate": "^4.7.1",
     "tailwindcss": "^4.2.1"
   }

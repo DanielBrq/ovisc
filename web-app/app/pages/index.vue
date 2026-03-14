@@ -35,13 +35,10 @@ import { isMobile, isTablet, isDesktop } from '~/utils'
             <!-- HOME PAGE DESKTOP -->
             <home-card label="Home" :to="AppRoutes.home" img=""
                 class="col-span-2 row-span-2 bg-gray-800 rounded-lg overflow-hidden" />
-            <home-card label=" Feed" :to="AppRoutes.feed.index" img=""
-                class="col-span-4 row-span-1 bg-gray-800 rounded-lg overflow-hidden" />
+
             <home-card label="Store" :to="AppRoutes.store.index" img=""
                 class="col-span-1 row-span-1 bg-gray-700 rounded-lg overflow-hidden" />
 
-            <home-card label="Feed" :to="AppRoutes.feed.index" img=""
-                class="col-span-1 row-span-2 bg-gray-700 rounded-lg overflow-hidden" />
             <home-card label="Home" :to="AppRoutes.home" img="" />
 
             <home-card label="Store" :to="AppRoutes.store.index" img="" />

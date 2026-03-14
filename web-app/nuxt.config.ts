@@ -2,16 +2,20 @@ import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
   experimental: {
-    viewTransition: true
+    viewTransition: true,
+    payloadExtraction: true
   },
   nitro: {
-    preset: 'bun',
+    preset: 'node-server',
   },
-  ssr: false,
+  ssr: process.env.NODE_ENV === 'production',
+  routeRules: {
+    '/**': { swr: 60 }
+  },
   app: {
     head: {
       link: [
-        { rel: 'preaload', as: 'script', href: '/_nuxt/entry.js' }
+        { rel: 'preload', as: 'script', href: '/_nuxt/entry.js' }
       ]
     }
   },
@@ -29,6 +33,10 @@ export default defineNuxtConfig({
   },
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
+  sourcemap: {
+    client: false,
+    server: false
+  },
   css: ['~/assets/css/main.css'],
   devServer: {
     host: process.env.NUXT_HOST || '0.0.0.0',
@@ -38,10 +46,24 @@ export default defineNuxtConfig({
     storesDirs: ['stores']
   },
   vite: {
+    optimizeDeps: {
+      include: [
+        'workbox-window',
+        '@tanstack/query-core',
+        '@tanstack/vue-query',
+        '@vueuse/core',
+      ]
+    },
     build: {
       reportCompressedSize: true,
       sourcemap: false,
-      rollupOptions: { output: { manualChunks: {} } }
+      rollupOptions: {
+        output: { manualChunks: {} },
+        onwarn(warning, defaultHandler) {
+          if (warning.message.includes('Sourcemap is likely to be incorrect')) return;
+          defaultHandler(warning);
+        }
+      }
     }
   },
   pwa: {

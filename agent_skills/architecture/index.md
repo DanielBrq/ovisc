@@ -54,6 +54,20 @@ The frontend is a Nuxt application.
 - **Deferred Hydration:** Prioritize initial content. Use Nuxt `Lazy` prefix (`<Lazy... />`) or third-party hydration delayers for heavy components below the fold or non-critical for SEO (e.g., complex dashboards, feedback forms).
 - **Island Architecture:** Use `Nuxt Islands` for static content that requires no JS on the client, isolating interactivity only where needed to reduce the final bundle size.
 
+#### 5. SSR, Caching & Performance Modus Operandi
+- **Default SSR in Production:** Use SSR for fast first render and SEO. Interactivity is preserved via hydration. Avoid SSR only for routes/components that are explicitly client-only.
+- **Dev vs Prod SSR:** It is acceptable to disable SSR in development to avoid hydration mismatch noise. In production, SSR should be enabled for performance and perceived speed.
+- **Route Rules (Caching):**
+  - **Frequent routes:** Use `swr` (stale-while-revalidate) to serve cached HTML quickly and refresh in the background.
+  - **Infrequent routes:** Avoid prefetch, and consider SSR-only without prefetch or even CSR if truly non-critical.
+- **Selective Hydration:**
+  - Use `Lazy` components and `v-if` to load interactive pieces only when needed (e.g., modals, admin tools).
+  - Wrap browser-only components in `<ClientOnly>` or use `.client.vue` suffix.
+- **Prefetch Strategy:**
+  - **High-frequency routes:** Enable `prefetch` on visible links.
+  - **Low-frequency routes:** Do not prefetch to reduce initial bandwidth.
+- **LCP Focus:** The LCP element should be lightweight and avoid expensive CSS (e.g., heavy blur) on first paint.
+
 ---
 
 ## 2. Backend: AdonisJS (API Only)

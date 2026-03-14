@@ -2,7 +2,7 @@
 import { AppRoutes } from '~/shared';
 
 const openSubmenus = ref<Record<string, boolean>>({
-    feed: false,
+    board: false,
     store: false,
     event: false,
     profile: false
@@ -41,11 +41,11 @@ const menuItems = [
         to: AppRoutes.home
     },
     {
-        key: 'feed',
-        label: 'Feed', //i18n
-        icon: 'material-symbols:article-outline-rounded',
+        key: 'board',
+        label: 'Encargos', //i18n
+        icon: 'material-symbols:swords-rounded',
         img: '',
-        to: AppRoutes.feed.index,
+        to: AppRoutes.board.index,
         subItems: [
             { label: 'Sub A', to: AppRoutes.home },
             { label: 'Sub B', to: AppRoutes.home },

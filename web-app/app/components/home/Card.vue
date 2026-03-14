@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isMobile, isDesktop } from '~/utils/responsive'
-
 interface Props {
     label: string;
     to: string;
@@ -9,7 +7,6 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-
 </script>
 
 <template>

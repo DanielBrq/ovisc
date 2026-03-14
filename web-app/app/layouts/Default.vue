@@ -14,7 +14,7 @@ const currentTab = computed(() => {
   const path = route.path
 
   if (path === '/') return 'home'
-  if (path.startsWith('/feed')) return 'feed'
+  if (path.startsWith('/board')) return 'board'
   if (path.startsWith('/store')) return 'store'
   if (path.startsWith('/event')) return 'event'
   if (path.startsWith('/user/profile')) return 'profile'
@@ -31,8 +31,7 @@ const currentTab = computed(() => {
     <layout-header v-model:sidenavOpen="sidenavOpen" />
 
     <div class="flex">
-      <layout-side-bar v-if="isDesktop" v-model:sidenavOpen="sidenavOpen" v-model:active="currentTab"
-        @update:active="navigate" />
+      <layout-side-bar v-if="isDesktop" v-model:sidenavOpen="sidenavOpen" v-model:active="currentTab" />
 
       <main :class="[
         'flex-1 min-h-dvh mt-15 flex-nowrap px-4 transition-all duration-400',
