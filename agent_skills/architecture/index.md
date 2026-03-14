@@ -55,6 +55,11 @@ The backend is built with **AdonisJS** and functions purely as an API.
   - **Repositories:** Abstract database access and keep services focused purely on business logic.
   - **Import Strategy:** Both layers MUST export their contents through an `index.ts` file within their respective folders (e.g., `/app/service/index.ts` and `/app/repository/index.ts`) to facilitate and keep imports clean across the application.
 
+### Routing & API Documentation
+- **RESTful Standards:** Register controller routes following RESTful best practices (semantic HTTP verbs, pluralized resources, and clear path hierarchy).
+- **Swagger Documentation:** All routes must be registered and documented in Swagger. Ensure `adonis-autoswagger` is utilized to maintain an up-to-date API contract.
+- **Type-Safety:** Strictly follow AdonisJS type-safety patterns by using `#generated/controllers` to reference controller actions. Avoid using string-based controller references to benefit from compile-time checks.
+
 ### Agent Directives for Backend
 - Use native Adonis tools (Lucid, VineJS/Validators).
 - Ensure generated code aligns with AdonisJS standard class-based syntax and ES modules.

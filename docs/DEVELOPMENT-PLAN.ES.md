@@ -4,14 +4,15 @@
 
 ## Config API Server (AdonisJS v6)
 
-- [ ] Redis cache
-- [ ] OpenAPI
+- [✅] Redis cache
+- [✅] Swagger
 - [ ] Implementar seguridad Middleware contra Broken Access Control de cualquier entidad.
 - [✅] Versionamiento de API.
 
 ## Config WEB App (Nuxt 4)
 
 - [✅] Pages y routing
+- [ ] Configurar y estandarizar aspectos de rendimiento (SSR, SSG, ISR, hydration, localfonts, etc)
 - [ ] Composables
 - [ ] Stores (Pinia)
 - [ ] Components (considerar si usar nuxt ui)
