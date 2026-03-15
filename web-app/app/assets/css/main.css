@@ -1,165 +1,214 @@
 @import "tailwindcss";
 
-:root {
-  background-color: rgb(30, 30, 50);
-  --font-sans: "Inter", Arial, sans-serif;
-  --font-principal: "Montserrat", sans-serif;
+@theme {
+  /* --- BRAND PALETTE (STAY CONSISTENT) --- */
+  
+  /* Primary (Purple) */
+  --color-ovis-primary-50: #f5f3ff;
+  --color-ovis-primary-100: #ede9fe;
+  --color-ovis-primary-200: #ddd6fe;
+  --color-ovis-primary-300: #c4b5fd;
+  --color-ovis-primary-400: #a78bfa;
+  --color-ovis-primary-500: #8b5cf6;
+  --color-ovis-primary-600: #7c3aed;
+  --color-ovis-primary-700: #6d28d9;
+  --color-ovis-primary-800: #5b21b6;
+  --color-ovis-primary-900: #4c1d95;
+  --color-ovis-primary-950: #2e1065;
+
+  /* Accent (Orange) */
+  --color-ovis-accent-50: #fff7ed;
+  --color-ovis-accent-100: #ffedd5;
+  --color-ovis-accent-200: #fed7aa;
+  --color-ovis-accent-300: #fdba74;
+  --color-ovis-accent-400: #fb923c;
+  --color-ovis-accent-500: #f97316;
+  --color-ovis-accent-600: #ea580c;
+  --color-ovis-accent-700: #c2410c;
+  --color-ovis-accent-800: #9a3412;
+  --color-ovis-accent-900: #7c2d12;
+  --color-ovis-accent-950: #431407;
+
+  /* Secondary (Teal) */
+  --color-ovis-secondary-50: #f0fdfa;
+  --color-ovis-secondary-100: #ccfbf1;
+  --color-ovis-secondary-200: #99f6e4;
+  --color-ovis-secondary-300: #5eead4;
+  --color-ovis-secondary-400: #2dd4bf;
+  --color-ovis-secondary-500: #14b8a6;
+  --color-ovis-secondary-600: #0d9488;
+  --color-ovis-secondary-700: #0f766e;
+  --color-ovis-secondary-800: #115e59;
+  --color-ovis-secondary-900: #134e4a;
+  --color-ovis-secondary-950: #042f2e;
+
+  /* Status Colors (Expanded for @apply usage) */
+  --color-ovis-danger-500: #f43f5e;
+  --color-ovis-danger-600: #e11d48;
+  --color-ovis-danger-700: #be123c;
+
+  --color-ovis-success-500: #10b981;
+  --color-ovis-success-600: #059669;
+  --color-ovis-success-700: #047857;
+
+  --color-ovis-warning-400: #fbbf24;
+  --color-ovis-warning-500: #f59e0b;
+  --color-ovis-warning-600: #d97706;
+  --color-ovis-warning-700: #b45309;
+
+  --color-ovis-info-500: #0ea5e9;
+
+  /* Neutral Spectrum */
+  --color-ovis-neutral-50: #f9fafb;
+  --color-ovis-neutral-100: #f3f4f6;
+  --color-ovis-neutral-200: #e5e7eb;
+  --color-ovis-neutral-300: #d1d5db;
+  --color-ovis-neutral-400: #9ca3af;
+  --color-ovis-neutral-500: #6b7280;
+  --color-ovis-neutral-600: #4b5563;
+  --color-ovis-neutral-700: #374151;
+  --color-ovis-neutral-800: #1f2937;
+  --color-ovis-neutral-900: #111827;
+  --color-ovis-neutral-950: #030712;
+
+  /* --- SYSTEM PALETTE (REACTIVE) --- */
+  --color-app-bg: var(--app-bg);
+  --color-app-text: var(--app-text);
+  --color-app-text-muted: var(--app-text-muted);
+  --color-app-border: var(--app-border);
+  --color-app-surface: var(--app-surface);
 }
 
-/* Hide scrollbar globally but keep scroll functionality */
-html,
-body {
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* Main Layout */
+    --app-bg: #ffffff;
+    --app-text: var(--color-ovis-neutral-900);
+    --app-text-muted: var(--color-ovis-neutral-500);
+    --app-border: var(--color-ovis-neutral-200);
+    --app-surface: var(--color-ovis-neutral-50);
+  }
+
+  .dark {
+    color-scheme: dark;
+    /* Main Layout Override */
+    --app-bg: var(--color-ovis-neutral-950);
+    --app-text: var(--color-ovis-neutral-50);
+    --app-text-muted: var(--color-ovis-neutral-400);
+    --app-border: var(--color-ovis-neutral-800);
+    --app-surface: var(--color-ovis-neutral-900);
+  }
+
+  html,
+  body {
+    @apply transition-colors duration-300 ease-in-out;
+    background-color: var(--app-bg);
+    color: var(--app-text);
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none !important;
+  }
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none !important;
-}
+/* --- COMPONENTES --- */
 
-h1 {
-  @apply text-6xl font-bold tracking-tight text-gray-50;
-}
-
-h2 {
-  @apply text-5xl font-semibold text-gray-100;
-}
-
-h3 {
-  @apply text-4xl font-medium text-gray-200;
-}
-
-h4 {
-  @apply text-3xl font-medium text-gray-200;
-}
-
-h5 {
-  @apply text-2xl font-medium text-gray-300;
-}
-
-h6 {
-  @apply text-xl font-normal text-gray-400;
-}
-
-a,
-label {
-  @apply text-gray-300;
-}
-
-input {
-  margin: 0;
-}
-
-.ovis-gradient-h {
-  @apply bg-linear-to-t from-indigo-500 to-rose-500 bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-150 hover:saturate-200 active:saturate-200 transition-all duration-400;
-}
-
-.ovis-gradient-w {
-  @apply bg-linear-to-r from-indigo-500 to-rose-500 bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-150 hover:saturate-200 active:saturate-200 transition-all duration-400;
-}
-
-/* btn normal */
-
+/* Buttons */
 .btn-primary {
-  @apply text-blue-100 bg-indigo-500 border-indigo-700 active:border-indigo-500;
+  @apply text-white bg-ovis-primary-600 border-ovis-primary-800 active:border-ovis-primary-600 hover:bg-ovis-primary-700 transition-all duration-200;
+}
+
+.btn-primary-liquid-hover {
+  @apply absolute inset-0 w-full h-full bg-ovis-primary-500 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
 }
 
 .btn-secondary {
-  @apply text-gray-100 bg-gray-500 border-gray-700 active:border-gray-500;
+  @apply text-white bg-ovis-secondary-600 border-ovis-secondary-800 active:border-ovis-secondary-600 hover:bg-ovis-secondary-700 transition-all duration-200;
+}
+
+.btn-secondary-liquid-hover {
+  @apply absolute inset-0 w-full h-full bg-ovis-secondary-500 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
 }
 
 .btn-success {
-  @apply text-emerald-100 bg-emerald-500 border-emerald-700 active:border-emerald-500;
+  @apply text-white bg-ovis-success-500 border-ovis-success-700 hover:bg-ovis-success-600 transition-all duration-200;
+}
+
+.btn-success-liquid-hover {
+  @apply absolute inset-0 w-full h-full bg-ovis-success-600 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
 }
 
 .btn-danger {
-  @apply text-rose-100 bg-rose-500 border-rose-700 active:border-rose-500;
+  @apply text-white bg-ovis-danger-500 border-ovis-danger-700 hover:bg-ovis-danger-600 transition-all duration-200;
+}
+
+.btn-danger-liquid-hover {
+  @apply absolute inset-0 w-full h-full bg-ovis-danger-600 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
 }
 
 .btn-warning {
-  @apply text-amber-100 bg-amber-500 border-amber-700 active:border-amber-500;
+  @apply text-white bg-ovis-warning-500 border-ovis-warning-700 hover:bg-ovis-warning-600 transition-all duration-200;
+}
+
+.btn-warning-liquid-hover {
+  @apply absolute inset-0 w-full h-full bg-ovis-warning-600 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
 }
 
 .btn-outline {
-  @apply text-gray-100 bg-transparent border-2 border-b-4 border-gray-700 active:border-b-2;
+  @apply bg-transparent border-2 border-b-4 text-app-text active:border-b-2 hover:bg-app-surface transition-all duration-200;
+  border-color: var(--app-border);
 }
 
+.btn-outline-liquid-hover {
+  @apply absolute inset-0 w-full h-full bg-ovis-neutral-500/10 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
+}
+
+/* Gradients */
+.ovis-gradient-h {
+  background: linear-gradient(to top, var(--color-ovis-primary-500), var(--color-ovis-accent-500));
+  @apply bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-150 hover:saturate-200 transition-all duration-400;
+}
+
+.ovis-gradient-w {
+  background: linear-gradient(to right, var(--color-ovis-primary-500), var(--color-ovis-accent-500));
+  @apply bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-150 hover:saturate-200 transition-all duration-400;
+}
+
+/* Nav & Layout */
 .bottom-nav {
-  @apply h-full w-full min-w-20 flex-1 flex items-center justify-center border-t border-b-gray-800 px-4 hover:bg-gray-700/50;
+  @apply h-full w-full min-w-20 flex-1 flex items-center justify-center border-t px-4 transition-all duration-200;
+  background-color: var(--app-bg);
+  border-color: var(--app-border);
 }
 
-/* hypertext */
-a {
-  @apply active:scale-[0.97] transition-all duration-200 ease-out;
+.bottom-nav:hover {
+  background-color: var(--app-surface);
 }
 
-/* Badges */
-
-.badge-primary {
-  @apply px-2 py-1 rounded-4xl text-indigo-200 font-medium text-sm border border-indigo-500 bg-indigo-600/10;
-}
-
-.badge-success {
-  @apply px-2 py-1 rounded-4xl text-emerald-200 font-medium text-sm border border-emerald-500 bg-emerald-600/10;
-}
-
-.badge-warning {
-  @apply px-2 py-1 rounded-4xl text-amber-200 font-medium text-sm border border-amber-500 bg-amber-600/10;
-}
-
-.badge-danger {
-  @apply px-2 py-1 rounded-4xl text-red-200 font-medium text-sm border border-rose-500 bg-rose-600/10;
-}
-
-/* text fields */
-
+/* Form Fields */
 .text-field-invalid {
-  @apply border-pink-500 text-pink-400 outline-pink-500;
+  @apply border-ovis-danger-500 text-ovis-danger-500 outline-ovis-danger-500;
 }
 
 .text-field-valid {
-  @apply border-emerald-500 text-emerald-300 outline-emerald-500;
+  @apply border-ovis-success-500 text-ovis-success-500 outline-ovis-success-500;
 }
 
 .password-button svg {
-  @apply text-indigo-100/70 size-5 group-hover:text-indigo-200/90 group-active:scale-[0.90] transition-all duration-200 ease-out;
+  color: var(--app-text-muted);
+  @apply transition-all duration-200;
 }
 
-/* Icons */
+.password-button:hover svg {
+  color: var(--app-text);
+}
+
 .icon-base {
   @apply size-5 flex items-center justify-center;
-}
-
-/* card */
-
-.card-base,
-.bg-navigator {
-  @apply rounded-xl p-4 border border-fuchsia-300/10 bg-gray-900/40;
-}
-
-/* Modal */
-.modal-backdrop {
-  @apply fixed inset-0 bg-gray-950/40 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in backdrop-blur-xs;
-}
-
-.modal-dialog-panel {
-  @apply relative transform overflow-hidden rounded-lg bg-gray-800 text-left shadow-xl outline -outline-offset-1 outline-white/10 transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95;
-}
-
-/* tablas */
-.table-header {
-  @apply bg-gray-900 px-5 text-indigo-200 text-lg py-2 text-left pl-8 border-b border-transparent;
-}
-
-.table-row {
-  @apply hover:border-l-2 hover:border-indigo-500 hover:text-indigo-400;
-}
-
-.table-row td {
-  @apply bg-gray-800 border-b px-3 py-2 pl-8 text-gray-500 border-fuchsia-300/10 dark:text-gray-400;
-}
-
-.table-row p {
-  @apply hover:text-indigo-400;
 }

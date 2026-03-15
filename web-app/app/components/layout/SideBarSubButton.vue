@@ -10,7 +10,7 @@ const props = defineProps<Props>()
 <template>
     <nuxt-link :to="props.to" class="block no-underline">
         <button type="button"
-            class="w-full h-9 flex items-center px-4 mt-0.5 rounded-lg group transition-all duration-300 hover:bg-gray-800/30 text-gray-400 hover:text-indigo-300">
+            class="w-full h-9 flex items-center px-4 mt-0.5 rounded-lg group transition-all duration-300 hover:bg-ovis-neutral-800/30 text-ovis-neutral-400 hover:text-ovis-primary-300">
             <span v-if="props.sidenavOpen" class="flex items-center text-sm font-medium">
                 <Icon name="material-symbols:fiber-manual-record-outline-rounded" size="10"
                     class="mr-3 opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300" />

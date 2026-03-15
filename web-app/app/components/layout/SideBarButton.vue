@@ -31,7 +31,7 @@ function handleClick() {
     <button type="button"
       class="relative w-full h-11 px-3 flex items-center group text-left overflow-hidden transition-all duration-300 border-0 cursor-pointer rounded-lg"
       :class="[
-        props.isActive ? 'bg-indigo-500/20 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+        props.isActive ? 'bg-ovis-primary-500/20 text-ovis-neutral-50' : 'text-ovis-neutral-400 hover:text-ovis-neutral-50 hover:bg-ovis-neutral-800/50'
       ]" @click="handleClick">
 
       <!-- Contenido  -->
@@ -39,7 +39,7 @@ function handleClick() {
 
         <div v-if="props.iconName" class="shrink-0 flex items-center justify-center w-8">
           <Icon :name="props.iconName" size="24" class="transition-transform duration-300 group-hover:scale-110"
-            :class="props.isActive ? 'text-indigo-400' : 'text-inherit'" />
+            :class="props.isActive ? 'text-ovis-primary-400' : 'text-inherit'" />
         </div>
 
         <span v-if="props.sidenavOpen" class="ml-3 truncate flex-1 font-medium transition-all duration-300">
@@ -48,13 +48,13 @@ function handleClick() {
 
         <span v-if="props.arrow && props.sidenavOpen" class="ml-2 flex items-center">
           <Icon name="material-symbols:keyboard-arrow-down-rounded" size="22" class="transition-transform duration-300"
-            :class="{ 'rotate-180': props.submenuIsOpen, 'text-gray-500 group-hover:text-white': !props.isActive }" />
+            :class="{ 'rotate-180': props.submenuIsOpen, 'text-ovis-neutral-500 group-hover:text-ovis-neutral-50': !props.isActive }" />
         </span>
       </div>
 
       <!-- Indicador activo lateral -->
       <div v-if="props.isActive && !props.sidenavOpen"
-        class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-indigo-500 rounded-r-full">
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-ovis-primary-500 rounded-r-full">
       </div>
 
     </button>

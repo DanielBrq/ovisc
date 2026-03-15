@@ -4,7 +4,6 @@ useHead({
     return titleChunk ? `${titleChunk} | Ovis` : 'Ovis';
   }
 })
-
 </script>
 <template>
   <VitePwaManifest />

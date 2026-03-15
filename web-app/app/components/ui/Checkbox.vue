@@ -16,13 +16,14 @@ const model = defineModel<boolean>({ default: false });
             <div class="w-5 h-5 border-2 rounded-md transition-all duration-200 flex items-center justify-center"
                 :class="[
                     model
-                        ? 'bg-indigo-600 border-indigo-600 shadow-[0_0_10px_rgba(79,70,229,0.4)]'
-                        : 'bg-gray-800/80 border-gray-600 group-hover:border-gray-500'
+                        ? 'bg-ovis-primary-600 border-ovis-primary-600 shadow-[0_0_10px_rgba(124,58,237,0.4)]'
+                        : 'bg-ovis-neutral-800/80 border-ovis-neutral-600 group-hover:border-ovis-neutral-500'
                 ]">
-                <Icon v-if="model" name="material-symbols:check-small-rounded" class="text-white text-xl scale-125" />
+                <Icon v-if="model" name="material-symbols:check-small-rounded"
+                    class="text-ovis-neutral-50 text-xl scale-125" />
             </div>
         </div>
-        <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-200">
+        <span class="text-sm font-medium text-ovis-neutral-300 group-hover:text-ovis-neutral-50 transition-colors duration-200">
             {{ props.label }}
         </span>
     </div>

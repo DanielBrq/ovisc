@@ -47,9 +47,9 @@ const togglePasswordVisibility = () => {
 <template>
     <div class="flex flex-col">
         <div class="flex flex-row group w-full h-full">
-            <input v-bind="$attrs" @keypress="handleType" :type="inputType" :required class="w-full border-2 py-2 px-3 text-white border-gray-700 border-b-4 focus:border-b-2
-            disabled:border-blue-200 disabled:bg-blue-50 disabled:text-blue-500 disabled:shadow-none
-            focus:border-indigo-500 focus:outline focus:outline-indigo-600" :class="[
+            <input v-bind="$attrs" @keypress="handleType" :type="inputType" :required class="w-full border-2 py-2 px-3 text-ovis-neutral-50 border-ovis-neutral-700 border-b-4 focus:border-b-2
+            disabled:border-ovis-info-200 disabled:bg-ovis-info-50 disabled:text-ovis-info-500 disabled:shadow-none
+            focus:border-ovis-primary-500 focus:outline focus:outline-ovis-primary-600" :class="[
                 extraClasses,
                 props.type === 'password' ? 'rounded-l-2xl border-r-0' : 'rounded-2xl',
                 {
@@ -57,18 +57,18 @@ const togglePasswordVisibility = () => {
                     'text-field-invalid': invalid || required,
                 }
             ]" />
-            <button v-if="props.type === 'password'" @click="togglePasswordVisibility" class="bg-indigo-100/10 border-l-0 border-2 rounded-r-2xl border-gray-700 w-[50px] border-b-4 focus:border-b-2
+            <button v-if="props.type === 'password'" @click="togglePasswordVisibility" class="bg-ovis-primary-100/10 border-l-0 border-2 rounded-r-2xl border-ovis-neutral-700 w-[50px] border-b-4 focus:border-b-2
                 flex items-center justify-center
-                hover:bg-indigo-100/15 active:scale-[0.99]
+                hover:bg-ovis-primary-100/15 active:scale-[0.99]
                 transition-all ease-out" type="button">
                 <icon :name="isPasswordVisible ? 'mdi:eye' : 'mdi:eye-off'" size="22"
-                    class="icon-base text-blue-100/70" />
+                    class="icon-base text-ovis-primary-100/70" />
             </button>
         </div>
-        <span v-if="props.required" class="text-sm text-pink-500 w-full">
+        <span v-if="props.required" class="text-sm text-ovis-danger-500 w-full">
             Este campo es obligatorio
         </span>
-        <span v-if="props.invalidLabel && props.invalid" class="text-sm text-pink-500 w-full">
+        <span v-if="props.invalidLabel && props.invalid" class="text-sm text-ovis-danger-500 w-full">
             {{ invalidLabel }}
         </span>
     </div>
