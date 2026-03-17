@@ -8,10 +8,10 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'node-server',
   },
-  ssr: process.env.NODE_ENV === 'production',
-  routeRules: {
-    '/**': { swr: 60 }
-  },
+  ssr: false,
+  // routeRules: {
+  //   '/**': { swr: 60 }
+  // },
   app: {
     head: {
       link: [

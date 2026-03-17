@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- BRAND PALETTE (STAY CONSISTENT) --- */
-  
-  /* Primary (Purple) */
+
+  /* Primary */
   --color-ovis-primary-50: #f5f3ff;
   --color-ovis-primary-100: #ede9fe;
   --color-ovis-primary-200: #ddd6fe;
@@ -16,49 +15,59 @@
   --color-ovis-primary-900: #4c1d95;
   --color-ovis-primary-950: #2e1065;
 
-  /* Accent (Orange) */
-  --color-ovis-accent-50: #fff7ed;
-  --color-ovis-accent-100: #ffedd5;
-  --color-ovis-accent-200: #fed7aa;
-  --color-ovis-accent-300: #fdba74;
-  --color-ovis-accent-400: #fb923c;
-  --color-ovis-accent-500: #f97316;
-  --color-ovis-accent-600: #ea580c;
-  --color-ovis-accent-700: #c2410c;
-  --color-ovis-accent-800: #9a3412;
-  --color-ovis-accent-900: #7c2d12;
-  --color-ovis-accent-950: #431407;
+  /* Secondary */
+  --color-ovis-secondary-50: #fff7ed;
+  --color-ovis-secondary-100: #ffedd5;
+  --color-ovis-secondary-200: #fed7aa;
+  --color-ovis-secondary-300: #fdba74;
+  --color-ovis-secondary-400: #fb923c;
+  --color-ovis-secondary-500: #f97316;
+  --color-ovis-secondary-600: #ea580c;
+  --color-ovis-secondary-700: #c2410c;
+  --color-ovis-secondary-800: #9a3412;
+  --color-ovis-secondary-900: #7c2d12;
+  --color-ovis-secondary-950: #431407;
 
-  /* Secondary (Teal) */
-  --color-ovis-secondary-50: #f0fdfa;
-  --color-ovis-secondary-100: #ccfbf1;
-  --color-ovis-secondary-200: #99f6e4;
-  --color-ovis-secondary-300: #5eead4;
-  --color-ovis-secondary-400: #2dd4bf;
-  --color-ovis-secondary-500: #14b8a6;
-  --color-ovis-secondary-600: #0d9488;
-  --color-ovis-secondary-700: #0f766e;
-  --color-ovis-secondary-800: #115e59;
-  --color-ovis-secondary-900: #134e4a;
-  --color-ovis-secondary-950: #042f2e;
-
-  /* Status Colors (Expanded for @apply usage) */
-  --color-ovis-danger-500: #f43f5e;
-  --color-ovis-danger-600: #e11d48;
-  --color-ovis-danger-700: #be123c;
-
+  /* Success */
+  --color-ovis-success-50: #ecfdf5;
+  --color-ovis-success-100: #d1fae5;
+  --color-ovis-success-200: #a7f3d0;
+  --color-ovis-success-300: #6ee7b7;
+  --color-ovis-success-400: #34d399;
   --color-ovis-success-500: #10b981;
   --color-ovis-success-600: #059669;
   --color-ovis-success-700: #047857;
+  --color-ovis-success-800: #065f46;
+  --color-ovis-success-900: #064e3b;
+  --color-ovis-success-950: #022c22;
 
-  --color-ovis-warning-400: #fbbf24;
-  --color-ovis-warning-500: #f59e0b;
-  --color-ovis-warning-600: #d97706;
-  --color-ovis-warning-700: #b45309;
+  /* Danger */
+  --color-ovis-danger-50: #fff1f2;
+  --color-ovis-danger-100: #ffe4e6;
+  --color-ovis-danger-200: #fecdd3;
+  --color-ovis-danger-300: #fda4af;
+  --color-ovis-danger-400: #fb7185;
+  --color-ovis-danger-500: #f43f5e;
+  --color-ovis-danger-600: #e11d48;
+  --color-ovis-danger-700: #be123c;
+  --color-ovis-danger-800: #9f1239;
+  --color-ovis-danger-900: #881337;
+  --color-ovis-danger-950: #6b0f29;
 
-  --color-ovis-info-500: #0ea5e9;
+  /* Warning */
+  --color-ovis-warning-50: #fdf4ff;
+  --color-ovis-warning-100: #fae8ff;
+  --color-ovis-warning-200: #f5d0fe;
+  --color-ovis-warning-300: #f0abfc;
+  --color-ovis-warning-400: #e879f9;
+  --color-ovis-warning-500: #d946ef;
+  --color-ovis-warning-600: #c026d3;
+  --color-ovis-warning-700: #a21caf;
+  --color-ovis-warning-800: #86198f;
+  --color-ovis-warning-900: #701a75;
+  --color-ovis-warning-950: #4a044e;
 
-  /* Neutral Spectrum */
+  /* Neutral */
   --color-ovis-neutral-50: #f9fafb;
   --color-ovis-neutral-100: #f3f4f6;
   --color-ovis-neutral-200: #e5e7eb;
@@ -121,52 +130,28 @@
 
 /* Buttons */
 .btn-primary {
-  @apply text-white bg-ovis-primary-600 border-ovis-primary-800 active:border-ovis-primary-600 hover:bg-ovis-primary-700 transition-all duration-200;
-}
-
-.btn-primary-liquid-hover {
-  @apply absolute inset-0 w-full h-full bg-ovis-primary-500 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
+  @apply bg-ovis-primary-500 border-ovis-primary-500 hover:bg-ovis-primary-700 active:border-ovis-primary-500;
 }
 
 .btn-secondary {
-  @apply text-white bg-ovis-secondary-600 border-ovis-secondary-800 active:border-ovis-secondary-600 hover:bg-ovis-secondary-700 transition-all duration-200;
-}
-
-.btn-secondary-liquid-hover {
-  @apply absolute inset-0 w-full h-full bg-ovis-secondary-500 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
+  @apply bg-ovis-secondary-400 border-ovis-secondary-400 hover:bg-ovis-secondary-500 active:border-ovis-secondary-400;
 }
 
 .btn-success {
-  @apply text-white bg-ovis-success-500 border-ovis-success-700 hover:bg-ovis-success-600 transition-all duration-200;
-}
-
-.btn-success-liquid-hover {
-  @apply absolute inset-0 w-full h-full bg-ovis-success-600 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
+  @apply bg-ovis-success-500 border-ovis-success-500 hover:bg-ovis-success-700 active:border-ovis-success-500;
 }
 
 .btn-danger {
-  @apply text-white bg-ovis-danger-500 border-ovis-danger-700 hover:bg-ovis-danger-600 transition-all duration-200;
-}
-
-.btn-danger-liquid-hover {
-  @apply absolute inset-0 w-full h-full bg-ovis-danger-600 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
+  @apply bg-ovis-danger-500 border-ovis-danger-500 hover:bg-ovis-danger-700 active:border-ovis-danger-500;
 }
 
 .btn-warning {
-  @apply text-white bg-ovis-warning-500 border-ovis-warning-700 hover:bg-ovis-warning-600 transition-all duration-200;
-}
-
-.btn-warning-liquid-hover {
-  @apply absolute inset-0 w-full h-full bg-ovis-warning-600 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
+  @apply bg-ovis-warning-500 border-ovis-warning-500 hover:bg-ovis-warning-700 active:border-ovis-warning-500;
 }
 
 .btn-outline {
-  @apply bg-transparent border-2 border-b-4 text-app-text active:border-b-2 hover:bg-app-surface transition-all duration-200;
+  @apply bg-transparent border-2 text-app-text hover:bg-transparent hover:border-ovis-neutral-600 active:border-ovis-neutral-600;
   border-color: var(--app-border);
-}
-
-.btn-outline-liquid-hover {
-  @apply absolute inset-0 w-full h-full bg-ovis-neutral-500/10 transition-all duration-500 ease-out transform scale-0 rounded-full group-hover:scale-150 group-hover:rounded-none
 }
 
 /* Gradients */

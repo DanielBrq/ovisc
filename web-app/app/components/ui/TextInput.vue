@@ -31,9 +31,9 @@ const handleType = (event: KeyType) => {
 </script>
 <template>
     <div class="flex flex-col">
-        <input v-bind="$attrs" @keypress="handleType" :type="props.type" :required class="w-full border-2 rounded-2xl py-2 px-3 text-ovis-neutral-50 border-ovis-neutral-700 border-b-4 focus:border-b-2
+        <input v-bind="$attrs" @keypress="handleType" :type="props.type" :required class="w-full h-[42px]! border-2 rounded-2xl py-2 px-3 text-ovis-neutral-50 border-ovis-neutral-700
         disabled:border-ovis-info-200 disabled:bg-ovis-info-50 disabled:text-ovis-info-500 disabled:shadow-none
-        focus:border-ovis-primary-500 focus:outline focus:outline-ovis-primary-600" :class="[
+        focus:border-ovis-neutral-600 focus:outline focus:border-2" :class="[
             extraClasses,
             {
                 'text-field-valid': valid,

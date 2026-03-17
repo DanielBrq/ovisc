@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { ref } from "vue";
 
 // Usamos defineModel para una vinculaciÃ³n de dos vÃ­as limpia con el padre

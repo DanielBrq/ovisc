@@ -17,6 +17,7 @@
     "@tanstack/query-core": "^5.90.20",
     "@tanstack/vue-query": "^5.92.9",
     "dayjs": "^1.11.20",
+    "gsap": "^3.14.2",
     "nuxt": "^4.4.2",
     "nuxt-lucide-icons": "2.0.0",
     "pinia": "^3.0.4",
