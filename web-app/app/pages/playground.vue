@@ -2,8 +2,6 @@
 useHead({
   title: "Playground",
 });
-
-const { isDark, toggleTheme } = useTheme();
 </script>
 
 <template>
@@ -18,9 +16,6 @@ const { isDark, toggleTheme } = useTheme();
           UI sandbox para probar todos los componentes.
         </p>
       </div>
-      <button class="btn-outline" type="button" @click="toggleTheme">
-        Cambiar tema: {{ isDark ? "Dark" : "Light" }}
-      </button>
     </div>
 
     <section class="mt-8 space-y-4">

@@ -87,22 +87,10 @@
   --color-app-surface: var(--app-surface);
 }
 
-@variant dark (&:where(.dark, .dark *));
-
 @layer base {
   :root {
-    color-scheme: light;
-    /* Main Layout */
-    --app-bg: #ffffff;
-    --app-text: var(--color-ovis-neutral-900);
-    --app-text-muted: var(--color-ovis-neutral-500);
-    --app-border: var(--color-ovis-neutral-200);
-    --app-surface: var(--color-ovis-neutral-50);
-  }
-
-  .dark {
     color-scheme: dark;
-    /* Main Layout Override */
+    /* Main Layout */
     --app-bg: var(--color-ovis-neutral-950);
     --app-text: var(--color-ovis-neutral-50);
     --app-text-muted: var(--color-ovis-neutral-400);
@@ -129,27 +117,28 @@
 
 /* Buttons */
 .btn-primary {
-  @apply bg-ovis-primary-500 border-ovis-primary-500 hover:bg-ovis-primary-700 active:border-ovis-primary-500;
+  /* prettier-ignore */
+  @apply bg-ovis-primary-500 border-ovis-primary-500 hover:bg-ovis-primary-700 active:border-ovis-primary-600 active:bg-ovis-primary-600;
 }
 
 .btn-secondary {
-  @apply bg-ovis-secondary-400 border-ovis-secondary-400 hover:bg-ovis-secondary-500 active:border-ovis-secondary-400;
+  @apply bg-ovis-secondary-400 border-ovis-secondary-400 hover:bg-ovis-secondary-500 active:border-ovis-secondary-400 active:bg-ovis-secondary-400;
 }
 
 .btn-success {
-  @apply bg-ovis-success-500 border-ovis-success-500 hover:bg-ovis-success-700 active:border-ovis-success-500;
+  @apply bg-ovis-success-500 border-ovis-success-500 hover:bg-ovis-success-700 active:border-ovis-success-500 active:bg-ovis-success-500;
 }
 
 .btn-danger {
-  @apply bg-ovis-danger-500 border-ovis-danger-500 hover:bg-ovis-danger-700 active:border-ovis-danger-500;
+  @apply bg-ovis-danger-500 border-ovis-danger-500 hover:bg-ovis-danger-700 active:border-ovis-danger-500 active:bg-ovis-danger-500;
 }
 
 .btn-warning {
-  @apply bg-ovis-warning-500 border-ovis-warning-500 hover:bg-ovis-warning-700 active:border-ovis-warning-500;
+  @apply bg-ovis-warning-500 border-ovis-warning-500 hover:bg-ovis-warning-700 active:border-ovis-warning-500 active:bg-ovis-warning-500;
 }
 
 .btn-outline {
-  @apply bg-transparent border-2 text-app-text hover:bg-transparent hover:border-ovis-neutral-600 active:border-ovis-neutral-600;
+  @apply bg-transparent border-2 text-app-text hover:bg-transparent hover:border-ovis-neutral-600 active:border-ovis-neutral-600 active:bg-ovis-neutral-600/20;
   border-color: var(--app-border);
 }
 

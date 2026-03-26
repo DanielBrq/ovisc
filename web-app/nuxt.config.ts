@@ -24,23 +24,12 @@ export default defineNuxtConfig({
     "@pinia-plugin-persistedstate/nuxt",
     "@nuxt/fonts",
     "nuxt-lucide-icons",
-    "@nuxtjs/color-mode",
   ],
   alias: {
     "~/shared": fileURLToPath(new URL("./app/shared", import.meta.url)),
     "~/utils": fileURLToPath(new URL("./app/utils", import.meta.url)),
     "~/services": fileURLToPath(new URL("./app/services", import.meta.url)),
     "~/stores": fileURLToPath(new URL("./app/stores", import.meta.url)),
-  },
-  colorMode: {
-    preference: "light",
-    fallback: "light",
-    globalName: "__NUXT_COLOR_MODE__",
-    componentName: "ColorScheme",
-    classPrefix: "",
-    classSuffix: "",
-    storage: "localStorage",
-    storageKey: "nuxt-color-mode",
   },
   fonts: {
     families: [

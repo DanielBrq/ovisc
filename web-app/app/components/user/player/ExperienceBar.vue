@@ -40,7 +40,7 @@ const value = computed(
         :style="{
           width: `${value}%`,
           background:
-            'linear-gradient(to right, var(--color-ovis-primary-500), var(--color-ovis-accent-500), var(--color-ovis-danger-500))',
+            'linear-gradient(to right, var(--color-ovis-primary-500), var(--color-ovis-accent-500), var(--color-ovis-secondary-500))',
         }"
       ></div>
     </div>

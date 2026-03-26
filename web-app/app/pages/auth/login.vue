@@ -12,7 +12,7 @@ useHead({
       <form class="flex flex-col items-center justify-center gap-6">
         <div>
           <p
-            class="bg-linear-to-r from-blue-500 to-rose-500 bg-clip-text font-bold tracking-tight bold text-transparent text-3xl mb-2"
+            class="bg-linear-to-r from-ovis-primary-500 to-ovis-secondary-500 bg-clip-text font-bold tracking-tight bold text-transparent text-3xl mb-2"
           >
             Bienvenido de nuevo
           </p>
