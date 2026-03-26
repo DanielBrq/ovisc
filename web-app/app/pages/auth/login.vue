@@ -12,7 +12,7 @@ useHead({
       <form class="flex flex-col items-center justify-center gap-6">
         <div>
           <p
-            class="bg-linear-to-r from-ovis-primary-500 to-ovis-secondary-500 bg-clip-text font-bold tracking-tight bold text-transparent text-3xl mb-2"
+            class="bg-linear-to-r from-ovis-secondary-500 to-ovis-primary-500 bg-clip-text font-bold tracking-tight bold text-transparent text-3xl mb-2"
           >
             Bienvenido de nuevo
           </p>
@@ -22,14 +22,14 @@ useHead({
         </div>
         <div class="flex flex-col gap-4 w-full">
           <ui-button
-            class="btn-secondary-outline w-min-[120px]!"
+            class="btn-primary-outline w-min-[120px]!"
             label="Inicia con Google"
             type="button"
             iconName="devicon:google"
           >
           </ui-button>
           <ui-button
-            class="btn-secondary-outline"
+            class="btn-primary-outline"
             label="Inicia con Facebook"
             type="button"
             iconName="devicon:facebook"

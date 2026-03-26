@@ -46,7 +46,7 @@ const achievements = ref([
       <div
         v-for="achievement in achievements"
         :key="achievement.id"
-        class="w-30 min-w-30 h-full rounded-2xl border border-ovis-primary-300/40 bg-ovis-neutral-900/40"
+        class="w-30 min-w-30 h-full rounded-2xl border border-ovis-secondary-300/40 bg-ovis-neutral-900/40"
       >
         <div class="flex flex-col h-full z-9">
           <img
@@ -69,7 +69,7 @@ const achievements = ref([
         class="flex items-center justify-center h-full aspect-square w-15 min-w-15"
       >
         <button
-          class="flex items-center justify-center w-10 h-10 rounded-full bg-ovis-neutral-800/50 hover:bg-ovis-neutral-700 text-ovis-primary-300/75 hover:text-ovis-primary-300/75 transition-all border border-ovis-primary-400/70 hover:border-ovis-primary-400/85 hover:scale-102 cursor-pointer"
+          class="flex items-center justify-center w-10 h-10 rounded-full bg-ovis-neutral-800/50 hover:bg-ovis-neutral-700 text-ovis-secondary-300/75 hover:text-ovis-secondary-300/75 transition-all border border-ovis-secondary-400/70 hover:border-ovis-secondary-400/85 hover:scale-102 cursor-pointer"
         >
           <Icon name="heroicons:plus-20-solid" class="w-6 h-6" />
         </button>

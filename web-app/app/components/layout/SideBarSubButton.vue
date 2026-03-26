@@ -11,7 +11,7 @@ const props = defineProps<Props>();
   <nuxt-link :to="props.to" class="block no-underline">
     <button
       type="button"
-      class="w-full h-9 flex items-center px-4 mt-0.5 rounded-lg group transition-all duration-300 hover:bg-ovis-neutral-800/30 text-ovis-neutral-400 hover:text-ovis-primary-300"
+      class="w-full h-9 flex items-center px-4 mt-0.5 rounded-lg group transition-all duration-300 hover:bg-ovis-neutral-800/30 text-ovis-neutral-400 hover:text-ovis-secondary-300"
     >
       <span
         v-if="props.sidenavOpen"

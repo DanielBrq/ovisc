@@ -20,7 +20,7 @@ const model = defineModel<boolean>({ default: false });
         class="w-5 h-5 border-2 rounded-md flex items-center justify-center"
         :class="[
           model
-            ? 'bg-ovis-primary-600 border-ovis-primary-600 shadow-[0_0_10px_rgba(124,58,237,0.4)]'
+            ? 'bg-ovis-secondary-600 border-ovis-secondary-600 shadow-[0_0_10px_rgba(124,58,237,0.4)]'
             : 'bg-ovis-neutral-800/80 border-ovis-neutral-600 group-hover:border-ovis-neutral-500',
         ]"
       >

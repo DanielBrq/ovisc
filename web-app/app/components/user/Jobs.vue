@@ -9,7 +9,7 @@ const props = defineProps<Props>();
 const jobs = ref([
   {
     name: "Músico",
-    style: "badge-primary",
+    style: "badge-secondary",
   },
   {
     name: "Líder",

@@ -11,7 +11,7 @@ const visible = ref(false);
       <ui-button
         @click="visible = true"
         icon-name="material-symbols:view-module"
-        class="text-ovis-neutral-50 bg-ovis-primary-500 max-w-10 rounded-2xl"
+        class="text-ovis-neutral-50 bg-ovis-secondary-500 max-w-10 rounded-2xl"
       />
     </div>
 

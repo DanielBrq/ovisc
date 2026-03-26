@@ -28,8 +28,8 @@ const handleClick = (event: MouseEvent) => {
 };
 
 type buttonVariant =
-  | "primary"
   | "secondary"
+  | "primary"
   | "danger"
   | "success"
   | "warning"
@@ -37,8 +37,8 @@ type buttonVariant =
 
 const buttonTypeClass = computed(() => {
   return {
-    "btn-primary": props.buttonType === "primary",
     "btn-secondary": props.buttonType === "secondary",
+    "btn-primary": props.buttonType === "primary",
     "btn-danger": props.buttonType === "danger",
     "btn-success": props.buttonType === "success",
     "btn-warning": props.buttonType === "warning",

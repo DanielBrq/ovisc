@@ -46,8 +46,8 @@ useHead({
     <section class="mt-10 space-y-4">
       <h2 class="text-lg font-semibold">UI</h2>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <ui-button label="Primario" button-type="primary" />
-        <ui-button label="Secundario" button-type="secondary" />
+        <ui-button label="Primario" button-type="secondary" />
+        <ui-button label="Secundario" button-type="primary" />
         <ui-button label="Peligro" button-type="danger" />
         <ui-button label="Éxito" button-type="success" />
         <ui-button label="Warning" button-type="warning" />

@@ -59,7 +59,7 @@ const togglePasswordVisibility = () => {
       <button
         v-if="props.type === 'password'"
         @click="togglePasswordVisibility"
-        class="border-l-0 border-2 rounded-r-2xl border-ovis-neutral-700 w-[50px] flex items-center justify-center hover:bg-ovis-primary-100/15 active:scale-[0.99] group-focus-within:border-ovis-neutral-600 group-focus-within:outline-none group-focus-within:border-2 group-focus-within:border-l-0 active:scale-100!"
+        class="border-l-0 border-2 rounded-r-2xl border-ovis-neutral-700 w-[50px] flex items-center justify-center hover:bg-ovis-secondary-100/15 active:scale-[0.99] group-focus-within:border-ovis-neutral-600 group-focus-within:outline-none group-focus-within:border-2 group-focus-within:border-l-0 active:scale-100!"
         type="button"
       >
         <icon

@@ -20,7 +20,7 @@ const isActive = (item: NavItem) => {
       class="w-full h-full rounded-t-lg bg-ovis-neutral-800 shadow-lg relative"
     >
       <div
-        class="pointer-events-none absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-ovis-primary-500 to-transparent z-50"
+        class="pointer-events-none absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-ovis-secondary-500 to-transparent z-50"
       ></div>
       <div class="flex justify-center items-center h-full w-full">
         <NuxtLink
@@ -34,13 +34,13 @@ const isActive = (item: NavItem) => {
           class="flex flex-col w-full h-full justify-center items-center cursor-pointer !active:scale-100 !active:transform-none"
         >
           <icon
-            :class="{ 'text-ovis-primary-400': isActive(item) }"
+            :class="{ 'text-ovis-secondary-400': isActive(item) }"
             class="text-ovis-neutral-400"
             :name="item.icon"
             size="32"
           />
           <span
-            :class="{ 'text-ovis-primary-400': isActive(item) }"
+            :class="{ 'text-ovis-secondary-400': isActive(item) }"
             class="text-xs text-center text-nowrap text-ovis-neutral-400 pointer-events-none"
           >
             {{ item.label }}

@@ -60,7 +60,7 @@ function toggleFilter(key: string) {
             <Icon
               name="material-symbols:sort-by-alpha"
               size="22"
-              class="text-ovis-primary-400 group-hover:scale-110 transition-transform duration-300"
+              class="text-ovis-secondary-400 group-hover:scale-110 transition-transform duration-300"
             />
             <span
               class="font-medium text-ovis-neutral-200 group-hover:text-ovis-neutral-50 transition-colors"
@@ -104,7 +104,7 @@ function toggleFilter(key: string) {
             <Icon
               name="material-symbols:category-outline-rounded"
               size="22"
-              class="text-ovis-primary-400 group-hover:scale-110 transition-transform duration-300"
+              class="text-ovis-secondary-400 group-hover:scale-110 transition-transform duration-300"
             />
             <span
               class="font-medium text-ovis-neutral-200 group-hover:text-ovis-neutral-50 transition-colors"
@@ -147,7 +147,7 @@ function toggleFilter(key: string) {
             <Icon
               name="material-symbols:payments-outline-rounded"
               size="22"
-              class="text-ovis-primary-400 group-hover:scale-110 transition-transform duration-300"
+              class="text-ovis-secondary-400 group-hover:scale-110 transition-transform duration-300"
             />
             <span
               class="font-medium text-ovis-neutral-200 group-hover:text-ovis-neutral-50 transition-colors"
@@ -188,7 +188,7 @@ function toggleFilter(key: string) {
             <Icon
               name="material-symbols:star-outline-rounded"
               size="22"
-              class="text-ovis-primary-400 group-hover:scale-110 transition-transform duration-300"
+              class="text-ovis-secondary-400 group-hover:scale-110 transition-transform duration-300"
             />
             <span
               class="font-medium text-ovis-neutral-200 group-hover:text-ovis-neutral-50 transition-colors"
@@ -226,8 +226,8 @@ function toggleFilter(key: string) {
     >
       <ui-button
         label="Aplicar Filtros"
-        buttonType="primary"
-        class="w-full bg-ovis-primary-600 hover:bg-ovis-primary-500 text-ovis-neutral-50 font-semibold py-2 rounded-lg transition-colors mb-2 cursor-pointer active:scale-95 duration-200"
+        buttonType="secondary"
+        class="w-full bg-ovis-secondary-600 hover:bg-ovis-secondary-500 text-ovis-neutral-50 font-semibold py-2 rounded-lg transition-colors mb-2 cursor-pointer active:scale-95 duration-200"
       >
       </ui-button>
       <ui-button

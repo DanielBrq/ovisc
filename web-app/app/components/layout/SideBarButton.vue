@@ -30,7 +30,7 @@ function handleClick() {
       class="relative w-full h-11 px-3 flex items-center group text-left overflow-hidden transition-all duration-300 border-0 cursor-pointer rounded-lg"
       :class="[
         props.isActive
-          ? 'bg-ovis-primary-500/20 text-ovis-neutral-50'
+          ? 'bg-ovis-secondary-500/20 text-ovis-neutral-50'
           : 'text-ovis-neutral-400 hover:text-ovis-neutral-50 hover:bg-ovis-neutral-800/50',
       ]"
       @click="handleClick"
@@ -45,7 +45,7 @@ function handleClick() {
             :name="props.iconName"
             size="24"
             class="transition-transform duration-300 group-hover:scale-110"
-            :class="props.isActive ? 'text-ovis-primary-400' : 'text-inherit'"
+            :class="props.isActive ? 'text-ovis-secondary-400' : 'text-inherit'"
           />
         </div>
 
@@ -76,7 +76,7 @@ function handleClick() {
       <!-- Indicador activo lateral -->
       <div
         v-if="props.isActive && !props.sidenavOpen"
-        class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-ovis-primary-500 rounded-r-full"
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-ovis-secondary-500 rounded-r-full"
       ></div>
     </button>
   </nuxt-link>

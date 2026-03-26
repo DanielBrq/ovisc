@@ -71,7 +71,7 @@ const items = [
         class="flex items-center justify-start gap-2 text-ovis-neutral-50 hover:text-ovis-neutral-300 ms-4"
       >
         <span
-          class="bg-linear-to-r from-ovis-primary-500 to-ovis-secondary-500 bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-115 hover:saturate-200 active:saturate-200 transition-all duration-400"
+          class="bg-linear-to-r from-ovis-secondary-500 to-ovis-primary-500 bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-115 hover:saturate-200 active:saturate-200 transition-all duration-400"
           >OVIS</span
         >
       </NuxtLink>
@@ -102,7 +102,7 @@ const items = [
                       v-if="item.icon"
                       :name="item.icon"
                       size="18"
-                      class="text-ovis-primary-400"
+                      class="text-ovis-secondary-400"
                     />
                     {{ item.label }}
                   </button>

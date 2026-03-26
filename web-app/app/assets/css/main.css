@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  /* Primary */
-  --color-ovis-primary-50: #f5f3ff;
-  --color-ovis-primary-100: #ede9fe;
-  --color-ovis-primary-200: #ddd6fe;
-  --color-ovis-primary-300: #c4b5fd;
-  --color-ovis-primary-400: #a78bfa;
-  --color-ovis-primary-500: #8b5cf6;
-  --color-ovis-primary-600: #7c3aed;
-  --color-ovis-primary-700: #6d28d9;
-  --color-ovis-primary-800: #5b21b6;
-  --color-ovis-primary-900: #4c1d95;
-  --color-ovis-primary-950: #2e1065;
+  /* secondary */
+  --color-ovis-secondary-50: #f5f3ff;
+  --color-ovis-secondary-100: #ede9fe;
+  --color-ovis-secondary-200: #ddd6fe;
+  --color-ovis-secondary-300: #c4b5fd;
+  --color-ovis-secondary-400: #a78bfa;
+  --color-ovis-secondary-500: #8b5cf6;
+  --color-ovis-secondary-600: #7c3aed;
+  --color-ovis-secondary-700: #6d28d9;
+  --color-ovis-secondary-800: #5b21b6;
+  --color-ovis-secondary-900: #4c1d95;
+  --color-ovis-secondary-950: #2e1065;
 
-  /* Secondary */
-  --color-ovis-secondary-50: #fff7ed;
-  --color-ovis-secondary-100: #ffedd5;
-  --color-ovis-secondary-200: #fed7aa;
-  --color-ovis-secondary-300: #fdba74;
-  --color-ovis-secondary-400: #fb923c;
-  --color-ovis-secondary-500: #f97316;
-  --color-ovis-secondary-600: #ea580c;
-  --color-ovis-secondary-700: #c2410c;
-  --color-ovis-secondary-800: #9a3412;
-  --color-ovis-secondary-900: #7c2d12;
-  --color-ovis-secondary-950: #431407;
+  /* primary */
+  --color-ovis-primary-50: #fff7ed;
+  --color-ovis-primary-100: #ffedd5;
+  --color-ovis-primary-200: #fed7aa;
+  --color-ovis-primary-300: #fdba74;
+  --color-ovis-primary-400: #fb923c;
+  --color-ovis-primary-500: #f97316;
+  --color-ovis-primary-600: #ea580c;
+  --color-ovis-primary-700: #c2410c;
+  --color-ovis-primary-800: #9a3412;
+  --color-ovis-primary-900: #7c2d12;
+  --color-ovis-primary-950: #431407;
 
   /* Success */
   --color-ovis-success-50: #ecfdf5;
@@ -116,13 +116,13 @@
 /* --- COMPONENTES --- */
 
 /* Buttons */
-.btn-primary {
+.btn-secondary {
   /* prettier-ignore */
-  @apply bg-ovis-primary-500 border-ovis-primary-500 hover:bg-ovis-primary-700 active:border-ovis-primary-600 active:bg-ovis-primary-600;
+  @apply bg-ovis-secondary-500 border-ovis-secondary-500 hover:bg-ovis-secondary-700 active:border-ovis-secondary-600 active:bg-ovis-secondary-600;
 }
 
-.btn-secondary {
-  @apply bg-ovis-secondary-400 border-ovis-secondary-400 hover:bg-ovis-secondary-500 active:border-ovis-secondary-400 active:bg-ovis-secondary-400;
+.btn-primary {
+  @apply bg-ovis-primary-400 border-ovis-primary-400 hover:bg-ovis-primary-500 active:border-ovis-primary-400 active:bg-ovis-primary-400;
 }
 
 .btn-success {
@@ -145,14 +145,14 @@
 /* Gradients */
 .ovis-gradient-h {
   background: linear-gradient(to top,
-      var(--color-ovis-primary-500),
+      var(--color-ovis-secondary-500),
       var(--color-ovis-accent-500));
   @apply bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-150 hover:saturate-200 transition-all duration-400;
 }
 
 .ovis-gradient-w {
   background: linear-gradient(to right,
-      var(--color-ovis-primary-500),
+      var(--color-ovis-secondary-500),
       var(--color-ovis-accent-500));
   @apply bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-150 hover:saturate-200 transition-all duration-400;
 }
