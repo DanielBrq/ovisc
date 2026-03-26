@@ -1,5 +1,6 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
-export const useTextInputStore = (id: string) => defineStore(`ui-text-input-${id}`, () => {
+export const useTextInputStore = (id: string) =>
+  defineStore(`ui-text-input-${id}`, () => {
     return {};
-})();
+  })();

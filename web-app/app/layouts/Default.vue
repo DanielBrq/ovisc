@@ -1,48 +1,51 @@
 <script setup>
 //imports
-import { isMobile, isTablet, isDesktop } from '~/utils/responsive'
-import { useRoute } from 'vue-router'
+import { isMobile, isTablet, isDesktop } from "~/utils/responsive";
+import { useRoute } from "vue-router";
 
 // ============ Side bar ======++===============
 
-const sidenavOpen = ref(false)
+const sidenavOpen = ref(false);
 // ============ Bottom nav =====================
 
 // active per route root (modules)
-const route = useRoute()
+const route = useRoute();
 const currentTab = computed(() => {
-  const path = route.path
+  const path = route.path;
 
-  if (path === '/') return 'home'
-  if (path.startsWith('/board')) return 'board'
-  if (path.startsWith('/store')) return 'store'
-  if (path.startsWith('/event')) return 'event'
-  if (path.startsWith('/user/profile')) return 'profile'
-  if (path.startsWith('/user/player')) return 'home'
+  if (path === "/") return "home";
+  if (path.startsWith("/board")) return "board";
+  if (path.startsWith("/store")) return "store";
+  if (path.startsWith("/event")) return "event";
+  if (path.startsWith("/user/profile")) return "profile";
+  if (path.startsWith("/user/player")) return "home";
 
-  return 'home'
-})
-
+  return "home";
+});
 </script>
 
 <template>
   <div class="relative min-h-dvh">
-
     <layout-header v-model:sidenavOpen="sidenavOpen" />
 
     <div class="flex">
-      <layout-side-bar v-if="isDesktop" v-model:sidenavOpen="sidenavOpen" v-model:active="currentTab" />
+      <layout-side-bar
+        v-if="isDesktop"
+        v-model:sidenavOpen="sidenavOpen"
+        v-model:active="currentTab"
+      />
 
-      <main :class="[
-        'flex-1 min-h-dvh mt-15 flex-nowrap px-4 transition-all duration-400',
-        sidenavOpen && isDesktop ? 'ml-60 w-full' : 'ml-0 w-full lg:ml-12',
-        isMobile || isTablet ? 'pb-16 w-dvh' : ''
-      ]">
+      <main
+        :class="[
+          'flex-1 min-h-dvh mt-15 flex-nowrap px-4 transition-all duration-400',
+          sidenavOpen && isDesktop ? 'ml-60 w-full' : 'ml-0 w-full lg:ml-12',
+          isMobile || isTablet ? 'pb-16 w-dvh' : '',
+        ]"
+      >
         <slot />
       </main>
     </div>
 
     <layout-bottom-nav v-if="isMobile || isTablet" />
-
   </div>
 </template>

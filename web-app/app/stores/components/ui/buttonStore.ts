@@ -1,5 +1,6 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
-export const useButtonStore = (id: string) => defineStore(`ui-button-${id}`, () => {
+export const useButtonStore = (id: string) =>
+  defineStore(`ui-button-${id}`, () => {
     return {};
-})();
+  })();

@@ -1,21 +1,20 @@
 <script setup lang="ts">
-
 interface Props {
-    uuid: string;
+  uuid: string;
 }
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
 const achievements = ref(4); //hardcoded
 const maxAchievements = ref(5); //hardcoded
 
-
 //TODO: i18n
-
 </script>
 <template>
-    <div class="flex flex-col items-center w-full pointer-events-none">
-        <p class="text-md font-semibold text-ovis-neutral-300 mb-2">Logros</p>
-        <icon name="bx:trophy" size="30" class="text-ovis-danger-500" />
-        <p class="text-xl font-bold ovis-gradient-h">{{ achievements }}/{{ maxAchievements }}</p>
-    </div>
+  <div class="flex flex-col items-center w-full pointer-events-none">
+    <p class="text-md font-semibold text-ovis-neutral-300 mb-2">Logros</p>
+    <icon name="bx:trophy" size="30" class="text-ovis-danger-500" />
+    <p class="text-xl font-bold ovis-gradient-h">
+      {{ achievements }}/{{ maxAchievements }}
+    </p>
+  </div>
 </template>

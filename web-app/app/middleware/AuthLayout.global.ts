@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware((to) => {
-  if (to.path.startsWith('/auth')) {
-    to.meta.layout = 'auth'
+  if (to.path.startsWith("/auth")) {
+    to.meta.layout = "auth";
   }
-})
+});

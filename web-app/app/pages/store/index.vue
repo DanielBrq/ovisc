@@ -1,15 +1,8 @@
-<script setup lang="ts">
-
-
-
-</script>
+<script setup lang="ts"></script>
 <template>
-
-    <div>
-        <div class="mb-4">
-            <store-searcher />
-        </div>
-
+  <div>
+    <div class="mb-4">
+      <store-searcher />
     </div>
-
+  </div>
 </template>

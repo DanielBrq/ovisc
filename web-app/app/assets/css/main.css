@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-
   /* Primary */
   --color-ovis-primary-50: #f5f3ff;
   --color-ovis-primary-100: #ede9fe;
@@ -156,12 +155,20 @@
 
 /* Gradients */
 .ovis-gradient-h {
-  background: linear-gradient(to top, var(--color-ovis-primary-500), var(--color-ovis-accent-500));
+  background: linear-gradient(
+    to top,
+    var(--color-ovis-primary-500),
+    var(--color-ovis-accent-500)
+  );
   @apply bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-150 hover:saturate-200 transition-all duration-400;
 }
 
 .ovis-gradient-w {
-  background: linear-gradient(to right, var(--color-ovis-primary-500), var(--color-ovis-accent-500));
+  background: linear-gradient(
+    to right,
+    var(--color-ovis-primary-500),
+    var(--color-ovis-accent-500)
+  );
   @apply bg-clip-text font-bold tracking-tight text-transparent text-2xl saturate-150 hover:saturate-200 transition-all duration-400;
 }
 
