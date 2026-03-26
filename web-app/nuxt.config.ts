@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     payloadExtraction: true
   },
   nitro: {
-    preset: 'node-server',
+    preset: 'bun',
   },
   ssr: false,
   // routeRules: {
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     '~/stores': fileURLToPath(new URL('./app/stores', import.meta.url)),
   },
   colorMode: {
-    preference: 'dark',
+    preference: 'light',
     fallback: 'light',
     globalName: '__NUXT_COLOR_MODE__',
     componentName: 'ColorScheme',

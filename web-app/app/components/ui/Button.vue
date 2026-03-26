@@ -4,6 +4,7 @@ interface Props {
     disabled?: boolean;
     loading?: boolean;
     iconName?: string | null;
+    iconColor?: string | null;
     label?: string | null;
     buttonType?: buttonVariant;
     type?: 'button' | 'submit' | 'reset';
@@ -13,6 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
     disabled: false,
     loading: false,
     iconName: null,
+    iconColor: 'text-ovis-neutral-50',
     label: null,
     buttonType: 'outline',
     type: 'button',
@@ -41,7 +43,7 @@ const buttonTypeClass = computed(() => {
 
 </script>
 <template>
-    <button :type="type" :disabled="disabled || loading" @click="handleClick" :class="buttonTypeClass" class="group relative flex items-center justify-center text-white w-full h-[42px]! text-nowrap py-0! px-5 rounded-2xl font-semibold overflow-hidden
+    <button :type="type" :disabled="disabled || loading" @click="handleClick" :class="buttonTypeClass" class="group relative flex items-center justify-center text-white w-full h-[42px]! text-nowrap py-0! px-5 rounded-xl font-semibold overflow-hidden
         hover:font-semibold active:font-semibold duration-300 transition-all ease-out active:scale-[1.01]">
 
         <div v-if="!loading" class="flex items-center justify-center h-full w-full px-4">
@@ -59,7 +61,7 @@ const buttonTypeClass = computed(() => {
         <div v-if="loading"
             class="relative inset-0 flex items-center justify-center transition-colors duration-300 group-hover:text-white">
             <slot name="spinner">
-                <icon name="svg-spinners:ring-resize" animation="2.5" size="24" class="text-ovis-primary-100/70" />
+                <icon name="svg-spinners:ring-resize" animation="2.5" size="24" :class="iconColor" />
             </slot>
         </div>
 
