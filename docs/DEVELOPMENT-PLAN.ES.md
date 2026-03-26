@@ -8,6 +8,7 @@
 - [✅] Swagger
 - [ ] Implementar seguridad Middleware contra Broken Access Control de cualquier entidad.
 - [✅] Versionamiento de API.
+- Testing de API solo donde es necesario (create, updates y delete) con Japa.
 
 ## Config WEB App (Nuxt 4)
 
@@ -47,8 +48,14 @@
 **Backend**
 
 - [ ] Crear usuario (Rol Visitor por default)
+- ( ) Testing.
+
 - [ ] Editar usuario
+- ( ) Testing.
+
 - [ ] Eliminar usuario
+- ( ) Testing.
+
 - [ ] Ver usuario (datos de mi perfil, datos básicos independientes al rol)
 - [ ] Ver usuario ver otros perfiles (Implementar seguridad Middleware contra Broken Access Control).
 - [ ] Listar usuarios (paginación)
@@ -83,8 +90,14 @@
 **Backend**
 
 - [ ] Crear iglesia
+- ( ) Testing.
+
 - [ ] Editar iglesia
+- ( ) Testing.
+
 - [ ] Eliminar iglesia
+- ( ) Testing.
+
 - [ ] Ver iglesia
 - [ ] Listar iglesias (paginación)
 
@@ -104,8 +117,14 @@
 **Backend**
 
 - [ ] Crear notificación por usuario (Notificaciones individuales de usuario como tienda, recompensas, etc)
+- ( ) Testing
+
 - [ ] Crear notificación por grupo (Notificaciones generales de grupo como eventos, etc)
+- ( ) Testing
+
 - [ ] Descartar notificación (update estado a visto/leído)
+- ( ) Testing
+
 - [ ] Ver notificación (get individual)
 - [ ] Listar notificaciones (get por usuario y paginación)
 
@@ -127,8 +146,14 @@
 **Backend**
 
 - [ ] Crear evento
+- ( ) Testing
+
 - [ ] Editar evento
+- ( ) Testing
+
 - [ ] Eliminar evento (Hard delete)
+- ( ) Testing
+
 - [ ] Ver evento (individual)
 - [ ] Listar eventos (filtrados por iglesia, paginación y fechas, Default por mes pasado, actual y próximo)
 - [ ] Generar notificaciones (nuevos eventos publicos para jugadores, privados para Leader)
@@ -151,9 +176,17 @@
 **Backend**
 
 - [ ] CRUD categorias de artículos (item con relación mucho a muchos).
+- ( ) Testing
+
 - [ ] Agregar artículo (catálogo de artículos).
+- ( ) Testing
+
 - [ ] Editar artículo (catálogo de artículos).
+- ( ) Testing
+
 - [ ] Eliminar artículo (catálogo de artículos).
+- ( ) Testing
+
 - [ ] Ver artículo (producto individual).
 - [ ] Listar artículos (catálogo de artículos, paginación)
 - [ ] Flujo rebaja y resposicion de stock y monedas (sistema pre-booking y reserva mientras se procesa el pedido).
@@ -179,11 +212,19 @@
 **Backend**
 
 - [ ] Ver stats
+
 - [ ] Editar stats
+- ( ) Testing
+
 - [ ] Listar stats
+
 - [ ] Algoritmo de ganancia de exp.
+
 - [ ] Algoritmo de subida de nivel.
+
 - [ ] CRUD Wallet (Leader y Admin).
+- ( ) Testing
+
 - [ ] Generar notificaciones (Pagos, subida de nivel, etc)
 
 **Frontend**
@@ -205,15 +246,29 @@
 **Backend**
 
 - [ ] Crear mision (Leader).
+- ( ) Testing
+
 - [ ] Editar mision (Leader).
+- ( ) Testing
+
 - [ ] Activar y desactivar mision (Leader), (toggle boolean).
+- ( ) Testing
+
 - [ ] Eliminar mision (Leader).
+- ( ) Testing
+
 - [ ] Ver mision (anyone).
 - [ ] Listar misiones (anyone).
+
 - [ ] Apuntarse a una mision (Player).
+- ( ) Testing
+
 - [ ] Listar misiones apuntadas (Player).
 - [ ] Sistema de participacion de encargos individual o grupal, min y max de jugadores necesario en el encargo.
+
 - [ ] Control del flujo de los encargos (Leader, finalizacion o confirmación de encargo).
+- ( ) Testing
+
 - [ ] Sistema de recompensas por encargos.
 - [ ] Generar varias y diferentes notificaciones (apuntarse, confirmar, finalizar) version para Leader y otras para Player.
 
@@ -268,7 +323,11 @@
 **Backend**
 
 - [ ] Registrar ingreso (Leader).
+- ( ) Testing
+
 - [ ] Registrar egreso (Leader).
+- ( ) Testing
+
 - [ ] Ver ingreso (anyone).
 - [ ] Ver egreso (anyone).
 - [ ] Listar ingresos (anyone).
