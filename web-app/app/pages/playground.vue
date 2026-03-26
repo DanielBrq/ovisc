@@ -1,22 +1,25 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+useHead({
+  title: "Playground",
+});
 
-const { isDark, toggleTheme } = useTheme()
-
-const sidenavOpen = ref(true)
-const active = ref('home')
-
+const { isDark, toggleTheme } = useTheme();
 </script>
 
 <template>
-  <div class="min-h-screen px-6 py-8" :style="{ background: 'var(--app-bg)', color: 'var(--app-text)' }">
+  <div
+    class="min-h-screen px-6 py-8"
+    :style="{ background: 'var(--app-bg)', color: 'var(--app-text)' }"
+  >
     <div class="flex items-center justify-between gap-4">
       <div>
         <h1 class="text-2xl font-bold">Playground</h1>
-        <p class="text-sm text-ovis-neutral-400">UI sandbox para probar todos los componentes.</p>
+        <p class="text-sm text-ovis-neutral-400">
+          UI sandbox para probar todos los componentes.
+        </p>
       </div>
       <button class="btn-outline" type="button" @click="toggleTheme">
-        Cambiar tema: {{ isDark ? 'Dark' : 'Light' }}
+        Cambiar tema: {{ isDark ? "Dark" : "Light" }}
       </button>
     </div>
 
@@ -30,8 +33,13 @@ const active = ref('home')
         <layout-notification-inbox :isMobile="false" />
       </div>
       <div class="mt-4 flex gap-3">
-        <layout-side-bar-button :sidenavOpen="true" active="home" :isActive="true"
-          icon-name="material-symbols:home-outline-rounded" to="/">
+        <layout-side-bar-button
+          :sidenavOpen="true"
+          active="home"
+          :isActive="true"
+          icon-name="material-symbols:home-outline-rounded"
+          to="/"
+        >
           Inicio
         </layout-side-bar-button>
         <layout-side-bar-sub-button :sidenavOpen="true" to="/">
@@ -54,7 +62,6 @@ const active = ref('home')
         <ui-text-input placeholder="Texto" />
         <ui-password-input placeholder="Password" />
         <ui-search-input placeholder="Buscar..." />
-        <ui-checkbox v-model="sidenavOpen" label="Checkbox" />
       </div>
     </section>
 
@@ -77,7 +84,13 @@ const active = ref('home')
         <user-player-achievements-preview uuid="demo" />
         <user-player-experience-bar uuid="demo" />
         <user-player-level uuid="demo" :show-label="true" :show-level="true" />
-        <user-player-wallet uuid="demo" :show-bronce="true" :show-silver="true" :show-golden="true" :show-rubi="true" />
+        <user-player-wallet
+          uuid="demo"
+          :show-bronce="true"
+          :show-silver="true"
+          :show-golden="true"
+          :show-rubi="true"
+        />
       </div>
     </section>
   </div>

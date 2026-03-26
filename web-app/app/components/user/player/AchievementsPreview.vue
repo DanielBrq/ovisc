@@ -40,37 +40,24 @@ const achievements = ref([
 </script>
 <template>
   <section>
-    <div
-      class="flex flex-row items-center justify-start h-40 max-h-40 w-full py-2 gap-2 overflow-x-auto no-scrollbar"
-    >
-      <div
-        v-for="achievement in achievements"
-        :key="achievement.id"
-        class="w-30 min-w-30 h-full rounded-xl border border-ovis-primary-300/40 bg-ovis-neutral-900/40"
-      >
+    <div class="flex flex-row items-center justify-start h-40 max-h-40 w-full py-2 gap-2 overflow-x-auto no-scrollbar">
+      <div v-for="achievement in achievements" :key="achievement.id"
+        class="w-30 min-w-30 h-full rounded-2xl border border-ovis-primary-300/40 bg-ovis-neutral-900/40">
         <div class="flex flex-col h-full z-9">
-          <img
-            :src="achievement.achievement_img"
-            alt="TODO:skeleton"
-            class="w-full h-full rounded-xl mask-b-from-50% mask-b-to-80%/80 hover:mask-b-from-20%"
-          />
+          <img :src="achievement.achievement_img" alt="TODO:skeleton"
+            class="w-full h-full rounded-2xl mask-b-from-50% mask-b-to-80%/80 hover:mask-b-from-20%" />
         </div>
         <div class="-mt-8">
-          <p
-            class="text-sm font-semibold text-center text-ovis-neutral-300 hover:text-ovis-neutral-100"
-          >
+          <p class="text-sm font-semibold text-center text-ovis-neutral-300 hover:text-ovis-neutral-100">
             {{ achievement.achievement_title }}
           </p>
         </div>
       </div>
 
       <!-- TODO: button to achievements page list -->
-      <div
-        class="flex items-center justify-center h-full aspect-square w-15 min-w-15"
-      >
+      <div class="flex items-center justify-center h-full aspect-square w-15 min-w-15">
         <button
-          class="flex items-center justify-center w-10 h-10 rounded-full bg-ovis-neutral-800/50 hover:bg-ovis-neutral-700 text-ovis-primary-300/75 hover:text-ovis-primary-300/75 transition-all border border-ovis-primary-400/70 hover:border-ovis-primary-400/85 hover:scale-102 cursor-pointer"
-        >
+          class="flex items-center justify-center w-10 h-10 rounded-full bg-ovis-neutral-800/50 hover:bg-ovis-neutral-700 text-ovis-primary-300/75 hover:text-ovis-primary-300/75 transition-all border border-ovis-primary-400/70 hover:border-ovis-primary-400/85 hover:scale-102 cursor-pointer">
           <Icon name="heroicons:plus-20-solid" class="w-6 h-6" />
         </button>
       </div>
