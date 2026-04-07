@@ -9,7 +9,7 @@ import type { SchemaTypes } from '@vinejs/vine/types';
 export class VineValidationPipe implements PipeTransform {
   constructor(private schema: SchemaTypes) {}
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async transform(value: any, metadata: ArgumentMetadata) {
     try {
       if (this.schema) {
