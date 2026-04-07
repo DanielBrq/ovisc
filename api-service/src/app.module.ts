@@ -1,11 +1,21 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from '@thallesp/nestjs-better-auth';
+import { auth } from './auth/auth';
 
 @Module({
-  imports: [AuthModule],
+  imports: [
+    AuthModule.forRoot({
+      auth,
+      bodyParser: {
+        json: true,
+        urlencoded: { extended: true },
+        rawBody: true,
+      },
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
