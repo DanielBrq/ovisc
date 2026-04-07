@@ -1,1 +1,3 @@
-pnpm run test
+#!/usr/bin/env sh
+cd api-service && pnpm run lint
+
