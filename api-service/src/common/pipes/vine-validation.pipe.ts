@@ -1,0 +1,31 @@
+import {
+  PipeTransform,
+  ArgumentMetadata,
+  BadRequestException,
+} from '@nestjs/common';
+import vine, { errors } from '@vinejs/vine';
+import type { SchemaTypes } from '@vinejs/vine/types';
+
+export class VineValidationPipe implements PipeTransform {
+  constructor(private schema: SchemaTypes) {}
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async transform(value: any, metadata: ArgumentMetadata) {
+    try {
+      if (this.schema) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        return await vine.validate({
+          schema: this.schema,
+          data: value,
+        });
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      return value;
+    } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        throw new BadRequestException(error.messages);
+      }
+      throw new BadRequestException('Validation failed');
+    }
+  }
+}
