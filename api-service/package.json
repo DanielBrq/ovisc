@@ -22,7 +22,9 @@
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:test:migrate": "node scripts/prisma-test.js migrate deploy",
+    "db:test:push": "node scripts/prisma-test.js db push"
   },
   "dependencies": {
     "@fastify/static": "^9.1.0",

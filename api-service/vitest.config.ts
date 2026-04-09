@@ -13,9 +13,7 @@ export default defineConfig({
     exclude: ['node_modules', 'dist'],
   },
   plugins: [
-    // This is required to build the test files with SWC
     swc.vite({
-      // Explicitly set the module type to avoid errors
       module: { type: 'es6' },
     }),
   ],
