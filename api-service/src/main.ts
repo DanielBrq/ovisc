@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import {
@@ -18,9 +19,7 @@ async function bootstrap() {
 
   app.useGlobalInterceptors(new TimeoutInterceptor());
 
-  if (process.env.NODE_ENV !== 'development') {
-    app.useLogger(false);
-  }
+  if (process.env.NODE_ENV !== 'development') app.useLogger(false);
 
   app.enableVersioning({
     type: VersioningType.URI,
@@ -39,5 +38,10 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document);
 
   await app.listen(process.env.PORT ?? 3001, 'localhost');
+
+  if (process.env.NODE_ENV === 'development')
+    console.log(
+      `Application is running on: http://localhost:${process.env.PORT ?? 3001}/docs`,
+    );
 }
 void bootstrap();

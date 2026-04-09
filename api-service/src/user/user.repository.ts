@@ -1,18 +1,25 @@
-import { auth } from '../auth/auth.js';
+// =========== Imports ============
+import { auth } from '../auth/auth';
 import { Injectable, Inject } from '@nestjs/common';
 import { PrismaClient } from '../generated';
-// import { v7 as uuidv7 } from 'uuid';
+
+// =========== Repository ============
 
 @Injectable()
 export class UserRepository {
   constructor(
     private prisma: PrismaClient,
     @Inject('BETTER_AUTH') private betterAuth: typeof auth,
-  ) { }
+  ) {}
 
-  // BetterAuth methods
+  // ======== BetterAuth methods ========
 
-  async signUpEmail(email: string, password: string, name: string) {
+  // CREATE
+  async signUpEmail(
+    email: string,
+    password: string,
+    name: string,
+  ): Promise<unknown> {
     return this.betterAuth.api.signUpEmail({
       body: {
         email,
@@ -22,24 +29,27 @@ export class UserRepository {
     });
   }
 
-  async signInEmail(email: string, password: string) {
-    return this.betterAuth.api.signInEmail({
-      body: {
-        email,
-        password,
-      },
+  // READ
+  async signInEmail(email: string, password: string): Promise<unknown> {
+    const response = await this.betterAuth.api.signInEmail({
+      body: { email, password },
+      asResponse: true,
     });
+    const body = (await response.json()) as Record<string, unknown>;
+    // El header 'set-auth-token' contiene el token completo (id.signature)
+    const token =
+      response.headers.get('set-auth-token') || (body.token as string);
+    return { ...body, token };
   }
 
-  async signOut() {
+  async signOut(req: { headers: Headers }): Promise<unknown> {
     return this.betterAuth.api.signOut({
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      headers: req.headers as any,
     });
   }
 
-  async changePassword() {
+  async changePassword(): Promise<unknown> {
     return this.betterAuth.api.changePassword({
       body: {
         newPassword: '',
@@ -48,16 +58,15 @@ export class UserRepository {
     });
   }
 
-  // Prisma methods
+  // ======== Prisma methods ========
 
-  async deactivateAccount(userId: string) {
-    return this.prisma.user.update({
+  // READ
+  async existEmail(email: string): Promise<boolean> {
+    const user = await this.prisma.user.findUnique({
       where: {
-        id: userId,
-      },
-      data: {
-        //active: false,
+        email,
       },
     });
+    return user !== null;
   }
 }

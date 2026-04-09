@@ -31,4 +31,33 @@ describe('UserController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  describe('signUpEmail', () => {
+    it('should create a new user', async () => {
+      const response = await controller.signUpEmail({
+        email: 'test@example.com',
+        password: 'Password123!',
+        name: 'John Doe',
+      });
+      expect(response).toBeDefined();
+    });
+  });
+
+  describe('signInEmail', () => {
+    it('should sign in a user', async () => {
+      // Primero creamos el usuario
+      await controller.signUpEmail({
+        email: 'signin@example.com',
+        password: 'Password123!',
+        name: 'Jane Doe',
+      });
+
+      const response = await controller.signInEmail({
+        email: 'signin@example.com',
+        password: 'Password123!',
+      });
+      expect(response).toBeDefined();
+      expect(response).toHaveProperty('token');
+    });
+  });
 });

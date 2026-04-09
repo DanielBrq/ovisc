@@ -1,12 +1,37 @@
-import { Controller, Post, Body } from '@nestjs/common';
+// =========== Imports ============
+import {
+  Controller,
+  Post,
+  Body,
+  HttpCode,
+  UsePipes,
+  Req,
+} from '@nestjs/common';
+import { ApiBody, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { UserService } from './user.service';
-import type { CreateUserDto } from './dto/createUser.dto';
+import { VineValidationPipe } from '../common/pipes/vine-validation.pipe';
+import { AllowAnonymous } from '@thallesp/nestjs-better-auth';
+import {
+  CreateUserSchema,
+  SignInEmailSchema,
+  CreateUserBodyDto,
+  SignInEmailBodyDto,
+  type CreateUserDto,
+  type SignInEmailDto,
+} from './dto';
 
+// =========== Controller ============
+@ApiTags('User')
+@ApiBearerAuth()
 @Controller('user')
 export class UserController {
   constructor(private userService: UserService) {}
 
   @Post('sign-up-email')
+  @HttpCode(201)
+  @ApiBody({ type: CreateUserBodyDto })
+  @UsePipes(new VineValidationPipe(CreateUserSchema))
+  @AllowAnonymous()
   async signUpEmail(@Body() createUserDto: CreateUserDto) {
     return this.userService.signUpEmail(
       createUserDto.email,
@@ -16,22 +41,17 @@ export class UserController {
   }
 
   @Post('sign-in-email')
-  async signInEmail(@Body() body: { email: string; password: string }) {
+  @HttpCode(200)
+  @ApiBody({ type: SignInEmailBodyDto })
+  @UsePipes(new VineValidationPipe(SignInEmailSchema))
+  @AllowAnonymous()
+  async signInEmail(@Body() body: SignInEmailDto) {
     return this.userService.signInEmail(body.email, body.password);
   }
 
   @Post('sign-out')
-  async signOut() {
-    return this.userService.signOut();
-  }
-
-  @Post('change-password')
-  async changePassword() {
-    return this.userService.changePassword();
-  }
-
-  @Post('deactivate-account')
-  async deactivateAccount(@Body() body: { userId: string }) {
-    return this.userService.deactivateAccount(body.userId);
+  @HttpCode(200)
+  async signOut(@Req() req: { headers: Headers }) {
+    return this.userService.signOut(req);
   }
 }

@@ -6,6 +6,10 @@ export default defineConfig({
     globals: true,
     root: './',
     environment: 'node',
+    env: {
+      DOTENV_CONFIG_PATH: '.env.test',
+    },
+    setupFiles: ['dotenv/config', './src/test/setup.ts'],
     exclude: ['node_modules', 'dist'],
   },
   plugins: [
