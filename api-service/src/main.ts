@@ -6,6 +6,7 @@ import {
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import helmet from '@fastify/helmet';
 import { AppModule } from './app.module';
 
 import { TimeoutInterceptor } from './common/interceptors/timeout.interceptor';
@@ -16,6 +17,17 @@ async function bootstrap() {
     new FastifyAdapter(),
     { bodyParser: false },
   );
+
+  await app.register(helmet, {
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: [`'self'`],
+        styleSrc: [`'self'`, `'unsafe-inline'`],
+        imgSrc: [`'self'`, 'data:', 'validator.swagger.io'],
+        scriptSrc: [`'self'`, `https: 'unsafe-inline'`],
+      },
+    },
+  });
 
   app.useGlobalInterceptors(new TimeoutInterceptor());
 

@@ -27,6 +27,7 @@
     "db:test:push": "node scripts/prisma-test.js db push"
   },
   "dependencies": {
+    "@fastify/helmet": "^13.0.2",
     "@fastify/static": "^9.1.0",
     "@nestjs/common": "^11.1.18",
     "@nestjs/config": "^4.0.3",

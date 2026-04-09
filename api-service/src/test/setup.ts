@@ -22,7 +22,6 @@ afterEach(async () => {
   ]);
 });
 
-// Cerrar la conexion al finalizar todos los tests
 afterAll(async () => {
   await prisma.$disconnect();
   await pool.end();
