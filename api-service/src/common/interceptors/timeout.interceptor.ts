@@ -1,3 +1,4 @@
+// ======== Imports ============
 import {
   Injectable,
   NestInterceptor,
@@ -8,6 +9,7 @@ import {
 import { Observable, throwError, TimeoutError } from 'rxjs';
 import { catchError, timeout } from 'rxjs/operators';
 
+// ======== Interceptor =============
 @Injectable()
 export class TimeoutInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {

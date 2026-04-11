@@ -13,13 +13,12 @@ export class VineValidationPipe implements PipeTransform {
   async transform(value: any, metadata: ArgumentMetadata) {
     try {
       if (this.schema) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return await vine.validate({
           schema: this.schema,
           data: value,
         });
       }
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+
       return value;
     } catch (error) {
       if (error instanceof errors.E_VALIDATION_ERROR) {

@@ -1,4 +1,3 @@
-//Migracion de la DB de testing
 const { execSync } = require('child_process');
 require('dotenv').config({ path: '.env.test', override: true });
 

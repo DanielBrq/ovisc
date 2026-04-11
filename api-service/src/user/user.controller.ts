@@ -27,6 +27,7 @@ import {
 export class UserController {
   constructor(private userService: UserService) {}
 
+  // Sign Up ==========================================
   @Post('sign-up-email')
   @HttpCode(201)
   @ApiBody({ type: CreateUserBodyDto })
@@ -40,6 +41,7 @@ export class UserController {
     );
   }
 
+  // Sign In ==========================================
   @Post('sign-in-email')
   @HttpCode(200)
   @ApiBody({ type: SignInEmailBodyDto })
@@ -49,6 +51,7 @@ export class UserController {
     return this.userService.signInEmail(body.email, body.password);
   }
 
+  // Sign Out ==========================================
   @Post('sign-out')
   @HttpCode(200)
   async signOut(@Req() req: { headers: Headers }) {

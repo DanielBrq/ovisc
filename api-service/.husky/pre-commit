@@ -1,4 +1,12 @@
 #!/usr/bin/env sh
-cd api-service && pnpm run lint && pnpm run test
+echo "Running lint..."
+pnpm run lint
 
+echo "Running tests..."
+pnpm run test
 
+if [ $? -ne 0 ]; then
+  echo "Tests failed. Please fix the tests before pushing."
+  exit 1
+fi
+echo "Tests passed. Proceeding with push..."

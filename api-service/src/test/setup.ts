@@ -1,18 +1,16 @@
-// =========== Test Setup ============
-// Limpia todas las tablas de la base de datos de pruebas
-// entre cada test para evitar datos residuales.
+// =========== Test Setup ===========
 import { PrismaClient } from '../generated/prisma/client.js';
 import { PrismaPg } from '@prisma/adapter-pg';
 import pg from 'pg';
 
+// Test Database connection
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) throw new Error('DATABASE_URL no esta definido para tests');
-
 const pool = new pg.Pool({ connectionString: databaseUrl });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
-// Limpiar tablas despues de cada test (orden para respetar foreign keys)
+// Truncate tables after each test
 afterEach(async () => {
   await prisma.$transaction([
     prisma.verification.deleteMany(),
@@ -22,6 +20,7 @@ afterEach(async () => {
   ]);
 });
 
+// Disconnect from the database after all tests
 afterAll(async () => {
   await prisma.$disconnect();
   await pool.end();

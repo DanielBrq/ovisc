@@ -42,12 +42,12 @@ npx skills add Kadajett/agent-nestjs-skills -a claude-code -a cursor
 
 1. Install dependencies:
    ```bash
-   cd scripts && npm install
+   cd scripts &&pnpm install
    ```
 
 2. Build AGENTS.md from rules:
    ```bash
-   npm run build
+  pnpm run build
    # or
    ./scripts/build.sh
    ```

@@ -12,7 +12,7 @@ export class UserRepository {
     @Inject('BETTER_AUTH') private betterAuth: typeof auth,
   ) {}
 
-  // ======== BetterAuth methods ========
+  // ==================== BetterAuth methods ========================
 
   // CREATE
   async signUpEmail(
@@ -36,19 +36,16 @@ export class UserRepository {
       asResponse: true,
     });
     const body = (await response.json()) as Record<string, unknown>;
-    // El header 'set-auth-token' contiene el token completo (id.signature)
     const token =
       response.headers.get('set-auth-token') || (body.token as string);
     return { ...body, token };
   }
 
   async signOut(req: { headers: Headers }): Promise<unknown> {
-    return this.betterAuth.api.signOut({
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      headers: req.headers as any,
-    });
+    return this.betterAuth.api.signOut({ headers: req.headers as any });
   }
 
+  // UPDATE
   async changePassword(): Promise<unknown> {
     return this.betterAuth.api.changePassword({
       body: {
@@ -58,7 +55,13 @@ export class UserRepository {
     });
   }
 
-  // ======== Prisma methods ========
+  // DELETE
+  // async method()...
+
+  // ==================== Prisma methods ========================
+
+  // CREATE
+  // async method()...
 
   // READ
   async existEmail(email: string): Promise<boolean> {
@@ -69,4 +72,13 @@ export class UserRepository {
     });
     return user !== null;
   }
+
+  // UPDATE
+  // async method()...
+
+  // DELETE
+  // async method()...
+
+  //Private
+  //private async method()...
 }

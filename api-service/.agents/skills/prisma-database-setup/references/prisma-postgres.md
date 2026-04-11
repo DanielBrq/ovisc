@@ -67,7 +67,7 @@ Use a driver adapter for Prisma Postgres in the standard SQL workflow.
 
 1. Install adapter and driver:
    ```bash
-   npm install @prisma/adapter-pg pg
+  pnpm install @prisma/adapter-pg pg
    ```
 
 2. Use the direct TCP connection string from Prisma Console:

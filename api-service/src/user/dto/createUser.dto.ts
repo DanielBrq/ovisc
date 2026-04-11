@@ -9,6 +9,8 @@ export const CreateUserSchema = vine.object({
   password: vine.string().minLength(8).maxLength(16).trim(),
   name: vine.string().minLength(3).maxLength(100).trim(),
 });
+
+// =========== Type ===========
 export type CreateUserDto = Infer<typeof CreateUserSchema>;
 
 // =========== DTO ============

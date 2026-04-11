@@ -173,7 +173,7 @@ Run with `vitest --ui` to view coverage visually.
 ```yaml
 # GitHub Actions
 - name: Run tests with coverage
-  run: npm run test:coverage
+  run:pnpm run test:coverage
 
 - name: Upload coverage to Codecov
   uses: codecov/codecov-action@v3

@@ -1,3 +1,4 @@
+// ======== Imports =============
 import 'dotenv/config';
 import { VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -8,9 +9,9 @@ import {
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from '@fastify/helmet';
 import { AppModule } from './app.module';
-
 import { TimeoutInterceptor } from './common/interceptors/timeout.interceptor';
 
+// ======== Bootstrap =============
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
@@ -18,6 +19,7 @@ async function bootstrap() {
     { bodyParser: false },
   );
 
+  // Helmet
   await app.register(helmet, {
     contentSecurityPolicy: {
       directives: {
@@ -29,10 +31,13 @@ async function bootstrap() {
     },
   });
 
+  // Timeout Interceptor
   app.useGlobalInterceptors(new TimeoutInterceptor());
 
+  // Logger
   if (process.env.NODE_ENV !== 'development') app.useLogger(false);
 
+  // API Versioning
   app.enableVersioning({
     type: VersioningType.URI,
     defaultVersion: '1',
@@ -45,7 +50,7 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
 
-  //Swagger
+  // Swagger
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 

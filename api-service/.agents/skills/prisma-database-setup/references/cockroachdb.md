@@ -52,7 +52,7 @@ Use a driver adapter for the standard SQL workflow. CockroachDB is PostgreSQL-co
 
 1. Install adapter and driver:
    ```bash
-   npm install @prisma/adapter-pg pg
+  pnpm install @prisma/adapter-pg pg
    ```
 
 2. Instantiate Prisma Client with the adapter:

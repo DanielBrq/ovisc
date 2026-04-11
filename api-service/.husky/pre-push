@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-cd api-service && pnpm run test

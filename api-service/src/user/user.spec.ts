@@ -1,3 +1,4 @@
+// =========== Imports ===========
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
@@ -5,9 +6,11 @@ import { UserRepository } from './user.repository';
 import { PrismaClient } from '../generated';
 import { auth, prisma } from '../auth/auth';
 
+// =========== Tests ===========
 describe('UserController', () => {
   let controller: UserController;
 
+  // Setup =====================
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [UserController],
@@ -28,10 +31,12 @@ describe('UserController', () => {
     controller = module.get<UserController>(UserController);
   });
 
+  // Test
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
 
+  // Sign Up =====================
   describe('signUpEmail', () => {
     it('should create a new user', async () => {
       const response = await controller.signUpEmail({
@@ -43,6 +48,7 @@ describe('UserController', () => {
     });
   });
 
+  // Sign In =====================
   describe('signInEmail', () => {
     it('should sign in a user', async () => {
       // Primero creamos el usuario

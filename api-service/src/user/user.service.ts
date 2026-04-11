@@ -16,7 +16,6 @@ export class UserService {
   }
 
   // READ
-
   async signInEmail(email: string, password: string) {
     return this.userRepository.signInEmail(email, password);
   }
@@ -28,4 +27,10 @@ export class UserService {
   async changePassword() {
     return this.userRepository.changePassword();
   }
+
+  // UPDATE
+  // Async...
+
+  // DELETE
+  // Async...
 }
