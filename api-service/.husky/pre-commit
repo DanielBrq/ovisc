@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 cd "$(dirname "$0")/.." || exit 1
 
-echo "Running lint..."
-pnpm run lint
+echo "Running lint-staged (formats and lints only staged files)..."
+pnpm exec lint-staged
 
 echo "Running tests..."
 pnpm run test

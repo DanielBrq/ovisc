@@ -25,7 +25,7 @@ import {
 @ApiBearerAuth()
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   // Sign Up ==========================================
   @Post('sign-up-email')
