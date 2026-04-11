@@ -1,31 +1,31 @@
 // =========== Imports ============
 import { Injectable, ConflictException } from '@nestjs/common';
-import { UserRepository } from './user.repository';
+import { AuthRepository } from './auth.repository';
 
 // =========== Service ============
 @Injectable()
-export class UserService {
-  constructor(private userRepository: UserRepository) {}
+export class AuthService {
+  constructor(private authRepository: AuthRepository) {}
 
   // CREATE
   async signUpEmail(email: string, password: string, name: string) {
-    const existEmail = await this.userRepository.existEmail(email);
+    const existEmail = await this.authRepository.existEmail(email);
     if (existEmail)
       throw new ConflictException('El correo electrónico ya existe');
-    return this.userRepository.signUpEmail(email, password, name);
+    return this.authRepository.signUpEmail(email, password, name);
   }
 
   // READ
   async signInEmail(email: string, password: string) {
-    return this.userRepository.signInEmail(email, password);
+    return this.authRepository.signInEmail(email, password);
   }
 
   async signOut(req: { headers: Headers }) {
-    return this.userRepository.signOut(req);
+    return this.authRepository.signOut(req);
   }
 
   async changePassword() {
-    return this.userRepository.changePassword();
+    return this.authRepository.changePassword();
   }
 
   // UPDATE

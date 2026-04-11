@@ -1,2 +1,2 @@
-export * from './createUser.dto';
+export * from './createAuth.dto';
 export * from './signInEmail.dto';

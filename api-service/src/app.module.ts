@@ -4,7 +4,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { AuthModule, AuthGuard } from '@thallesp/nestjs-better-auth';
 import { auth } from './auth/auth';
-import { UserModule } from './user/user.module';
+import { AuthModule as LocalAuthModule } from './auth/auth.module';
 import { RedisModule } from './common/redis/redis.module';
 
 @Module({
@@ -38,7 +38,7 @@ import { RedisModule } from './common/redis/redis.module';
       },
     }),
     RedisModule,
-    UserModule,
+    LocalAuthModule,
   ],
   providers: [
     {
@@ -51,4 +51,4 @@ import { RedisModule } from './common/redis/redis.module';
     },
   ],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,6 +1,6 @@
 # Context Interaction Rules (Antigravity / Gemini)
 
-This environment defines priority rules for Antigravity integration with this NestJS backend. Works alongside `AGENT.md`.
+This environment defines priority rules for Antigravity integration with this NestJS backend. Works alongside `AGENT.md` and `caveman.md`.
 
 ## UTF-8 Stability and Encoding (Critical)
 There is a known UTF-8 encoding vulnerability in the terminal bridge.

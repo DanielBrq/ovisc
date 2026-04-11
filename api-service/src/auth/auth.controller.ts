@@ -8,37 +8,51 @@ import {
   Req,
 } from '@nestjs/common';
 import { ApiBody, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
-import { UserService } from './user.service';
+import { AuthService } from './auth.service';
 import { VineValidationPipe } from '../common/pipes/vine-validation.pipe';
 import { AllowAnonymous } from '@thallesp/nestjs-better-auth';
 import {
-  CreateUserSchema,
+  CreateAuthSchema,
   SignInEmailSchema,
-  CreateUserBodyDto,
+  CreateAuthBodyDto,
   SignInEmailBodyDto,
-  type CreateUserDto,
+  type CreateAuthDto,
   type SignInEmailDto,
 } from './dto';
 
 // =========== Controller ============
-@ApiTags('User')
+@ApiTags('Auth')
 @ApiBearerAuth()
-@Controller('user')
-export class UserController {
-  constructor(private userService: UserService) {}
+@Controller('auth')
+export class AuthController {
+  constructor(private authService: AuthService) {}
 
   // Sign Up ==========================================
   @Post('sign-up-email')
   @HttpCode(201)
-  @ApiBody({ type: CreateUserBodyDto })
-  @UsePipes(new VineValidationPipe(CreateUserSchema))
+  @ApiBody({ type: CreateAuthBodyDto })
+  @UsePipes(new VineValidationPipe(CreateAuthSchema))
   @AllowAnonymous()
-  async signUpEmail(@Body() createUserDto: CreateUserDto) {
-    return this.userService.signUpEmail(
-      createUserDto.email,
-      createUserDto.password,
-      createUserDto.name,
+  async signUpEmail(@Body() createAuthDto: CreateAuthDto) {
+    return this.authService.signUpEmail(
+      createAuthDto.email,
+      createAuthDto.password,
+      createAuthDto.name,
     );
+  }
+
+  @Post('sign-up-google')
+  @HttpCode(201)
+  @ApiBody({ type: CreateAuthBodyDto })
+  @UsePipes(new VineValidationPipe(CreateAuthSchema))
+  @AllowAnonymous()
+  async signUpGoogle(@Body() createAuthDto: CreateAuthDto) {
+    // return this.authService.signUpGoogle(
+    //   createAuthDto.email,
+    //   createAuthDto.password,
+    //   createAuthDto.name,
+    // );
+    return "ok";
   }
 
   // Sign In ==========================================
@@ -48,13 +62,13 @@ export class UserController {
   @UsePipes(new VineValidationPipe(SignInEmailSchema))
   @AllowAnonymous()
   async signInEmail(@Body() body: SignInEmailDto) {
-    return this.userService.signInEmail(body.email, body.password);
+    return this.authService.signInEmail(body.email, body.password);
   }
 
   // Sign Out ==========================================
   @Post('sign-out')
   @HttpCode(200)
   async signOut(@Req() req: { headers: Headers }) {
-    return this.userService.signOut(req);
+    return this.authService.signOut(req);
   }
 }

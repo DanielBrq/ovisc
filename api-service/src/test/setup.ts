@@ -3,6 +3,10 @@ import { PrismaClient } from '../generated/prisma/client.js';
 import { PrismaPg } from '@prisma/adapter-pg';
 import pg from 'pg';
 
+if (!process.env.BASE_URL) {
+  process.env.BASE_URL = 'http://localhost:3333';
+}
+
 // Test Database connection
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) throw new Error('DATABASE_URL no esta definido para tests');

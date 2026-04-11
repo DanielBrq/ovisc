@@ -1,22 +1,22 @@
 // =========== Imports ===========
 import { Test, TestingModule } from '@nestjs/testing';
-import { UserController } from './user.controller';
-import { UserService } from './user.service';
-import { UserRepository } from './user.repository';
+import { AuthController } from './auth.controller';
+import { AuthService } from './auth.service';
+import { AuthRepository } from './auth.repository';
 import { PrismaClient } from '../generated';
-import { auth, prisma } from '../auth/auth';
+import { auth, prisma } from './auth';
 
 // =========== Tests ===========
-describe('UserController', () => {
-  let controller: UserController;
+describe('AuthController', () => {
+  let controller: AuthController;
 
   // Setup =====================
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [UserController],
+      controllers: [AuthController],
       providers: [
-        UserService,
-        UserRepository,
+        AuthService,
+        AuthRepository,
         {
           provide: PrismaClient,
           useValue: prisma,
@@ -28,7 +28,7 @@ describe('UserController', () => {
       ],
     }).compile();
 
-    controller = module.get<UserController>(UserController);
+    controller = module.get<AuthController>(AuthController);
   });
 
   // Test
@@ -51,7 +51,6 @@ describe('UserController', () => {
   // Sign In =====================
   describe('signInEmail', () => {
     it('should sign in a user', async () => {
-      // Primero creamos el usuario
       await controller.signUpEmail({
         email: 'signin@example.com',
         password: 'Password123!',
