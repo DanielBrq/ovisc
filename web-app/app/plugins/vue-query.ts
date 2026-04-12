@@ -12,7 +12,7 @@ export default defineNuxtPlugin((nuxt) => {
     defaultOptions: {
       queries: {
         staleTime: 1000 * 60, // 1 min
-        gcTime: 1000 * 60 * 10, // 10 min
+        gcTime: 1000 * 60 * 5, // 5 min
         retry: 1,
         retryDelay: 1000 * 30,
         refetchOnWindowFocus: false,

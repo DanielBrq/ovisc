@@ -16,16 +16,13 @@ const toggle = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
-//get mock user | TODO: use real user
-const { User } = useAuth();
-
 //Profile options
 const items = [
   {
     label: "Mi perfil", //i18n
     icon: "material-symbols:person-outline",
     command: () => {
-      navigateTo(routeMyProfile(User.value?.uuid));
+      navigateTo(routeMyProfile("123e4567-e89b-12d3-a456-426614174000"));
       isMenuOpen.value = false;
     },
   },

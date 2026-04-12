@@ -78,8 +78,8 @@ export default defineNuxtConfig({
     manifest: {
       name: "Ovis",
       short_name: "Ovis",
-      theme_color: "#000000",
-      background_color: "#000000",
+      theme_color: "#1f1f1e",
+      background_color: "#1f1f1e",
       display: "standalone",
       orientation: "portrait",
       scope: "/",

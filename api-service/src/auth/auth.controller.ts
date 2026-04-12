@@ -7,7 +7,13 @@ import {
   UsePipes,
   Req,
 } from '@nestjs/common';
-import { ApiBody, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
+import {
+  ApiBody,
+  ApiTags,
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+} from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { VineValidationPipe } from '../common/pipes/vine-validation.pipe';
 import { AllowAnonymous } from '@thallesp/nestjs-better-auth';
@@ -16,8 +22,11 @@ import {
   SignInEmailSchema,
   CreateAuthBodyDto,
   SignInEmailBodyDto,
+  SignInSocialSchema,
+  SignInSocialBodyDto,
   type CreateAuthDto,
   type SignInEmailDto,
+  type SignInSocialDto,
 } from './dto';
 
 // =========== Controller ============
@@ -25,7 +34,7 @@ import {
 @ApiBearerAuth()
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   // Sign Up ==========================================
   @Post('sign-up-email')
@@ -41,18 +50,20 @@ export class AuthController {
     );
   }
 
-  @Post('sign-up-google')
-  @HttpCode(201)
-  @ApiBody({ type: CreateAuthBodyDto })
-  @UsePipes(new VineValidationPipe(CreateAuthSchema))
+  // Sign in / Sign up with Google ====================
+  @Post('google')
+  @HttpCode(200)
+  @ApiBody({ type: SignInSocialBodyDto })
+  @ApiOperation({ summary: 'Obtener URL de redirección para Google OAuth' })
+  @ApiResponse({
+    status: 200,
+    description:
+      'Devuelve el objeto con la URL de redirección para completar el login en Google',
+  })
+  @UsePipes(new VineValidationPipe(SignInSocialSchema))
   @AllowAnonymous()
-  async signUpGoogle(@Body() createAuthDto: CreateAuthDto) {
-    // return this.authService.signUpGoogle(
-    //   createAuthDto.email,
-    //   createAuthDto.password,
-    //   createAuthDto.name,
-    // );
-    return "ok";
+  async signInGoogle(@Body() body: SignInSocialDto) {
+    return this.authService.signInGoogle(body.callbackURL);
   }
 
   // Sign In ==========================================

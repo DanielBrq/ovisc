@@ -19,6 +19,12 @@ async function bootstrap() {
     { bodyParser: false },
   );
 
+  // CORS
+  app.enableCors({
+    origin: ['http://localhost:3000'],
+    credentials: true,
+  });
+
   // Helmet
   await app.register(helmet, {
     contentSecurityPolicy: {

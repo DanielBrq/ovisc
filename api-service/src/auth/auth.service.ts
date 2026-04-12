@@ -20,6 +20,10 @@ export class AuthService {
     return this.authRepository.signInEmail(email, password);
   }
 
+  async signInGoogle(callbackURL?: string) {
+    return this.authRepository.signInSocial('google', callbackURL);
+  }
+
   async signOut(req: { headers: Headers }) {
     return this.authRepository.signOut(req);
   }

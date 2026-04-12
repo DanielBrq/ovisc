@@ -23,7 +23,7 @@ export class AuthRepository {
   constructor(
     private prisma: PrismaClient,
     @Inject('BETTER_AUTH') private betterAuth: typeof auth,
-  ) { }
+  ) {}
 
   // ==================== BetterAuth methods ========================
 
@@ -54,6 +54,19 @@ export class AuthRepository {
     const token =
       response.headers.get('set-auth-token') || (body.token as string);
     return { ...body, token };
+  }
+
+  async signInSocial(
+    provider: 'google',
+    callbackURL?: string,
+  ): Promise<unknown> {
+    return this.betterAuth.api.signInSocial({
+      headers: this.getAuthHeaders(),
+      body: {
+        provider,
+        callbackURL,
+      },
+    });
   }
 
   async signOut(req: { headers: Headers }): Promise<unknown> {

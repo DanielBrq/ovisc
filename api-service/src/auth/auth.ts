@@ -34,8 +34,14 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
   },
+  account: {
+    accountLinking: {
+      enabled: true,
+    },
+  },
   plugins: [bearer()], // Delete if you want to use cookies instead of tokens
   advanced: {
     useSecureCookies: process.env.NODE_ENV === 'production',
   },
+  trustedOrigins: [process.env.NUXT_HOST || 'http://localhost:3000'],
 });

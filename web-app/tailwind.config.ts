@@ -17,8 +17,17 @@ export default {
       lg: "1920",
     },
     fontFamily: {
-      sans: ['"DM Sans"', "sans-serif"],
-      display: ['"Lexend"', "sans-serif"],
+      sans: [
+          'Outfit',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
     },
     fontSize: {
       xs: ["0.75rem", { lineHeight: "1rem" }],

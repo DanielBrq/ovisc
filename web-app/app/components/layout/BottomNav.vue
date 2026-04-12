@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { getBottomNavItems, type NavItem } from "~/shared";
 
-const { User } = useAuth(); //Temporal harcoded auth
-
-const menuItems = computed(() => getBottomNavItems(User.value.uuid));
+const menuItems = computed(() =>
+  getBottomNavItems("123e4567-e89b-12d3-a456-426614174000")
+);
 
 const route = useRoute();
 
